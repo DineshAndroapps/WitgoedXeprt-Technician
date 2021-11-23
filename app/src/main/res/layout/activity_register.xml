@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".Forms.LoginActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="@dimen/height_200"
+                android:layout_height="200dp"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_login"
+                android:gravity="end"
+                tools:context=".Forms.LoginActivity" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="80dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/login_logo" />
+
+        </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            style="@style/edt_layout_card"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <EditText
+                android:id="@+id/edName"
+                style="@style/edt_layout"
+                android:hint="Enter the Name *"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="10dp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/edt_layout_card"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <EditText
+                android:id="@+id/edEmail"
+                style="@style/edt_layout"
+                android:hint="Enter the Email *"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:padding="10dp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/edt_layout_card"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <EditText
+                android:id="@+id/edPhone"
+                style="@style/edt_layout"
+                android:hint="Enter the Phone Number*"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/edt_layout_card"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <EditText
+                android:id="@+id/edAddress"
+                style="@style/edt_layout"
+                android:hint="Enter the Address*"
+                android:imeOptions="actionNext"
+                android:inputType="textPostalAddress"
+                android:maxLines="5"
+                android:padding="10dp"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/edt_layout_card"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <EditText
+                android:id="@+id/edPass"
+                style="@style/edt_layout"
+                android:hint="Enter the Password*"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_bg"
+            android:gravity="center"
+            android:text="Register"
+            android:textColor="#fff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already Register?"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/textlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:padding="5dp"
+                android:text="Login"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:padding="5dp"
+                android:text="Now"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

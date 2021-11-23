@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:elevation="10dp"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/bdm_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/elevation_18"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/take_selfie"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp50"
+                android:padding="@dimen/dp5"
+                android:visibility="gone"
+                android:background="@drawable/circle_orange"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/white"
+                    android:padding="@dimen/dp5"
+                    android:src="@drawable/ic_baseline_photo_camera_24"
+                    android:tint="@color/black" />
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/notification_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="@dimen/dp20"
+                android:src="@drawable/ic_baseline_notifications_24"
+                android:tint="@color/black" />
+
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

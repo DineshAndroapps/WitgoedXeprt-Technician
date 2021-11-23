@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/elevation_20">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Sequence : "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/height_15" />
+
+    <LinearLayout
+        android:id="@+id/route_tb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/elevation_10"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:hint="Enter the Sequence"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/elevation_18"
+            android:textStyle="normal" />
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit_route"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="5dp"
+        android:text="Submit" />
+
+</LinearLayout>

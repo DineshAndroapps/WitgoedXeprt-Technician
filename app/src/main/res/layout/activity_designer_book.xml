@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e9e7eb"
+    android:orientation="vertical"
+
+    tools:context=".Activity.DesignerBook">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".Forms.LoginActivity">
+
+        <include
+            android:id="@+id/tool_data"
+            layout="@layout/lyt_tool" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/grey_5"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="2">
+
+
+            <Spinner
+                android:id="@+id/month"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/date_show"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="-"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/date_picker_actions"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:src="@drawable/ic_date"
+                android:tint="@color/colorPrimary" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="List Of Slots"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_slot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#e9e7eb"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:scrollbars="vertical" />
+
+            <TextView
+                android:id="@+id/no_slot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:text="No Slot Available"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

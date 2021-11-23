@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        app:cardCornerRadius="2dp"-->
+    <!--        android:foreground="?attr/selectableItemBackground"-->
+    <!--        android:id="@+id/parentCrd"-->
+    <!--        android:elevation="@null"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:cardUseCompatPadding="false"-->
+    <!--        app:cardBackgroundColor="@color/trans_background"-->
+    <!--        >-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_corner"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/location"
+                android:tint="@color/black"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp15"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtHighlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:text="Bandra"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/txtFullAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/opensans_regular"
+                    android:maxLines="1"
+                    android:text="Bandra nager . Brivali"
+                    android:textColor="@color/grey_60"
+                    android:textSize="11sp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?dividerHorizontal"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!--    </androidx.cardview.widget.CardView>-->
+
+
+</RelativeLayout>

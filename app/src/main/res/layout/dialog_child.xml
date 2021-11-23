@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:castum="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="@dimen/dp15"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#f1f1f2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp25"
+                android:paddingTop="@dimen/dp15"
+                android:paddingRight="@dimen/dp25"
+                android:paddingBottom="@dimen/dp15">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Add Child"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_card_child_close"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_baseline_cancel_24"
+                    android:tint="@color/colorPrimary" />
+            </LinearLayout>
+            <include
+                layout="@layout/item_gray_divider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="0dp" />
+
+
+            <androidx.cardview.widget.CardView
+                style="@style/edt_layout_card_pro"
+                android:layout_marginTop="@dimen/dp20"
+                app:cardBackgroundColor="@color/red_300"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp">
+
+                <EditText
+                    android:id="@+id/etChildName"
+                    style="@style/edt_layout"
+                    android:hint="Child name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColorHint="@color/grey_90"
+                    android:maxLines="1"
+                    android:padding="10dp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/edt_layout_card_pro"
+                app:cardBackgroundColor="@color/red_300"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp">
+
+                <EditText
+                    android:id="@+id/etChildAge"
+                    style="@style/edt_layout"
+                    android:hint="Child age"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+
+                    android:textColorHint="@color/grey_90"
+                    android:maxLines="1"
+                    android:padding="10dp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/edt_layout_card_pro"
+                app:cardBackgroundColor="@color/red_300"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp">
+
+                <EditText
+                    android:id="@+id/etSchoolName"
+                    style="@style/edt_layout"
+                    android:hint="School name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColorHint="@color/grey_90"
+                    android:maxLines="1"
+                    android:padding="10dp" />
+            </androidx.cardview.widget.CardView>
+
+
+            <FrameLayout
+                style="@style/edt_layout_card_pro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Spinner
+                    android:id="@+id/spinnerGrade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+            <include
+                layout="@layout/item_gray_divider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="0dp" />
+
+            <Button
+                android:id="@+id/btnAddChild"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp15"
+                android:background="@drawable/button_bg"
+                android:gravity="center"
+                android:onClick="onSubmitButtonClicked"
+                android:text="ADD CHILD"
+                android:textColor="#fff" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

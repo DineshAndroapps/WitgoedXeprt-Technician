@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Activities.Login">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="50dp"
+                android:layout_height="@dimen/dp50"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
+                android:src="@drawable/exo_ic_settings"
+                android:tint="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Technician Login"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dp20" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/line1"
+                android:layout_gravity="center_vertical"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:weightSum="1">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/edt_layout_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:hint="Phone"
+                        app:boxBackgroundColor="@color/transparent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="phone"
+                            android:maxLength="10"
+                            android:maxLines="1" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textField"
+                        style="@style/edt_layout_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:hint="Password"
+                        app:boxBackgroundColor="@color/transparent"
+                        app:passwordToggleEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPassword"
+                            android:maxLines="1" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <Button
+                        android:id="@+id/btn_login"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/button_bg"
+                        android:gravity="center"
+                        android:text="Login"
+                        android:textColor="@color/white" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Not a member?"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/text_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="5dp"
+                        android:text="Sign Up"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="5dp"
+                        android:text="Now"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_log"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/bg_red"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/txt_dev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dev"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

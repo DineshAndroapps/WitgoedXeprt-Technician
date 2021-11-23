@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:castum="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/dp15"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp25"
+            android:paddingTop="@dimen/dp15"
+            android:paddingRight="@dimen/dp25"
+            android:paddingBottom="@dimen/dp15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Take Selfie"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/bt_no"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_cancel_24"
+                android:tint="@color/colorPrimary" />
+        </LinearLayout>
+
+        <include
+            layout="@layout/item_gray_divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="0dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dp20"
+            android:paddingBottom="@dimen/dp20">
+
+            <LinearLayout
+                android:id="@+id/lnrShopVerification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/lnrUploadedImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/card_view"
+                        style="@style/edt_layout_card"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="5dp">
+
+                        <RelativeLayout
+                            android:id="@+id/rlt_verificationupload"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp50"
+                                android:background="@drawable/d_dashed_border_gray_trans" />
+
+                            <LinearLayout
+                                android:id="@+id/lnr_upload"
+                                android:layout_width="@dimen/dp50"
+                                android:layout_height="match_parent"
+
+                                android:background="#EFF3F6"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_baseline_photo_camera_24" />
+
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_uploadname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginLeft="@dimen/dp10"
+                                android:layout_toRightOf="@+id/lnr_upload"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:text="Upload Image"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/lnr_imageverification"
+                        android:layout_width="@dimen/height_100"
+                        android:layout_height="@dimen/height_100"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/height_10"
+                        android:orientation="horizontal"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <include layout="@layout/item_gray_divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp15"
+                android:layout_marginEnd="@dimen/height_10"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/bt_reset"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/button_bg"
+                        android:fontFamily="@font/opensans_regular"
+                        android:text="Cancel"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/bt_update_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/button_bg"
+                        android:text="Upload"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

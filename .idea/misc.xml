@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_add_enquairy.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_category_details.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_my_order_details.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_selfie_list.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/item_selfie.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/main_contact.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="15" project-jdk-type="JavaSDK" />
+</project>

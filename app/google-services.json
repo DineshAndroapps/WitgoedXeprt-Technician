@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618046033153",
+    "project_id": "pro-marketing-26084",
+    "storage_bucket": "pro-marketing-26084.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618046033153:android:0fde32ac9878b50daa5f00",
+        "android_client_info": {
+          "package_name": "com.androapp.technician"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618046033153-jqgdnaok56kl41v6fvqq5a0m809j2avn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxINhe5sqJwtsE1dYzrTOucWBXMoF2s0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618046033153-jqgdnaok56kl41v6fvqq5a0m809j2avn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

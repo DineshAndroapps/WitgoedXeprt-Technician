@@ -1,0 +1,138 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DialogTheme" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="AppTheme.Splash">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/bg_yellow</item>
+        <item name="colorControlActivated">@color/grey_5</item>
+    </style>
+
+    <style name="edt_layout">
+
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textColorHint">@color/grey_20</item>
+
+    </style>
+
+    <style name="edt_layout_card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+        <item name="android:layout_marginStart">25dp</item>
+
+    </style>
+
+    <style name="edt_layout_card_pro">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/elevation_6</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:layout_marginBottom">@dimen/elevation_6</item>
+        <item name="android:layout_marginStart">25dp</item>
+
+    </style>
+
+    <style name="edt_layout_card_pro_emil">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/elevation_6</item>
+        <item name="android:layout_marginBottom">@dimen/elevation_6</item>
+
+    </style>
+
+    <style name="edt_layout_login">
+
+        <item name="android:layout_marginTop">@dimen/dp10</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:layout_marginBottom">@dimen/dp10</item>
+        <item name="android:layout_marginStart">25dp</item>
+
+    </style>
+
+    <style name="Yellow.Small.AppCompatRatingBar" parent="Base.Widget.AppCompat.RatingBar.Small">
+        <item name="colorControlNormal">@color/grey_60</item>
+        <item name="colorControlActivated">@color/yellow_600</item>
+    </style>
+
+    <style name="Yellow.Small.AppCompatRatingBar.White" parent="Base.Widget.AppCompat.RatingBar.Small">
+        <item name="colorControlNormal">@color/grey_20</item>
+        <item name="colorControlActivated">@color/yellow_600</item>
+    </style>
+
+    <style name="Yellow.Very.Small.AppCompatRatingBar" parent="@style/Yellow.Small.AppCompatRatingBar">
+        <item name="android:minHeight">8dp</item>
+        <item name="android:maxHeight">8dp</item>
+    </style>
+
+    <style name="Yellow.AppCompatRatingBar" parent="Base.Widget.AppCompat.RatingBar.Indicator">
+        <item name="colorControlNormal">@color/grey_60</item>
+        <item name="colorControlActivated">@color/yellow_600</item>
+    </style>
+
+    <style name="auth_input_trigger">
+        <item name="android:paddingLeft">@dimen/dp15</item>
+        <item name="android:paddingRight">@dimen/dp15</item>
+        <item name="android:background">@drawable/d_orange_corner</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/height_25</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="auth_input_trigger_txt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">11dp</item>
+    </style>
+
+    <dimen name="dp15">15dp</dimen>
+
+
+    <style name="page_content_spacing">
+        <item name="android:paddingTop">@dimen/dp40</item>
+        <item name="android:paddingRight">@dimen/dp30</item>
+        <item name="android:paddingLeft">@dimen/dp30</item>
+        <item name="android:paddingBottom">@dimen/dp40</item>
+    </style>
+
+    <style name="lyt_ll">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/dp25</item>
+
+    </style>
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+
+    </style>
+</resources>

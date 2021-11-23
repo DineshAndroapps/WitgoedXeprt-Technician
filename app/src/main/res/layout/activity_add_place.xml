@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Forms.LoginActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/lyt_tool" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/dp10"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/elevation_10"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="Name*"
+                    android:visibility="gone"
+                    app:boxBackgroundColor="@color/transparent">
+
+                    <EditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+
+                    app:cardElevation="5dp">
+
+                    <EditText
+                        android:id="@+id/edt_location"
+                        style="@style/edt_layout"
+                        android:layout_marginEnd="@dimen/height_120"
+                        android:focusable="false"
+                        android:hint="Name"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColorHint="@color/grey_90"
+                        android:padding="10dp" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp">
+
+
+                        <LinearLayout
+                            android:id="@+id/lnr_locate"
+                            style="@style/auth_input_trigger">
+
+
+                            <TextView
+                                android:id="@+id/tv_locate"
+                                style="@style/auth_input_trigger_txt"
+                                android:text="Choose Location" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                </RelativeLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <EditText
+                        android:id="@+id/et_contact_person"
+                        style="@style/edt_layout"
+                        android:hint="Contact Person"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColorHint="@color/grey_90"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <EditText
+                        android:id="@+id/et_contact_one"
+                        style="@style/edt_layout"
+                        android:hint="Contact Number 1"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:maxLength="10"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColorHint="@color/grey_90"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <EditText
+                        android:id="@+id/et_contact_two"
+                        style="@style/edt_layout"
+                        android:hint="Contact Number 2"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:maxLength="10"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColorHint="@color/grey_90"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <EditText
+                        android:id="@+id/et_email"
+                        style="@style/edt_layout"
+                        android:hint="Email"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColorHint="@color/grey_90"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <EditText
+                        android:id="@+id/et_address"
+                        style="@style/edt_layout"
+                        android:layout_height="wrap_content"
+                        android:hint="Address*"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColorHint="@color/grey_90"
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <EditText
+                        android:id="@+id/et_city"
+                        style="@style/edt_layout"
+                        android:layout_height="wrap_content"
+                        android:hint="City* "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColorHint="@color/grey_90"
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <EditText
+                        android:id="@+id/et_state"
+                        style="@style/edt_layout"
+                        android:layout_height="wrap_content"
+                        android:hint="State* "
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColorHint="@color/grey_90"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="Select Branch*" />
+
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <Spinner
+                        android:id="@+id/et_branch_assign"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_below="@id/title"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical"
+                        android:hint="Enter the Route"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/elevation_18"
+                        android:textStyle="normal" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginBottom="5dp"
+                    android:text="Select Category*" />
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <Spinner
+                        android:id="@+id/et_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_below="@id/title"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:hint="Enter the Route"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/elevation_18"
+                        android:textStyle="normal" />
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/lyt_add_cate"
+                    style="@style/edt_layout_card_pro"
+                    app:cardBackgroundColor="@color/red_300"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <EditText
+                        android:id="@+id/et_add_category"
+                        style="@style/edt_layout"
+                        android:layout_height="wrap_content"
+                        android:hint="Add Category "
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColorHint="@color/grey_90"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/button_bg"
+                    android:gravity="center"
+                    android:text="submit"
+                    android:textColor="#fff" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Not a member?"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/text_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="5dp"
+                        android:text="Sign Up"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="5dp"
+                        android:text="Now"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

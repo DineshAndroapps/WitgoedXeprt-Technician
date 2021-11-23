@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--toolbar and header-->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <include layout="@layout/toolbar_home" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- dummy content list of new -->
+        <include layout="@layout/main_contact" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <!--navigation drawer menu-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/include_drawer_header_news"
+        app:menu="@menu/menu_navigation_drawer_news">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/logout_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/today_build" />
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Location_Services.MapUtils.MapsFragment">
+
+
+    <RelativeLayout
+        android:id="@+id/rlt_maps"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_collapseMode="pin">
+
+        <RelativeLayout
+            android:id="@+id/rlt_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.androapp.technician.Location_Services.MapUtils.MySupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <RelativeLayout
+                style="@style/page_content_spacing"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="-2dp">
+
+
+                <ImageView
+                    android:id="@+id/ivMarker2"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerInParent="true"
+                    android:background="@null"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_placehelders" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="80dp"
+                    android:background="@drawable/d_black_round_cornor_bg"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/tv_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp15"
+                        android:textAlignment="center"
+                        android:textColor="@color/progress_bar_color"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imgMyLocation"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/circle_orange"
+                        android:backgroundTint="@color/progress_bar_color"
+                        android:orientation="vertical"
+                        android:padding="7dp"
+                        android:src="@drawable/ic_action_my_location"
+                        android:tint="@color/white" />
+
+                    <LinearLayout
+                        android:id="@+id/lnr_searresult"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginHorizontal="@dimen/dp20"
+                        android:layout_weight="1"
+                        android:background="@drawable/d_black_round_cornor_bg"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Location Confirmed"
+                                android:textColor="@color/progress_bar_color"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tv_select"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:padding="10dp"
+                                android:text="Select"
+                                android:textAllCaps="true"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imgback"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:background="@drawable/circle_orange"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:padding="@dimen/dp10"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

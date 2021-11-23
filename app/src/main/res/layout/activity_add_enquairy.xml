@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Forms.LoginActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/lyt_tool" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/dp10"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/elevation_10"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="@string/name"
+                    app:boxBackgroundColor="@color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="@string/address"
+                    app:boxBackgroundColor="@color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:lines="2"
+                        android:maxLines="5" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="@string/cost"
+                    app:boxBackgroundColor="@color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:lines="1"
+                        android:scrollbars="vertical" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="@string/time"
+                    app:boxBackgroundColor="@color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="Parts"
+                    app:boxBackgroundColor="@color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_parts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="Total"
+                    app:boxBackgroundColor="@color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/edt_layout_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="Signature"
+                    app:boxBackgroundColor="@color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_signature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:lines="1"
+                        android:maxLines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/gender_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/edt_layout_login"
+                    android:layout_marginBottom="5dp"
+                    android:text="Next Appointment "
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/radioGrp"
+                    style="@style/edt_layout_login"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp">
+
+                    <RadioButton
+                        android:id="@+id/radioM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:text="@string/YES"
+                        android:textSize="14dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioF"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:text="No"
+                        android:textSize="14dp" />
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/button_bg"
+                    android:gravity="center"
+                    android:text="submit"
+                    android:textColor="#fff" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

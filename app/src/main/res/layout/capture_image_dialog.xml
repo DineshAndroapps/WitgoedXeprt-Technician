@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent">
+
+            <View
+                android:paddingTop="5dp"
+                android:id="@+id/vcrd"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/vcrd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:text="Take Picture"
+                android:id="@+id/tv_babarhouse_dialog"/>
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="2"
+                android:layout_below="@+id/tv_babarhouse_dialog">
+
+                <LinearLayout
+                    android:id="@+id/li_no"
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/l_border"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/btn_gallery_dialog"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginRight="5dp"
+                            android:background="@color/transparent"
+                            android:text="Gallery"
+                            android:textAllCaps="false"
+                            android:textColor="@color/grey_80"
+                            android:textSize="18dp" />
+
+<!--
+                        <View
+                            android:layout_gravity="end"
+                            android:layout_width="2dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey_80"/>
+-->
+
+
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/li_yes"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/l_border"
+
+                    android:layout_weight="1">
+
+
+                    <Button
+                        android:id="@+id/btn_camera_dialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:text="Camera"
+                        android:textColor="@color/grey_80"
+                        android:textAllCaps="false"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

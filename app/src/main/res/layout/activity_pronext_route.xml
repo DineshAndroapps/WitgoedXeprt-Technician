@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rv_color"
+    android:orientation="vertical"
+    tools:context=".Activity.ListOfRoute">
+
+    <include layout="@layout/lyt_tool" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="#fefbf4"
+        android:orientation="vertical"
+        android:padding="@dimen/dp10">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_route"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/elevation_10"
+            android:background="@color/rv_color"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+
+</LinearLayout>
