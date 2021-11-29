@@ -18,9 +18,11 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            app:srcCompat="@drawable/user" />
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp10"
+            app:srcCompat="@drawable/gears" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,12 +34,15 @@
                 android:layout_height="0dp" />
 
             <TextView
-                android:id="@+id/event_name"
-                android:layout_width="0dp"
+                android:id="@+id/name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/elevation_8"
                 android:layout_weight="2"
                 android:text="Product Name"
+                android:textAlignment="center"
                 android:textColor="@color/grey_90"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
 
@@ -49,71 +54,70 @@
 
 
         <TextView
-            android:id="@+id/qualification"
+            android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="Product Style"
-            android:textSize="12sp" />
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/experience"
+            android:id="@+id/mobile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/qualification"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="$ 19"
-            android:textSize="12sp" />
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/fees"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/qualification"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="$ 19"
-            android:textSize="12sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp20"
+            android:paddingTop="@dimen/dp20"
+            android:paddingRight="@dimen/dp20">
 
-            <View
-                android:layout_width="@dimen/elevation_10"
-                android:layout_height="0dp" />
 
-            <androidx.appcompat.widget.AppCompatRatingBar
-                android:id="@+id/ratingBar"
-                style="@style/Yellow.Small.AppCompatRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:numStars="5"
-                android:rating="3.5"
-                android:stepSize="1"
-                android:theme="@style/Yellow.Small.AppCompatRatingBar" />
-
-            <View
+            <TextView
+                android:id="@+id/accept"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_weight="1"
+                android:background="@drawable/bg_reject"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp10"
+                android:text="Accept"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
 
-            <ImageView
-                android:id="@+id/video"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:background="@drawable/round_video"
-                android:padding="@dimen/elevation_10"
-                android:src="@drawable/video_new"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                app:tint="@color/black" />
+            <TextView
+                android:id="@+id/reject"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_weight="1"
+                android:background="@drawable/bg_accept"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp10"
+                android:text="Reject"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
 
 
         </LinearLayout>

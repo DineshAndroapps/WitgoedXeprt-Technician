@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/drawable/bg_accept.xml" value="0.26205128205128203" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/drawable/bg_reject.xml" value="0.26614583333333336" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/drawable/d_orange_corner.xml" value="0.26205128205128203" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_add_enquairy.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_category_details.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_my_order_details.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/activity_selfie_list.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/dummy_lyt.xml" value="0.264" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/item_selfie.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/main_contact.xml" value="0.25" />
       </map>

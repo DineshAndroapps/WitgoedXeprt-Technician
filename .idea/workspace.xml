@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="onCreate" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -13,7 +14,136 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9697a2d2-b530-44a7-8bf7-1c784b990469" name="Default Changelist" comment="first commit" />
+    <list default="true" id="9697a2d2-b530-44a7-8bf7-1c784b990469" name="Default Changelist" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/PlacesSearch/Inteface/GoogleLocationInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/PROModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_accept.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_reject.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/gears.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/androapp/technician/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/witgoedxpert/technician/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/Home/FullMapActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Home/FullMapActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/Home/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Home/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/Home/PRONextRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Home/PRONextRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/Home/ProMainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Home/ProMainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/ListOfRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/ListOfRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/MapActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/MapActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/MyOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/MyOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/MyOrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/MyOrderDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/Notification_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Notification_Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/PRO/CustomCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/PRO/CustomCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/PRO/ProFormActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/PRO/ProFormActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/PRO/ProFormListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/PRO/ProFormListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/PRO/ProListOfRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/PRO/ProListOfRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/PRO/ProMapActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/PRO/ProMapActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/PRO/ProPlaceLists.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/PRO/ProPlaceLists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/PlaceDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/PlaceDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/PlaceLists.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/PlaceLists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/VideoPlayerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/VideoPlayerActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterAcademicYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterAcademicYear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterChild.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterChild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterDesign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterFormEventList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterFormEventList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterFormList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterFormList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterHomeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterHomeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterHomeRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterHomeRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterInterested.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterInterested.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/AdapterPlace.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterPlace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/BannerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/BannerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/HomaDataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/HomaDataModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/Notification_Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/Notification_Adapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Adapters/SubServiceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/SubServiceAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Forms/AddEnquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/AddEnquiry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Forms/Add_Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/Add_Place.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Forms/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/Functions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Forms/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Forms/Register_A.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/Register_A.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/Callback.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Callback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Configs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/Connection/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Connection/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/Connection/RestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Connection/RestAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/Connection/ServerCall/CallbackOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Connection/ServerCall/CallbackOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Methods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/MultiPartRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/MultiPartRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/MyFirebaseMessagingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/MyFirebaseMessagingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/ScreenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/ScreenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/SharePref.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/SharePref.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/UIUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/UIUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/Variables.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Variables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/routehelper/DataParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/routehelper/DataParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/routehelper/FetchURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/routehelper/FetchURL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/routehelper/FetchURL_Pro.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/routehelper/FetchURL_Pro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/routehelper/PointsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/routehelper/PointsParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/routehelper/PointsParser_Pro.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/routehelper/PointsParser_Pro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/routehelper/TaskLoadedCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/routehelper/TaskLoadedCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Helper/routehelper/TaskLoadedCallback_Pro.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/routehelper/TaskLoadedCallback_Pro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/DirectionsJSONParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/DirectionsJSONParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/GetLocation_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/GetLocation_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/GpsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/GpsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/LocationService_callback.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/LocationService_callback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/LocationTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/LocationTrack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/MapUtils/MapsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/MapUtils/MapsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/MapUtils/MySupportMapFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/MapUtils/MySupportMapFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/MapUtils/OnMapInterTouch.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/MapUtils/OnMapInterTouch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/MapUtils/TouchableWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/MapUtils/TouchableWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/PlacesSearch/Adapter/PlacesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/PlacesSearch/Adapter/PlacesAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/PlacesSearch/GooglePlace_Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/PlacesSearch/GooglePlace_Fragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/PlacesSearch/GooglePlaces_A.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/PlacesSearch/GooglePlaces_A.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/PlacesSearch/Inteface/GoogleLocationInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/PlacesSearch/Model/GoogleAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/PlacesSearch/Model/GoogleAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/PlacesSearch/Model/GoogleLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/PlacesSearch/Model/GoogleLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/PlacesSearch/Model/PlacePredicationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/PlacesSearch/Model/PlacePredicationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/TrackingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/TrackingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/UpdateLocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/UpdateLocationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/AcademicYearModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/AcademicYearModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/BookModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/BranchModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/BranchModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/CategoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/DesignModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/DesignModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/EmpModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/EmpModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/FormEventModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/FormEventModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/FormListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/FormListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/GradeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/GradeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/MainRouteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/MainRouteModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/Notification_Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/Notification_Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/OrderModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/OrderModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/PROModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/PhotoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/PhotoModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/PlaceLocationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/PlaceLocationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/PlaceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/PlaceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/ProDetailsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/ProDetailsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/ProLatLngModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/ProLatLngModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/ProLatLngModelDatum.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/ProLatLngModelDatum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/RouteHomeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/RouteHomeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/RouteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/RouteModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/RoutePlaceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/RoutePlaceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/SlotModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/SlotModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androapp/technician/model/StatusModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/StatusModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dummy_lyt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dummy_lyt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_maps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_maps.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/androapp/technician/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/witgoedxpert/technician/ExampleUnitTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,9 +179,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -84,7 +214,7 @@
     <property name="BundleExportedModule" value="LoginwithAPI.app" />
     <property name="ExportApk.ApkPath" value="E:\AndroApps\PRO Marketing App\WorkSpace\PRO Marketing App New\app" />
     <property name="ExportApk.BuildVariants" value="release" />
-    <property name="ResourceManagerPrefKey.ResourceType" value="LAYOUT" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="DRAWABLE" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -95,7 +225,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="ignore.preview.features.used" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/androapp/customer/Helper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -105,11 +235,11 @@
       <recent name="com.pro.marketing.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\drawable" />
       <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Customer\app\src\main\java\com\androapp\customer\Helper" />
       <recent name="E:\AndroApps\PRO Marketing App\WorkSpace\PRO Marketing Gitlab\app\src\main\java\com\pro\marketing\Helper" />
       <recent name="E:\AndroApps\PRO Marketing App\WorkSpace\PRO Marketing App New\app\src\main\res\xml" />
       <recent name="E:\AndroApps\PRO Marketing App\WorkSpace\PRO Marketing App New\app\src\main\res\drawable" />
-      <recent name="E:\AndroApps\PRO Marketing App\WorkSpace\PRO Marketing App New\app\src\main\res\mipmap-xxxhdpi" />
     </key>
     <key name="android.template.-1718593387">
       <recent name="com.androapp.customer.Activity" />
@@ -439,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637588862275</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="First Commit">
+      <created>1637694091800</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1637694091800</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -455,7 +592,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added SelfieList and Delete Selfie (1.0)" />
     <MESSAGE value="Publish App." />
     <MESSAGE value="PRO and BDM UI Issued Done." />
     <MESSAGE value="Selfie Issued Fixed." />
@@ -480,38 +616,39 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="Login,Register,List ,My Order Done" />
     <MESSAGE value="Trello Fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Trello Fixed." />
+    <MESSAGE value="First Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Forms/Add_Place.java</url>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/Add_Place.java</url>
           <line>242</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Location_Services/TrackingService.java</url>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Location_Services/TrackingService.java</url>
           <line>268</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/Home/ProMainActivity.java</url>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Home/ProMainActivity.java</url>
           <line>2036</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/PRO/ProFormActivity.java</url>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/PRO/ProFormActivity.java</url>
           <line>311</line>
-          <properties class="com.androapp.technician.Activity.PRO.ProFormActivity">
+          <properties class="com.witgoedxpert.technician.Activity.PRO.ProFormActivity">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/androapp/technician/Activity/Home/ProMainActivity.java</url>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Home/ProMainActivity.java</url>
           <line>1528</line>
-          <properties class="com.androapp.technician.Activity.Home.ProMainActivity">
+          <properties class="com.witgoedxpert.technician.Activity.Home.ProMainActivity">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="4" />

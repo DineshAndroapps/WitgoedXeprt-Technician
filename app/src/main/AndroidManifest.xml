@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.androapp.technician">
+    package="com.witgoedxpert.technician">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -35,68 +35,68 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
         <activity
-            android:name="com.androapp.technician.Forms.AddEnquiry"
+            android:name="com.witgoedxpert.technician.Forms.AddEnquiry"
             android:exported="false" />
         <activity
-            android:name="com.androapp.technician.Forms.Register_A"
+            android:name="com.witgoedxpert.technician.Forms.Register_A"
             android:exported="false" />
         <activity
-            android:name="com.androapp.technician.Activity.Home.FullMapActivity"
+            android:name="com.witgoedxpert.technician.Activity.Home.FullMapActivity"
             android:exported="true" />
         <activity
-            android:name="com.androapp.technician.Activity.PRO.CustomCollection"
+            android:name="com.witgoedxpert.technician.Activity.PRO.CustomCollection"
             android:exported="true" />
         <activity
-            android:name="com.androapp.technician.Activity.MyOrder"
+            android:name="com.witgoedxpert.technician.Activity.MyOrder"
             android:exported="true" />
         <activity
-            android:name="com.androapp.technician.Activity.Home.PRONextRoute"
+            android:name="com.witgoedxpert.technician.Activity.Home.PRONextRoute"
             android:exported="true" />
         <activity
-            android:name="com.androapp.technician.Activity.Notification_Activity"
+            android:name="com.witgoedxpert.technician.Activity.Notification_Activity"
             android:exported="true" />
         <activity
-            android:name="com.androapp.technician.Forms.Add_Place"
+            android:name="com.witgoedxpert.technician.Forms.Add_Place"
             android:exported="true" />
         <activity
-            android:name="com.androapp.technician.Activity.PlaceLists"
+            android:name="com.witgoedxpert.technician.Activity.PlaceLists"
             android:exported="true" />
         <activity
-            android:name="com.androapp.technician.Activity.PRO.ProPlaceLists"
+            android:name="com.witgoedxpert.technician.Activity.PRO.ProPlaceLists"
             android:exported="true" />
         <activity
-            android:name="com.androapp.technician.Activity.VideoPlayerActivity"
+            android:name="com.witgoedxpert.technician.Activity.VideoPlayerActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
-        <activity android:name="com.androapp.technician.Activity.ListOfRoute" />
-        <activity android:name="com.androapp.technician.Activity.PRO.ProListOfRoute" />
-        <activity android:name="com.androapp.technician.Activity.PlaceDetails" />
-        <activity android:name="com.androapp.technician.Activity.Home.MainActivity" />
-        <activity android:name="com.androapp.technician.Activity.Home.ProMainActivity" />
-        <activity android:name="com.androapp.technician.Activity.PRO.ProMapActivity" />
-        <activity android:name="com.androapp.technician.Activity.MapActivity" />
-        <activity android:name="com.androapp.technician.SplashScreen">
+        <activity android:name="com.witgoedxpert.technician.Activity.ListOfRoute" />
+        <activity android:name="com.witgoedxpert.technician.Activity.PRO.ProListOfRoute" />
+        <activity android:name="com.witgoedxpert.technician.Activity.PlaceDetails" />
+        <activity android:name="com.witgoedxpert.technician.Activity.Home.MainActivity" />
+        <activity android:name="com.witgoedxpert.technician.Activity.Home.ProMainActivity" />
+        <activity android:name="com.witgoedxpert.technician.Activity.PRO.ProMapActivity" />
+        <activity android:name="com.witgoedxpert.technician.Activity.MapActivity" />
+        <activity android:name="com.witgoedxpert.technician.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.androapp.technician.Forms.LoginActivity" />
+        <activity android:name="com.witgoedxpert.technician.Forms.LoginActivity" />
         <activity
-            android:name="com.androapp.technician.Location_Services.PlacesSearch.GooglePlaces_A"
+            android:name="com.witgoedxpert.technician.Location_Services.PlacesSearch.GooglePlaces_A"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <activity android:name="com.androapp.technician.Activity.MyOrderDetails" />
-        <activity android:name="com.androapp.technician.Activity.PRO.ProFormListActivity" />
-        <activity android:name="com.androapp.technician.Activity.PRO.ProFormActivity" />
+        <activity android:name="com.witgoedxpert.technician.Activity.MyOrderDetails" />
+        <activity android:name="com.witgoedxpert.technician.Activity.PRO.ProFormListActivity" />
+        <activity android:name="com.witgoedxpert.technician.Activity.PRO.ProFormActivity" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
 
         <service
-            android:name="com.androapp.technician.Location_Services.GetLocation_Service"
+            android:name="com.witgoedxpert.technician.Location_Services.GetLocation_Service"
             android:enabled="true"
             android:exported="true"
             android:foregroundServiceType="location"
@@ -114,10 +114,10 @@
             android:required="false" />
 
         <service
-            android:name="com.androapp.technician.Location_Services.TrackingService"
+            android:name="com.witgoedxpert.technician.Location_Services.TrackingService"
             android:foregroundServiceType="location" />
         <service
-            android:name="com.androapp.technician.Helper.MyFirebaseMessagingService"
+            android:name="com.witgoedxpert.technician.Helper.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
