@@ -19,4 +19,6 @@ public class OrderModel implements Serializable {
     public String isDeleted;
     public String image;
     public String product_name;
+    public String service_staus;
+    public String service_charge;
 }

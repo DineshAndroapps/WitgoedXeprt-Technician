@@ -32,6 +32,7 @@ public class Constant {
     public static String viewEnquiry = MAIN + "Enquiry/viewEnquiry";
     public static String mechanicDetails = MAIN + "Mechanic/MechanicDetails";
     public static String userDetails = MAIN + "User/UserDetails";
+    public static String booking = MAIN + "Mechanic/booking";
 
 
     public static String Token = "c7d3965d49d4a59b0da80e90646aee77548458b3377ba3c0fb43d5ff91d54ea28833080e3de6ebd4fde36e2fb7175cddaf5d8d018ac1467c3d15db21c11b6909";

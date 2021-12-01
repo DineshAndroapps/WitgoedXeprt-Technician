@@ -13,6 +13,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
@@ -21,8 +22,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import com.google.android.material.tabs.TabLayout;
 import com.witgoedxpert.technician.Adapters.AdapterAppointment;
 import com.witgoedxpert.technician.Forms.AddEnquiry;
+import com.witgoedxpert.technician.Fragments.Complete_F;
+import com.witgoedxpert.technician.Fragments.Pending_F;
+import com.witgoedxpert.technician.Fragments.Process_F;
+import com.witgoedxpert.technician.Helper.CustomViewPager;
+import com.witgoedxpert.technician.Helper.RAdapterPager;
 import com.witgoedxpert.technician.model.OrderModel;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -63,6 +70,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -70,11 +80,14 @@ import android.content.Intent;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -116,7 +129,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String str_userid, str_name, str_email, str_branch_data = "";
     LinearLayout ll_bg;
     File str_image_1;
-
+    public static int width;
+    public static int height;
     SharedPreferences.Editor editor;
     View headerView;
     public static final int PERMISSIONS_DENIED = 1;
@@ -127,10 +141,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     String token = "";
 
-    ArrayList<OrderModel> home_data_list = new ArrayList<>();
-    RecyclerView rv_list;
-    String type;
 
+    private Pending_F fragmentOne;
+    private Process_F fragmentTwo;
+    private Complete_F fragmentThree;
+    private TabLayout allTabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,36 +155,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         str_userid = sharedPreferences.getString(USER_ID, "");
         str_name = sharedPreferences.getString(NAME, "");
 
-        rv_list = findViewById(R.id.rv_list);
-        //rv_list.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
-        rv_list.setLayoutManager((new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false)));
         initToolbar();
         initNavigationMenu();
         EnableGPS();
-        Log.d(TAG, "onCreate: " + Constant.NEW_ORDER);
 
-        if (getIntent().hasExtra(Constant.MSG_TYPE)) {
-            type = getIntent().getStringExtra(Constant.MSG_TYPE);
-            if (type.equals("1")) {
-                if (getIntent().hasExtra(Constant.MSG_NOTIFICATION) && getIntent().hasExtra(Constant.DETAILS)) {
-                    try {
-                        String str_msg = getIntent().getStringExtra(Constant.MSG_NOTIFICATION);
-                        String str_DETAILS = getIntent().getStringExtra(Constant.DETAILS);
-                        JSONObject jsonObject = new JSONObject(str_DETAILS);
-                        Log.e(TAG, "onCreate: "+jsonObject.getString("address") );
-                        String address = jsonObject.getString("address");
-                        String mobile = jsonObject.getString("mobile");
-                        ((TextView) findViewById(R.id.name)).setText(str_msg);
-                        ((TextView) findViewById(R.id.address)).setText(address);
-                        ((TextView) findViewById(R.id.mobile)).setText(mobile);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+        allTabs = (TabLayout) findViewById(R.id.tabs);
+        bindWidgetsWithAnEvent();
+        setupTabLayout();
 
-                }
-            }
 
-        }
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
@@ -194,106 +188,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
-        if (Constant.isNetworkAvailable(getApplicationContext())) {
-            CallHomeData();
-        } else {
-            Toast.makeText(getApplicationContext(), "Internet Connection Not Available", Toast.LENGTH_SHORT).show();
-        }
 
-
-    }
-
-
-    public void CallHomeData() {
-        home_data_list.clear();
-        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Loading..");
-        progressDialog.show();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.ListAllProduct, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("list_cat", "onResponse: " + response);
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    String message = jsonObject.getString("message");
-                    String code = jsonObject.getString("code");
-                    if (code.equals("200")) {
-                        progressDialog.dismiss();
-                        findViewById(R.id.no_slot).setVisibility(View.GONE);
-
-
-                        JSONArray jsonArrayvideo = jsonObject.getJSONArray("Assign_data");
-
-                        for (int i = 0; i < jsonArrayvideo.length(); i++) {
-                            OrderModel placeModel = new OrderModel();
-                            JSONObject BMIReport = jsonArrayvideo.getJSONObject(i);
-
-                            placeModel.id = BMIReport.getString("id");
-                            placeModel.user_id = BMIReport.getString("user_id");
-                            placeModel.product_id = BMIReport.getString("product_id");
-                            placeModel.description = BMIReport.getString("description");
-                            placeModel.error_code = BMIReport.getString("error_code");
-                            placeModel.type_of_machine = BMIReport.getString("type_of_machine");
-                            placeModel.name = BMIReport.getString("name");
-                            placeModel.age_machine = BMIReport.getString("age_machine");
-                            placeModel.address = BMIReport.getString("address");
-                            placeModel.isDeleted = BMIReport.getString("isDeleted");
-                            placeModel.phone = BMIReport.getString("phone");
-                            placeModel.additional_info = BMIReport.getString("additional_info");
-                            placeModel.added_date = BMIReport.getString("added_date");
-                            placeModel.product_name = BMIReport.getString("product_name");
-                            placeModel.image = BMIReport.getString("image");
-
-                            home_data_list.add(placeModel);
-                        }
-                        rv_list.setAdapter(new AdapterAppointment(home_data_list, MainActivity.this));
-
-
-                    } else {
-                        progressDialog.dismiss();
-                        findViewById(R.id.no_slot).setVisibility(View.VISIBLE);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    progressDialog.dismiss();
-                    findViewById(R.id.no_slot).setVisibility(View.VISIBLE);
-                }
-
-                progressDialog.dismiss();
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                progressDialog.dismiss();
-            }
-        }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String, String> params = new HashMap();
-                params.put("mechanic_id", str_userid);
-                Log.d("params", "getParams: " + params);
-                return params;
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> header = new HashMap<>();
-                header.put("token", Constant.Token);
-                return header;
-            }
-
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        RetryPolicy retryPolicy = new DefaultRetryPolicy(3000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-        stringRequest.setRetryPolicy(retryPolicy);
-        requestQueue.add(stringRequest);
 
     }
 
@@ -301,8 +196,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onResume() {
         super.onResume();
-        //   get_user_data();
-        //SendFCM(token);
+
     }
 
 
@@ -520,84 +414,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (resultCode == RESULT_CANCELED) {
             return;
         }
-        if (requestCode == GALLERY) {
-            if (data != null) {
-                Uri selectedImage = data.getData();
-                if (resultCode == RESULT_OK) {
-                    lnr_imageverification.setVisibility(View.VISIBLE);
-                    lnr_imageverification.setImageURI(selectedImage);
 
-                    InputStream imageStream = null;
-                    try {
-                        imageStream = MainActivity.this.getContentResolver().openInputStream(selectedImage);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    final Bitmap imagebitmap = BitmapFactory.decodeStream(imageStream);
-                    Bitmap rotatedBitmap = Bitmap.createBitmap(imagebitmap, 0, 0, imagebitmap.getWidth(), imagebitmap.getHeight(), null, true);
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
-
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                    String strDocument = Constant.getStringImageBase64(rotatedBitmap);
-                    Log.d("IMAGE_1sstrDocument_ga", "onActivityResult: " + strDocument);
-                    try {
-                        str_image_1 = FileUtils.getFileFromUri(getApplicationContext(), selectedImage);
-                    } catch (Exception exception) {
-                        exception.printStackTrace();
-                    }
-
-                }
-            }
-        } else if (requestCode == CAMERA) {
-            // Uri selectedImage = (Uri.fromFile(new File(imageFilePath)));
-
-            File image_file = new File(imageFilePath);
-            Uri selectedImage = (Uri.fromFile(image_file));
-            if (resultCode == RESULT_OK) {
-                lnr_imageverification.setVisibility(View.VISIBLE);
-                //  selfie_imageview.setImageURI(selectedImage);
-
-                Glide.with(MainActivity.this)
-                        .load(selectedImage)
-                        .into(lnr_imageverification);
-
-                InputStream imageStream = null;
-                try {
-                    imageStream = MainActivity.this.getContentResolver().openInputStream(selectedImage);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                final Bitmap imagebitmap = BitmapFactory.decodeStream(imageStream);
-                Bitmap rotatedBitmap = Bitmap.createBitmap(imagebitmap, 0, 0, imagebitmap.getWidth(), imagebitmap.getHeight(), null, true);
-                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
-
-                File file = new File(String.valueOf(getExternalFilesDir(null) + "img" + timeStamp + ".jpg"));
-
-                OutputStream os = null;
-                try {
-                    os = new BufferedOutputStream(new FileOutputStream(file));
-                    rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
-                    os.close();
-                    str_image_1 = file;
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-
-                try {
-                    str_image_1 = FileUtils.getFileFromUri(getApplicationContext(), selectedImage);
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                }
-
-            }
-
-
-        }
         switch (requestCode) {
             case 3: {
                 if (resultCode == RESULT_OK) {
@@ -609,223 +426,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-
-    String strSelIdType = "";
-    String sp_verification_id = "";
-    ImageView lnr_imageverification;
-    Dialog dialog;
-
-    private void Dialog_VerifyShop() {
-
-        dialog = new Dialog(MainActivity.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setTitle("");
-        dialog.setContentView(R.layout.dialog_pic);
-        lnr_imageverification = dialog.findViewById(R.id.lnr_imageverification);
-
-        dialog.findViewById(R.id.rlt_verificationupload).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                requestMultiplePermissions();
-            }
-        });
-        dialog.findViewById(R.id.bt_update_profile).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (str_image_1 != null && !str_image_1.equals("") && !str_image_1.equals("null")) {
-                    if (Constant.isNetworkAvailable(getApplicationContext())) {
-                        selfie_bdm();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Internet Connection Not Available", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(MainActivity.this, "Select Selfie", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        dialog.findViewById(R.id.bt_no).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                str_image_1 = null;
-            }
-        });
-
-        dialog.findViewById(R.id.bt_reset).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                str_image_1 = null;
-                dialog.dismiss();
-            }
-        });
-
-        dialog.setCancelable(true);
-        dialog.show();
-        Window window = dialog.getWindow();
-        window.setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
+    private void setupTabLayout() {
+        fragmentOne = new Pending_F();
+        fragmentTwo = new Process_F();
+        fragmentThree = new Complete_F();
+        allTabs.addTab(allTabs.newTab().setText("Pending"), true);
+        allTabs.addTab(allTabs.newTab().setText("Process"));
+        allTabs.addTab(allTabs.newTab().setText("Complete"));
     }
 
-    private void selfie_bdm() {
-        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Loading..");
-        progressDialog.show();
-        MultiPartRequest request = new MultiPartRequest(MainActivity.this, Constant.pro_image_upload, new Callback() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    private void bindWidgetsWithAnEvent() {
+        allTabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void Responce(String resp) {
-                Functions.LOGE("EditProfile", "Upload_Service " + resp);
-                if (!resp.equals("null")) {
-                    dialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
-                    str_image_1 = null;
-                    progressDialog.dismiss();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Failed To  Upload", Toast.LENGTH_SHORT).show();
-                }
+            public void onTabSelected(TabLayout.Tab tab) {
+                setCurrentTabFragment(tab.getPosition());
+            }
 
-/*
-                try {
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
 
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }*/
-                progressDialog.dismiss();
-
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-
-        Geocoder geocoder;
-        List<Address> addresses;
-        String str_server_address = "";
-        geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-        try {
-            addresses = geocoder.getFromLocation(Double.parseDouble(Constant.LATITUDE_SEVER), Double.parseDouble(Constant.LONGITUDE_SERVER), 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
-
-            String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-            String city = addresses.get(0).getLocality();
-            String state = addresses.get(0).getAdminArea();
-            String country = addresses.get(0).getCountryName();
-            String postalCode = addresses.get(0).getPostalCode();
-            String knownName = addresses.get(0).getFeatureName(); // Only i
-            str_server_address = address + "," + city + "," + state + "," + country + "," + postalCode;
-
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        }
-
-
-        Log.d("image_file", "selfie_bdm: " + str_image_1);
-        Log.d("image_file", "selfie_bdm: " + image_file);
-        if (str_image_1 != null && !str_image_1.equals("") && !str_image_1.equals("null"))
-            request.addImageFile("image", String.valueOf(str_image_1), Functions.getRandomString() + ".png");
-
-        //  request.addString("_method","POST");
-        request.addString("bde_id", sharedPreferences.getString(USER, ""));
-        request.addString("latitude", Constant.LATITUDE_SEVER);
-        request.addString("longitude", Constant.LONGITUDE_SERVER);
-        request.addString("address", str_server_address);
-
-        Log.d("Upload_Service", "request=> \n" + request);
-        request.execute();
-
-
     }
 
-    private void requestMultiplePermissions() {
-        Dexter.withActivity(MainActivity.this).withPermissions(
-                Manifest.permission.CAMERA,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new MultiplePermissionsListener() {
-            @Override
-            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                if (report.areAllPermissionsGranted()) {
-                    openCameraIntent();
-                }
-                if (report.isAnyPermissionPermanentlyDenied()) {
-                    showMissingPermissionDialog();
-                }
-            }
+    private void setCurrentTabFragment(int tabPosition) {
+        switch (tabPosition) {
+            case 0:
+                replaceFragment(fragmentOne);
 
-            @Override
-            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                token.continuePermissionRequest();
-            }
-        }).
-                withErrorListener(new PermissionRequestErrorListener() {
-                    @Override
-                    public void onError(DexterError error) {
-                        Toast.makeText(MainActivity.this, "Some Error! ", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .onSameThread()
-                .check();
-    }
+                break;
+            case 1:
+                replaceFragment(fragmentTwo);
 
-    private void showMissingPermissionDialog() {
-        android.app.AlertDialog.Builder dialogBuilder = new android.app.AlertDialog.Builder(MainActivity.this);
-        dialogBuilder.setTitle(R.string.string_permission_help);
-        dialogBuilder.setMessage(R.string.string_permission_help_text);
-        dialogBuilder.setNegativeButton(R.string.string_permission_quit, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                MainActivity.this.setResult(PERMISSIONS_DENIED);
-                MainActivity.this.finish();
-            }
-        });
-        dialogBuilder.setPositiveButton(R.string.string_settings, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                intent.setData(Uri.parse(PACKAGE_URL_SCHEME + MainActivity.this.getPackageName()));
-                startActivity(intent);
-            }
-        });
-        dialogBuilder.show();
-    }
+                break;
+            case 2:
+                replaceFragment(fragmentThree);
 
-    private void openCameraIntent() {
-        Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (pictureIntent.resolveActivity(MainActivity.this.getPackageManager()) != null) {
-            //Create a file to store the image
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-            }
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(MainActivity.this, MainActivity.this.getPackageName() + ".fileprovider", photoFile);
-                pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(pictureIntent, CAMERA);
-            }
+                break;
+
         }
     }
 
-    String imageFilePath;
-
-    private File createImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
-        String imageFileName = "IMG_" + timeStamp + "_";
-        File storageDir = MainActivity.this.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  // prefix /
-                ".jpg",         // suffix /
-                storageDir      // directory /
-        );
-        imageFilePath = image.getAbsolutePath();
-        return image;
-    }
-
-    public void onClickCalled(OrderModel designModel, int position, String s) {
-        Intent intent = new Intent(getApplicationContext(), AddEnquiry.class);
-        intent.putExtra("id", designModel.id);
-        startActivity(intent);
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frame_container, fragment);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ft.commit();
     }
 }

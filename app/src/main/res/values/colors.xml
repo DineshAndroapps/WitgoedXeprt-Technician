@@ -27,9 +27,7 @@
     <color name="bg_main">#F7F7F7</color>
     <color name="bg_yellow">#FFEB3B</color>
     <color name="green">#4EB820</color>
-    <color name="transparent">#00ffffff</color>
     <color name="gray2">#d2d1d1</color>
-    <color name="textColor">#8a8484</color>
     <color name="bg_red">#F71515</color>
     <color name="grey">#f3f3f3</color>
     <color name="darkOverlaySoft">#40000000</color>
@@ -37,6 +35,7 @@
     <color name="rv_bg">#e9e7eb</color>
     <color name="disable_btn_color">#F2F2F2</color>
     <color name="black_corner">#0f2135</color>
+    <color name="gray">#A8A8A8</color>
 
 
     <color name="profile_orange">#FF6D6D</color>
@@ -85,4 +84,23 @@
 
     <color name="test">#EFCD71</color>
     <color name="txt_color_home_bdm">#1D438A</color>
+
+    <color name="red">#f85453</color>
+    <color name="color_card_history">#e36f00</color>
+
+    <color name="linecolor">#6DC4C0C0</color>
+
+    <color name="carrot_color">#fdedf0</color>
+
+    <color name="gray0">#EFEFF1</color>
+    <color name="gray1">#DFDFE1</color>
+    <color name="gray7">#9E9C9C</color>
+    <color name="transparent_dim">#33000000</color>
+    <color name="transparent">#00ffffff</color>
+
+    <color name="bg_recycler_screen">@color/gray0</color>
+    <color name="background_color">@color/white</color>
+    <color name="textColor">#000000</color>
+
+
 </resources>

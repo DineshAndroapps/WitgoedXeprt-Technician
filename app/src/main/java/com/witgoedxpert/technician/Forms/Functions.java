@@ -1,12 +1,15 @@
 package com.witgoedxpert.technician.Forms;
 
 import static android.content.Context.ACTIVITY_SERVICE;
+import static android.content.Context.INPUT_METHOD_SERVICE;
 import static android.os.Build.VERSION.SDK_INT;
 
 import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -14,6 +17,8 @@ import android.location.Geocoder;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
+import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +27,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.witgoedxpert.technician.Helper.Variables;
 import com.witgoedxpert.technician.Location_Services.GetLocation_Service;
+import com.witgoedxpert.technician.R;
 
 import java.io.File;
 import java.io.IOException;
@@ -215,4 +221,43 @@ public class Functions {
             Functions.enableGPS_bf.show(((MainActivity) context).getSupportFragmentManager(), Functions.enableGPS_bf.getTag());
 */
     }
+
+    public static void Hide_keyboard(Activity activity){
+
+        InputMethodManager imm = (InputMethodManager)activity.getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public static int dpToPx(final Activity context, final float dp) {
+        return (int)(dp * context.getResources().getDisplayMetrics().density);
+    }
+
+
+    public static Dialog dialog;
+    public static void Show_loader(Context context, boolean outside_touch, boolean cancleable) {
+
+        dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.item_progress_dialog_layout);
+
+
+        if(!outside_touch)
+            dialog.setCanceledOnTouchOutside(false);
+
+        if(!cancleable)
+            dialog.setCancelable(false);
+
+        dialog.show();
+
+    }
+
+
+    public static void cancel_loader(){
+        if(dialog!=null){
+            dialog.cancel();
+        }
+    }
+
+
+    // this is the delete message diloge which will show after long press in chat message
 }

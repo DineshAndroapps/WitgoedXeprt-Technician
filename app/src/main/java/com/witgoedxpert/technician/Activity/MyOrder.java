@@ -228,7 +228,7 @@ public class MyOrder extends AppCompatActivity {
 
                             designModelArrayList.add(placeModel);
                         }
-                        recyclerView_appointment.setAdapter(new AdapterAppointment(designModelArrayList, MyOrder.this));
+                      //  recyclerView_appointment.setAdapter(new AdapterAppointment(designModelArrayList, MyOrder.this));
 
 
                     } else {
