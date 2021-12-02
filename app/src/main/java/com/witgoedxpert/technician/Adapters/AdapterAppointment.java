@@ -106,7 +106,7 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
         } else {
             holder.div_accept.setVisibility(View.GONE);
             holder.div_process.setVisibility(View.VISIBLE);
-            holder.rlt_complete_div.setVisibility(View.VISIBLE);
+           // holder.rlt_complete_div.setVisibility(View.VISIBLE);
             holder.btn_start.setVisibility(View.GONE);
             holder.btn_end.setVisibility(View.GONE);
 

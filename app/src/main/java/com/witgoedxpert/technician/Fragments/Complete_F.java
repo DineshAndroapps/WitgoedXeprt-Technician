@@ -96,7 +96,6 @@ public class Complete_F extends Fragment {
                         break;
 
                 }
-
             }
         });
         rv_list.setAdapter(orders_adapter);

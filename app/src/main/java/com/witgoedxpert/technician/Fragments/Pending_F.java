@@ -197,7 +197,7 @@ public class Pending_F extends Fragment {
                     if (code.equals("200")) {
                         progressDialog.dismiss();
                         v.findViewById(R.id.no_slot).setVisibility(View.GONE);
-
+                        rv_list.setVisibility(View.VISIBLE);
 
                         JSONArray jsonArrayvideo = jsonObject.getJSONArray("Assign_data");
 
@@ -232,11 +232,13 @@ public class Pending_F extends Fragment {
                     } else {
                         progressDialog.dismiss();
                         v.findViewById(R.id.no_slot).setVisibility(View.VISIBLE);
+                        rv_list.setVisibility(View.GONE);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                     progressDialog.dismiss();
                     v.findViewById(R.id.no_slot).setVisibility(View.VISIBLE);
+                    rv_list.setVisibility(View.GONE);
                 }
 
                 progressDialog.dismiss();

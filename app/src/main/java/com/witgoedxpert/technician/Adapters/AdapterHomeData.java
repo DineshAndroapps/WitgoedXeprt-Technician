@@ -56,7 +56,6 @@ public class AdapterHomeData extends RecyclerView.Adapter<AdapterHomeData.MyView
         holder.lyt_parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //((MainActivity) context).onClickCalled(designModel, position, "1");
                 Intent intent = new Intent(context, AddEnquiry.class);
                 intent.putExtra("str_product_id",designModel.id);
                 intent.putExtra("str_name_pro",designModel.name);

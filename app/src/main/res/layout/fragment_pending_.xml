@@ -6,7 +6,6 @@
     tools:context=".Fragments.Pending_F">
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
@@ -19,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_centerVertical="true"
-        android:text="Data Not Available"
+        android:text="Request Not Available"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
