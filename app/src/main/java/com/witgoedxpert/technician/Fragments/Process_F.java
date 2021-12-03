@@ -363,6 +363,10 @@ public class Process_F extends Fragment {
                             placeModel.image = BMIReport.getString("image");
                             placeModel.service_staus = "process";
                             placeModel.service_charge = BMIReport.getString("service_charge");
+                            placeModel.time = BMIReport.getString("time");
+                            placeModel.date = BMIReport.getString("date");
+                            placeModel.service_status = BMIReport.getString("service_status");
+                            placeModel.status = BMIReport.getString("status");
                             home_data_list.add(placeModel);
                         }
                         // rv_list.setAdapter(new AdapterAppointment(home_data_list, (AppCompatActivity) getActivity()));

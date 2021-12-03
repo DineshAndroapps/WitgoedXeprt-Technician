@@ -34,6 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_200"
                     android:src="@drawable/user" />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -83,6 +84,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -112,6 +114,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -141,6 +144,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -171,6 +175,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -201,6 +206,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -231,6 +237,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -260,6 +267,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -290,6 +298,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -320,6 +329,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -352,11 +362,7 @@
                         </LinearLayout>
 
 
-
-
-
                     </LinearLayout>
-
 
 
                 </LinearLayout>
@@ -372,13 +378,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
+
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="15dp"
-                    android:text="Create Bil"
                     android:background="@color/colorPrimary"
+                    android:text="Create Bil"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
 
             </LinearLayout>

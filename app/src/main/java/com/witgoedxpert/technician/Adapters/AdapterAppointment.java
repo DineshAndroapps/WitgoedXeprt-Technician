@@ -77,7 +77,6 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
         ((TextView) holder.itemView.findViewById(R.id.tv_name)).setText("" + bookModel.name);
         ((TextView) holder.itemView.findViewById(R.id.tv_mobile)).setText("" + bookModel.phone);
         ((TextView) holder.itemView.findViewById(R.id.tv_delivery)).setText("" + bookModel.address);
-        ((TextView) holder.itemView.findViewById(R.id.tv_actual_Delivery_time)).setText("" + bookModel.added_date);
         ((TextView) holder.itemView.findViewById(R.id.tv_product_name)).setText("" + bookModel.product_name);
         ((TextView) holder.itemView.findViewById(R.id.tv_service_charge)).setText("" + bookModel.service_charge);
         //Glide.with(context).load(Constant.design_img + designModel.image).placeholder(R.drawable.logo_trans).into(holder.image);
@@ -93,6 +92,23 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
         String formattedDate = outputFormat.format(parsedDate);
         System.out.println(formattedDate);
         ((TextView) holder.itemView.findViewById(R.id.tv_last_date)).setText("" + formattedDate);
+        ;//book_now=0 book_later=1
+        if (bookModel.status.equals("1")) {
+            ((TextView) holder.itemView.findViewById(R.id.tv_actual_Delivery_time)).setText("" + bookModel.date + " " + bookModel.time);
+        } else {
+            String date_ = bookModel.added_date;
+            SimpleDateFormat inputFormat_ = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat outputFormat_ = new SimpleDateFormat("dd-MM-yyy HH:mm");
+            Date parsedDate_ = null;
+            try {
+                parsedDate_ = inputFormat_.parse(date_);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            String formattedDate_ = outputFormat_.format(parsedDate_);
+            ((TextView) holder.itemView.findViewById(R.id.tv_actual_Delivery_time)).setText(formattedDate_);
+
+        }
 
         if (bookModel.service_staus.equals("pending")) {
             holder.div_accept.setVisibility(View.VISIBLE);
@@ -100,17 +116,23 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
             holder.rlt_complete_div.setVisibility(View.GONE);
 
         } else if (bookModel.service_staus.equals("process")) {
+            if (bookModel.service_status.equals("1")){
+                holder.btn_start.setVisibility(View.GONE);
+            }else{
+                holder.btn_start.setVisibility(View.VISIBLE);
+            }
             holder.div_accept.setVisibility(View.GONE);
             holder.div_process.setVisibility(View.VISIBLE);
             holder.rlt_complete_div.setVisibility(View.GONE);
         } else {
             holder.div_accept.setVisibility(View.GONE);
             holder.div_process.setVisibility(View.VISIBLE);
-           // holder.rlt_complete_div.setVisibility(View.VISIBLE);
+            // holder.rlt_complete_div.setVisibility(View.VISIBLE);
             holder.btn_start.setVisibility(View.GONE);
             holder.btn_end.setVisibility(View.GONE);
 
         }
+
         holder.btn_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,7 +179,7 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvOrderNo, btn_start, btn_end, tv_service_charge, tvDelivery, tvDate, tvActualDeliveryTime, tvActualPickupLocation, tvOrderStatus;
-        Button btn_yes, btn_no, btn_details, btn_details_p, btn_paid, btn_rec, btn_details_c;
+        TextView btn_yes, btn_no, btn_details, btn_details_p, btn_paid, btn_rec, btn_details_c;
         RelativeLayout rlt_complete_div;
         LinearLayout div_accept, div_process;
         LinearLayout histroy_rlt, div_process_c, ll_date;

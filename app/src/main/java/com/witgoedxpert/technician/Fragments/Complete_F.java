@@ -151,7 +151,9 @@ public class Complete_F extends Fragment {
                             placeModel.image = BMIReport.getString("image");
                             placeModel.service_staus = "complete";
                             placeModel.service_charge = BMIReport.getString("service_charge");
-
+                            placeModel.time = BMIReport.getString("time");
+                            placeModel.date = BMIReport.getString("date");
+                            placeModel.status = BMIReport.getString("status");
 
                             home_data_list.add(placeModel);
                         }

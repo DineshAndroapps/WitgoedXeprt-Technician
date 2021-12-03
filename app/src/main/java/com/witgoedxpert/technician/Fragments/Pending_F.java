@@ -221,8 +221,11 @@ public class Pending_F extends Fragment {
                             placeModel.product_name = BMIReport.getString("product_name");
                             placeModel.image = BMIReport.getString("image");
                             placeModel.service_charge = BMIReport.getString("service_charge");
+                            placeModel.time = BMIReport.getString("time");
+                            placeModel.date = BMIReport.getString("date");
+                            placeModel.status = BMIReport.getString("status");
                             placeModel.service_staus = "pending";
-
+                            ;//book_now=0 book_later=1
                             home_data_list.add(placeModel);
                         }
                         // rv_list.setAdapter(new AdapterAppointment(home_data_list, (AppCompatActivity) getActivity()));

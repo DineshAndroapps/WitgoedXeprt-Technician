@@ -21,4 +21,8 @@ public class OrderModel implements Serializable {
     public String product_name;
     public String service_staus;
     public String service_charge;
+    public String status;
+    public String service_status;
+    public String time;
+    public String date;
 }

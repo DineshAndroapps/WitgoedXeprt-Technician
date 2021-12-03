@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg_recycler_screen"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
 
@@ -286,12 +285,14 @@
                 android:weightSum="3">
 
 
-                <Button
+                <TextView
                     android:id="@+id/btn_yes"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"
                     android:background="@drawable/d_rounded_greeen"
                     android:text="Accept"
                     android:textAllCaps="false"
@@ -300,7 +301,7 @@
                     android:visibility="visible" />
 
 
-                <Button
+                <TextView
                     android:id="@+id/btn_details"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -314,13 +315,15 @@
                     android:textSize="14dp"
                     android:visibility="invisible" />
 
-                <Button
+                <TextView
                     android:id="@+id/btn_no"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"
                     android:background="@drawable/d_rounded_dialog_right"
                     android:text="Reject"
                     android:textAllCaps="false"
@@ -340,12 +343,14 @@
                 android:orientation="horizontal">
 
 
-                <Button
+                <TextView
                     android:id="@+id/btn_start"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"
                     android:background="@drawable/d_rounded_greeen"
                     android:text="Start"
                     android:textAllCaps="false"
@@ -353,13 +358,15 @@
                     android:textSize="14dp"
                     android:visibility="visible" />
 
-                <Button
+                <TextView
                     android:id="@+id/btn_end"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"
                     android:background="@drawable/d_rounded_dialog_right"
                     android:text="End"
                     android:textAllCaps="false"
@@ -367,7 +374,7 @@
                     android:textSize="14dp"
                     android:visibility="visible" />
 
-                <Button
+                <TextView
                     android:id="@+id/btn_paid"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -381,7 +388,7 @@
                     android:textSize="14dp"
                     android:visibility="gone" />
 
-                <Button
+                <TextView
                     android:id="@+id/btn_details_p"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -407,7 +414,7 @@
                 android:orientation="horizontal">
 
 
-                <Button
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
