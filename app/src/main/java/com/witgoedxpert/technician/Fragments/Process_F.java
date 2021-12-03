@@ -117,8 +117,8 @@ public class Process_F extends Fragment {
                         api_Yes_NO(model.id, "2");//start
                         break;
                     case R.id.btn_end:
-                        OpenDialog(model);
-                        //  api_Yes_NO(model.id, "3");//end
+                        // OpenDialog(model);
+                        api_Yes_NO(model.id, "3");//end
                         break;
                     case R.id.btn_details_p:
                         Intent intent = new Intent(context, MyOrderDetails.class);

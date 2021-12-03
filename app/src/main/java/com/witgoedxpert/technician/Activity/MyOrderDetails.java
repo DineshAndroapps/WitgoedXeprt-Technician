@@ -38,7 +38,7 @@ public class MyOrderDetails extends AppCompatActivity {
         Intent i = getIntent();
         OrderModel orderModel = (OrderModel) i.getSerializableExtra("MyClass");
         image = findViewById(R.id.image);
-        Glide.with(getApplicationContext()).load(Constant.image_url_ + orderModel.image).placeholder(R.drawable.ic_baseline_settings_24).into(image);
+        Glide.with(getApplicationContext()).load(Constant.image_url_ + orderModel.image).placeholder(R.drawable.app_icon).into(image);
 
         ((TextView) findViewById(R.id.toolbr_lbl)).setText(orderModel.product_name);
 

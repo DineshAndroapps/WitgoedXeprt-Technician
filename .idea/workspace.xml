@@ -26,15 +26,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/MyOrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/MyOrderDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Fragments/Complete_F.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Fragments/Complete_F.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Fragments/Pending_F.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Fragments/Pending_F.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Fragments/Process_F.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Fragments/Process_F.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/OrderModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/OrderModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/app_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/app_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/include_drawer_header_news.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/include_drawer_header_news.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_my_orders_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_my_orders_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_navigation_drawer_news.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_navigation_drawer_news.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_selfie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_selfie.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +120,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="ignore.preview.features.used" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -128,9 +130,9 @@
       <recent name="com.pro.marketing.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\drawable" />
       <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\drawable-v24" />
       <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\layout" />
-      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\drawable" />
       <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\java\com\witgoedxpert\technician\Helper" />
       <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Customer\app\src\main\java\com\androapp\customer\Helper" />
     </key>
@@ -492,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638424671267</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Issued Fixed.">
+      <created>1638524300350</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1638524300350</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -508,7 +517,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="BDM Home Page Table Added." />
     <MESSAGE value="PRO &amp; BDM Notification Done." />
     <MESSAGE value="New Changed Commit." />
     <MESSAGE value="Drawer Added Build No.&amp; Date." />
@@ -533,7 +541,8 @@
     <MESSAGE value="Accept Request Ui Done" />
     <MESSAGE value="pending,process,start,complete,reject Listing done." />
     <MESSAGE value="Add Bling Form Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Bling Form Added" />
+    <MESSAGE value="Issued Fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Issued Fixed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
