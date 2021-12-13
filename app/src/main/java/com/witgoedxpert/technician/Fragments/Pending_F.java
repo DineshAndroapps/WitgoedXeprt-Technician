@@ -1,6 +1,7 @@
 package com.witgoedxpert.technician.Fragments;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.witgoedxpert.technician.Activity.Home.MainActivity.selectPage;
 import static com.witgoedxpert.technician.Forms.LoginActivity.NAME;
 import static com.witgoedxpert.technician.Forms.LoginActivity.SHARED_PREFERENCES_NAME;
 import static com.witgoedxpert.technician.Forms.LoginActivity.USER_ID;
@@ -96,7 +97,6 @@ public class Pending_F extends Fragment {
                     case R.id.btn_no:
                         api_Yes_NO(model.id, "4");//reject
                         break;
-
                 }
 
             }
@@ -127,8 +127,13 @@ public class Pending_F extends Fragment {
                     String message = jsonObject.getString("message");
                     String code = jsonObject.getString("code");
                     if (code.equals("200")) {
+                        if (flag.equals("1")) {
+                            selectPage(1);
+                        } else {
+                            CallHomeData();
+                        }
+
                         progressDialog.dismiss();
-                        CallHomeData();
                     } else {
                         progressDialog.dismiss();
                         v.findViewById(R.id.no_slot).setVisibility(View.VISIBLE);

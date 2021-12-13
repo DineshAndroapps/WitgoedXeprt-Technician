@@ -1,6 +1,8 @@
 package com.witgoedxpert.technician.Location_Services;
 
+import static com.witgoedxpert.technician.Forms.LoginActivity.NAME;
 import static com.witgoedxpert.technician.Forms.LoginActivity.SHARED_PREFERENCES_NAME;
+import static com.witgoedxpert.technician.Forms.LoginActivity.USER_ID;
 import static com.witgoedxpert.technician.Forms.LoginActivity.USER_LAT;
 import static com.witgoedxpert.technician.Forms.LoginActivity.USER_LONG;
 
@@ -9,6 +11,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.app.Service;
 import android.app.TaskStackBuilder;
 import android.content.Context;
@@ -27,11 +30,18 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -42,11 +52,20 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
 
 import com.witgoedxpert.technician.Forms.Functions;
+import com.witgoedxpert.technician.Forms.LoginActivity;
+import com.witgoedxpert.technician.Forms.Register_A;
 import com.witgoedxpert.technician.Helper.Constant;
+import com.witgoedxpert.technician.Helper.Methods;
 import com.witgoedxpert.technician.Helper.SharePref;
 import com.witgoedxpert.technician.Helper.Variables;
 import com.witgoedxpert.technician.R;
 import com.witgoedxpert.technician.SplashScreen;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class GetLocation_Service extends Service implements
@@ -68,7 +87,7 @@ public class GetLocation_Service extends Service implements
     public double longitude;
     LatLng latLng;
     Context context;
-    String user_id;
+    String str_userid;
     NotificationManager notificationManager;
     public static boolean ismapopen;
 
@@ -179,6 +198,9 @@ public class GetLocation_Service extends Service implements
                             serviceCallbacks.onDataReceived(new LatLng(latitude, longitude));
 
                         Functions.LOGE("GetLocation", "longitude" + longitude + "-- latitude" + latitude);
+                        sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+                        str_userid = sharedPreferences.getString(USER_ID, "");
+                        SendLatLong(latitude,longitude,str_userid);
                         Constant.LATITUDE_SEVER = String.valueOf(latitude);
                         Constant.LONGITUDE_SERVER = String.valueOf(longitude);
 
@@ -200,6 +222,65 @@ public class GetLocation_Service extends Service implements
                 , Looper.myLooper());
 
     }
+
+    private void SendLatLong(double latitude, double longitude, String str_userid) {
+
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.Send_latlong,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("context_location", "onResponse: " + response);
+
+                        String code, message, id, user_id;
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            message= jsonObject.getString("message");
+                            if (jsonObject.getString("code").equals("200")) {
+
+
+                            } else {
+
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("", "onErrorResponse: " );
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("mechanic_id", str_userid);
+                params.put("lat", String.valueOf(latitude));
+                params.put("long", String.valueOf(longitude));
+                Log.d("params_location", "getParams: " + params);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("token", Constant.Token);
+                return headers;
+            }
+        };
+
+
+        Volley.newRequestQueue(this).add(stringRequest);
+
+    }
+
 
     protected void stopLocationUpdates() {
         mFusedLocationClient.removeLocationUpdates(locationCallback);

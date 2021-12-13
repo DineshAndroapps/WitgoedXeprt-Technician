@@ -25,4 +25,6 @@ public class OrderModel implements Serializable {
     public String service_status;
     public String time;
     public String date;
+    public String start_time;
+    public String end_time;
 }

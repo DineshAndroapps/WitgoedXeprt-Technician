@@ -123,6 +123,7 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MAIN_BDM";
+    private static TabLayout allTabs;
     private ActionBar actionBar;
     private Toolbar toolbar;
     SharedPreferences sharedPreferences;
@@ -145,7 +146,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Pending_F fragmentOne;
     private Process_F fragmentTwo;
     private Complete_F fragmentThree;
-    private TabLayout allTabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -470,6 +470,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    public  static void selectPage(int pageIndex) {
+        TabLayout.Tab tab = allTabs.getTabAt(pageIndex);
+        tab.select();
+    }
+
     public void replaceFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -477,4 +482,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         ft.commit();
     }
+
 }

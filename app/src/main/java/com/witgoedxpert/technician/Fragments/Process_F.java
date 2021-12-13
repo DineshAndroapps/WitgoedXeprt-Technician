@@ -1,6 +1,7 @@
 package com.witgoedxpert.technician.Fragments;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.witgoedxpert.technician.Activity.Home.MainActivity.selectPage;
 import static com.witgoedxpert.technician.Forms.Functions.getStringFromEdit;
 import static com.witgoedxpert.technician.Forms.LoginActivity.ADDRESS;
 import static com.witgoedxpert.technician.Forms.LoginActivity.NAME;
@@ -118,7 +119,7 @@ public class Process_F extends Fragment {
                         break;
                     case R.id.btn_end:
                         // OpenDialog(model);
-                        api_Yes_NO(model.id, "3");//end
+                        api_Yes_NO(model.id, "3");//complete
                         break;
                     case R.id.btn_details_p:
                         Intent intent = new Intent(context, MyOrderDetails.class);
@@ -269,7 +270,12 @@ public class Process_F extends Fragment {
                     String code = jsonObject.getString("code");
                     if (code.equals("200")) {
                         progressDialog.dismiss();
-                        CallHomeData();
+                        if (flag.equals("3")) {
+                            selectPage(2);
+                        } else {
+                            CallHomeData();
+                        }
+
                     } else {
                         progressDialog.dismiss();
                         v.findViewById(R.id.no_slot).setVisibility(View.VISIBLE);

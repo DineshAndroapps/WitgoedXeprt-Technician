@@ -130,6 +130,9 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
             // holder.rlt_complete_div.setVisibility(View.VISIBLE);
             holder.btn_start.setVisibility(View.GONE);
             holder.btn_end.setVisibility(View.GONE);
+            holder.start_rlt.setVisibility(View.VISIBLE);
+            holder.start_time.setText(bookModel.start_time);
+            holder.end_time.setText(bookModel.end_time);
 
         }
 
@@ -178,11 +181,11 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tvOrderNo, btn_start, btn_end, tv_service_charge, tvDelivery, tvDate, tvActualDeliveryTime, tvActualPickupLocation, tvOrderStatus;
+        TextView tvOrderNo, btn_start,end_time,start_time, btn_end, tv_service_charge, tvDelivery, tvDate, tvActualDeliveryTime, tvActualPickupLocation, tvOrderStatus;
         TextView btn_yes, btn_no, btn_details, btn_details_p, btn_paid, btn_rec, btn_details_c;
         RelativeLayout rlt_complete_div;
         LinearLayout div_accept, div_process;
-        LinearLayout histroy_rlt, div_process_c, ll_date;
+        LinearLayout histroy_rlt, div_process_c, ll_date,start_rlt;
         ImageView image;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -210,6 +213,9 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
             btn_details_c = itemView.findViewById(R.id.btn_details_c);
             ll_date = itemView.findViewById(R.id.ll_date);
             image = itemView.findViewById(R.id.image);
+            start_time = itemView.findViewById(R.id.start_time);
+            end_time = itemView.findViewById(R.id.end_time);
+            start_rlt = itemView.findViewById(R.id.start_rlt);
 
         }
 

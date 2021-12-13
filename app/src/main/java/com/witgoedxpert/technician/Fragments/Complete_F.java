@@ -154,6 +154,8 @@ public class Complete_F extends Fragment {
                             placeModel.time = BMIReport.getString("time");
                             placeModel.date = BMIReport.getString("date");
                             placeModel.status = BMIReport.getString("status");
+                            placeModel.start_time = BMIReport.getString("start_time");
+                            placeModel.end_time = BMIReport.getString("end_time");
 
                             home_data_list.add(placeModel);
                         }
