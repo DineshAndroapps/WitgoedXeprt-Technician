@@ -128,17 +128,13 @@
 
     </style>
 
-    <style name="edt_layout_login_InputEditText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/dp50</item>
-        <item name="android:textSize">14sp</item>
-    </style>
 
 
     <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:checkBoxPreferenceStyle">@drawable/d_dashed_border_orange_trans</item>
         <item name="android:checkboxStyle">@drawable/d_dashed_border_orange_trans</item>
         <item name="android:tint">@color/colorPrimary</item>
+        <!--        <item name="hintTextAppearance">@color/focused_edt_hint</item>-->
 
     </style>
     <style name="edt_layout_login" parent="LoginTextInputLayoutStyle">
@@ -151,4 +147,15 @@
 
     </style>
 
+    <style name="edt_layout_login_InputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_55</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="NavTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
 </resources>

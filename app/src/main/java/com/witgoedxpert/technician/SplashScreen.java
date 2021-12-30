@@ -23,6 +23,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.witgoedxpert.technician.Activity.Home.MainActivity;
+import com.witgoedxpert.technician.Activity.Home.SchedulePage_A;
 import com.witgoedxpert.technician.Forms.LoginActivity;
 import com.witgoedxpert.technician.Location_Services.GpsUtils;
 
@@ -180,7 +181,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 if (!user_id.equals("")) {
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent i = new Intent(getApplicationContext(), SchedulePage_A.class);
                     finish();
                     startActivity(i);
                 } else {

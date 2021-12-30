@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="@string/bdm_title"
+                android:fontFamily="@font/montserrat_bold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/elevation_18"
                 android:textStyle="bold" />

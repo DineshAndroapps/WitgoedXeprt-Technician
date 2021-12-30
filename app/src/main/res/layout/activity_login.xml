@@ -23,19 +23,20 @@
 
             <ImageView
                 android:id="@+id/img"
-                android:layout_width="50dp"
-                android:layout_height="@dimen/dp50"
+                android:layout_width="@dimen/height_100"
+                android:layout_height="@dimen/height_100"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="centerCrop"
-                android:src="@drawable/exo_ic_settings"
-                android:tint="@color/colorPrimary" />
+                android:src="@drawable/app_icon" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Technician Login"
+                android:layout_marginTop="@dimen/height_10"
                 android:textAlignment="center"
+                android:fontFamily="@font/montserrat_semibold"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/dp20" />
 
@@ -69,8 +70,6 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edPhone"
                             style="@style/edt_layout_login_InputEditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
                             android:imeOptions="actionNext"
                             android:inputType="phone"
                             android:maxLength="10"
@@ -90,8 +89,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_password"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/edt_layout_login_InputEditText"
                             android:imeOptions="actionNext"
                             android:inputType="textPassword"
                             android:maxLines="1" />
@@ -107,6 +105,7 @@
                         android:layout_marginTop="@dimen/dp15"
                         android:layout_marginBottom="15dp"
                         android:background="@drawable/button_bg"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:gravity="center"
                         android:text="Login"
                         android:textColor="@color/white" />

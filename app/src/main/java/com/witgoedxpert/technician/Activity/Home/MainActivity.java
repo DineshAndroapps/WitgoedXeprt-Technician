@@ -23,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
+import com.witgoedxpert.technician.Activity.ProfilePage_A;
 import com.witgoedxpert.technician.Adapters.AdapterAppointment;
 import com.witgoedxpert.technician.Forms.AddEnquiry;
 import com.witgoedxpert.technician.Fragments.Complete_F;
@@ -331,6 +332,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             finish();
             startActivity(i);
 
+
+        } else if (id == R.id.nav_profile) {
+            Intent i = new Intent(getApplicationContext(), ProfilePage_A.class);
+            i.putExtra("flag", "1");
+            i.putExtra("user_id", sharedPreferences.getString(USER, ""));
+            startActivity(i);
 
         } else if (id == R.id.nav_sefie) {
             Intent i = new Intent(getApplicationContext(), MyOrder.class);
