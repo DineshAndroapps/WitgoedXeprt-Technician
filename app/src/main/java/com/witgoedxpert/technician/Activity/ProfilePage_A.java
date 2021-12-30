@@ -9,6 +9,8 @@ import static com.witgoedxpert.technician.Forms.LoginActivity.USER_ID;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,14 +31,18 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.witgoedxpert.technician.Adapters.ServiceModelAdapter;
 import com.witgoedxpert.technician.Forms.AddEnquiry;
 import com.witgoedxpert.technician.Helper.Constant;
 import com.witgoedxpert.technician.R;
 import com.witgoedxpert.technician.model.OrderModel;
+import com.witgoedxpert.technician.model.ServiceModel;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +50,8 @@ public class ProfilePage_A extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String str_userid, str_intent_flag, accessToken;
     ImageView image;
-
+    final ArrayList<ServiceModel> redeemModelArrayList = new ArrayList();
+    RecyclerView recyclerView_gifts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +81,10 @@ public class ProfilePage_A extends AppCompatActivity {
                 });
 
 
+         recyclerView_gifts = findViewById(R.id.recylerview_gifts);
+        recyclerView_gifts.setLayoutManager(new LinearLayoutManager(ProfilePage_A.this));
+        //recyclerView_gifts.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+
 
     }
     private void SendFCM(String token) {
@@ -101,6 +112,25 @@ public class ProfilePage_A extends AppCompatActivity {
                                 ((TextView) findViewById(R.id.mobile)).setText(user_data.getString("mobile"));
                                 ((TextView) findViewById(R.id.address)).setText(user_data.getString("address"));
                                 ((TextView) findViewById(R.id.name)).setText(user_data.getString("name"));
+                                JSONArray jsonArrayvideo = user_data.getJSONArray("service_details");
+
+                                if (jsonArrayvideo != null) {
+                                    for (int i = 0; i < jsonArrayvideo.length(); i++) {
+                                        ServiceModel heartRateModel = new ServiceModel();
+                                        JSONObject HeartRateAnlysis = jsonArrayvideo.getJSONObject(i);
+                                        Log.e("HeartRateAnlysis", "onResponse: " + HeartRateAnlysis.getString("name"));
+                                        heartRateModel.id = HeartRateAnlysis.getString("id");
+                                        heartRateModel.name = HeartRateAnlysis.getString("name");
+                                        heartRateModel.image = HeartRateAnlysis.getString("image");
+                                        heartRateModel.fee = HeartRateAnlysis.getString("fee");
+                                        heartRateModel.added_date = HeartRateAnlysis.getString("added_date");
+                                        redeemModelArrayList.add(heartRateModel);
+
+                                    }
+                                    ServiceModelAdapter userWinnerAdapter = new ServiceModelAdapter(redeemModelArrayList, (AppCompatActivity) ProfilePage_A.this);
+                                    recyclerView_gifts.setAdapter(userWinnerAdapter);
+                                }
+
                             } else {
                                 // Toast.makeText(ProfilePage_A.this, "" + message, Toast.LENGTH_SHORT).show();
                             }
