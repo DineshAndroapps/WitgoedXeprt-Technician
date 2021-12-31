@@ -14,6 +14,7 @@ public class OrderModel implements Serializable {
     public String address;
     public String phone;
     public String additional_info;
+    public String assigned;
     public String added_date;
     public String updated_date;
     public String isDeleted;
@@ -27,4 +28,10 @@ public class OrderModel implements Serializable {
     public String date;
     public String start_time;
     public String end_time;
+    public String slot_start_time;
+    public String slot_end_time;
+    public String slot_date;
+    public String slot_id;
+    public String mechanic_id;
+    public String enquiry_id;
 }

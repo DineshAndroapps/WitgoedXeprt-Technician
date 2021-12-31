@@ -22,18 +22,25 @@ public class Constant {
     public static final String NEW_ORDER_ID = "1";
     public static final String PUSH_NOTIFICATION = "pushNotification";
 
-    public static final String MAIN = "https://androappstech.in/WitgoedXpert/api/";
+    public static final String MAIN = "https://androappstech.in/WitgoedXpert_dev/api/";
+    public static final String image_url_ = "https://androappstech.in/WitgoedXpert_dev/data/Product/";
+    public static final String image_url_mechanic = "https://androappstech.in/WitgoedXpert_dev/data/Mechanic/";
+/*
+ public static final String MAIN = "https://androappstech.in/WitgoedXpert/api/";
     public static final String image_url_ = "https://androappstech.in/WitgoedXpert/data/Product/";
+*/
 
     public static String register = MAIN + "User/Registration";
     public static String login = MAIN + "Mechanic/login";
-    public static String ListAllProduct = MAIN + "Mechanic/AssignMechanic";
+    public static String AssignMechanic = MAIN + "Mechanic/AssignMechanic";
     public static String addEnquiry = MAIN + "Mechanic/Invoice";
     public static String viewEnquiry = MAIN + "Enquiry/viewEnquiry";
     public static String mechanicDetails = MAIN + "Mechanic/MechanicDetails";
     public static String userDetails = MAIN + "User/UserDetails";
     public static String booking = MAIN + "Mechanic/booking";
     public static String Send_latlong = MAIN + "Mechanic/editLocation";
+    public static String enquiry_details = MAIN + "enquiry/enquiry_details";
+    public static String update_profile = MAIN + "Mechanic/update_profile";
 
 
     public static String Token = "c7d3965d49d4a59b0da80e90646aee77548458b3377ba3c0fb43d5ff91d54ea28833080e3de6ebd4fde36e2fb7175cddaf5d8d018ac1467c3d15db21c11b6909";

@@ -12,9 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include
-            android:visibility="gone"
-            layout="@layout/lyt_tool" />
+        <include layout="@layout/lyt_tool" />
 
 
         <RelativeLayout
@@ -43,8 +41,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/edt_layout_login_InputEditText"
+
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1" />
@@ -61,8 +59,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_address"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/edt_layout_login_InputEditText"
+
                         android:imeOptions="actionNext"
                         android:inputType="textMultiLine"
                         android:lines="2"
@@ -80,8 +78,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_cost"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/edt_layout_login_InputEditText"
+
                         android:inputType="number"
                         android:lines="1"
                         android:scrollbars="vertical" />
@@ -98,8 +96,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/edt_layout_login_InputEditText"
+
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1" />
@@ -116,8 +114,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_parts"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/edt_layout_login_InputEditText"
+
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1" />
@@ -134,8 +132,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_total"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/edt_layout_login_InputEditText"
+
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1" />
@@ -153,8 +151,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_signature"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/edt_layout_login_InputEditText"
                         android:imeOptions="actionNext"
                         android:inputType="textMultiLine"
                         android:lines="1"
@@ -164,9 +161,9 @@
 
                 <TextView
                     android:id="@+id/gender_"
+                    style="@style/edt_layout_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/edt_layout_login"
                     android:layout_marginBottom="5dp"
                     android:text="Next Appointment "
                     android:textColor="@color/black" />

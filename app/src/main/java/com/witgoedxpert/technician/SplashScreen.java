@@ -181,7 +181,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 if (!user_id.equals("")) {
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class);//SchedulePage_A
+                    Intent i = new Intent(getApplicationContext(), SchedulePage_A.class);//SchedulePage_A
                     finish();
                     startActivity(i);
                 } else {

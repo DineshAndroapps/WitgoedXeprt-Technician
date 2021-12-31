@@ -1452,57 +1452,7 @@ public class ProMainActivity extends AppCompatActivity implements NavigationView
 
     }
 
-    private void requestMultiplePermissions() {
-        Dexter.withActivity(ProMainActivity.this).withPermissions(
-                Manifest.permission.CAMERA,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new MultiplePermissionsListener() {
-            @Override
-            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                if (report.areAllPermissionsGranted()) {
-                    openCameraIntent();
-                }
-                if (report.isAnyPermissionPermanentlyDenied()) {
-                    showMissingPermissionDialog();
-                }
-            }
 
-            @Override
-            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                token.continuePermissionRequest();
-            }
-        }).
-                withErrorListener(new PermissionRequestErrorListener() {
-                    @Override
-                    public void onError(DexterError error) {
-                        Toast.makeText(ProMainActivity.this, "Some Error! ", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .onSameThread()
-                .check();
-    }
-
-    private void showMissingPermissionDialog() {
-        android.app.AlertDialog.Builder dialogBuilder = new android.app.AlertDialog.Builder(ProMainActivity.this);
-        dialogBuilder.setTitle(R.string.string_permission_help);
-        dialogBuilder.setMessage(R.string.string_permission_help_text);
-        dialogBuilder.setNegativeButton(R.string.string_permission_quit, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                ProMainActivity.this.setResult(PERMISSIONS_DENIED);
-                ProMainActivity.this.finish();
-            }
-        });
-        dialogBuilder.setPositiveButton(R.string.string_settings, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                intent.setData(Uri.parse(PACKAGE_URL_SCHEME + ProMainActivity.this.getPackageName()));
-                startActivity(intent);
-            }
-        });
-        dialogBuilder.show();
-    }
 
     private void openCameraIntent() {
         Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

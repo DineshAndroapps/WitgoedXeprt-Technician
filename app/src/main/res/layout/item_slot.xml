@@ -12,7 +12,7 @@
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/time"
             android:layout_width="@dimen/height_100"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -30,6 +30,7 @@
             android:background="@drawable/vertical_line" />
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

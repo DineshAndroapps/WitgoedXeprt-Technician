@@ -22,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
 import com.witgoedxpert.technician.Activity.Home.MainActivity;
+import com.witgoedxpert.technician.Activity.Home.SchedulePage_A;
 import com.witgoedxpert.technician.Helper.Constant;
 import com.witgoedxpert.technician.R;
 
@@ -130,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString(ADDRESS, user_data.getString("address"));
                                 editor.apply();
 
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), SchedulePage_A.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);

@@ -12,10 +12,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Build;
 import android.os.Environment;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -29,6 +31,7 @@ import com.witgoedxpert.technician.Helper.Variables;
 import com.witgoedxpert.technician.Location_Services.GetLocation_Service;
 import com.witgoedxpert.technician.R;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -50,6 +53,13 @@ public class Functions {
         String saltStr = salt.toString();
         return saltStr;
 
+    }
+    public static String Bitmap_to_base64(Activity activity, Bitmap imagebitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        imagebitmap.compress(Bitmap.CompressFormat.JPEG, 70, baos);
+        byte[] byteArray = baos .toByteArray();
+        String base64= Base64.encodeToString(byteArray, Base64.DEFAULT);
+        return base64;
     }
 
     public static File createImageFile(Context context) throws IOException {

@@ -32,7 +32,7 @@
                 <ImageView
                     android:id="@+id/image"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_200"
+                    android:layout_height="@dimen/height_150"
                     android:src="@drawable/user" />
 
                 <RelativeLayout
@@ -373,17 +373,173 @@
                     android:layout_marginTop="20dp"
                     android:background="@color/grey_60" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/height_10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/btn_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/dp5"
+                        android:cursorVisible="false"
+                        android:background="@drawable/d_rounded_greeen"
+                        android:text="Accept"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14dp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/div_pending"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <TextView
+                            android:id="@+id/btn_yes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/d_rounded_greeen"
+                            android:text="Accept"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14dp"
+                            android:visibility="visible" />
+
+
+                        <TextView
+                            android:id="@+id/btn_details"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/d_round_corner_black_border_bkg"
+                            android:gravity="center"
+                            android:text="Details"
+                            android:textAllCaps="false"
+                            android:textColor="@color/textColor"
+                            android:textSize="14dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/btn_no"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/d_rounded_dialog_right"
+                            android:text="Reject"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14dp"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/div_process"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/btn_start"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/d_rounded_greeen"
+                            android:text="Start"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/btn_end"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/d_rounded_dialog_right"
+                            android:text="End"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/btn_paid"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/d_rounded_dialog_right"
+                            android:text="Paid"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/btn_details_p"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/d_round_corner_black_border_bkg"
+                            android:gravity="center"
+                            android:text="Details"
+                            android:textAllCaps="false"
+                            android:visibility="gone"
+                            android:textColor="@color/textColor"
+                            android:textSize="14dp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
                 <Button
                     android:id="@+id/btn_Open_signature"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
-
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="15dp"
                     android:background="@color/colorPrimary"
                     android:text="Create Bil"
                     android:textAllCaps="false"
+                    android:layout_marginBottom="@dimen/_50sdp"
                     android:textColor="@color/white"
                     android:visibility="gone" />
 

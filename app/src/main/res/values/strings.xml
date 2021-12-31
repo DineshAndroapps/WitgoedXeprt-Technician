@@ -102,5 +102,6 @@ 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
     <string name="pending">Pending</string>
     <string name="inprogress">InProgress</string>
     <string name="completed">Completed</string>
+    <string name="services">Services:</string>
     <!--  <string name="today_build">25-09-2021 (1.1)</string>-->
 </resources>

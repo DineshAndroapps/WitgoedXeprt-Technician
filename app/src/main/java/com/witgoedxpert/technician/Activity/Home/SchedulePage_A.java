@@ -1,32 +1,81 @@
 package com.witgoedxpert.technician.Activity.Home;
 
+import static com.witgoedxpert.technician.Forms.LoginActivity.NAME;
 import static com.witgoedxpert.technician.Forms.LoginActivity.SHARED_PREFERENCES_NAME;
+import static com.witgoedxpert.technician.Forms.LoginActivity.USER;
 import static com.witgoedxpert.technician.Forms.LoginActivity.USER_ID;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.material.navigation.NavigationView;
+import com.witgoedxpert.technician.Activity.MyOrder;
+import com.witgoedxpert.technician.Activity.ProfilePage_A;
+import com.witgoedxpert.technician.Adapters.AdapterSchedule;
+import com.witgoedxpert.technician.Forms.LoginActivity;
+import com.witgoedxpert.technician.Helper.Adapter_ClickListener;
+import com.witgoedxpert.technician.Helper.Constant;
 import com.witgoedxpert.technician.R;
+import com.witgoedxpert.technician.model.OrderModel;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-public class SchedulePage_A extends AppCompatActivity {
+public class SchedulePage_A extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat fmtOut = new SimpleDateFormat("dd'th' MMMM yy ");
     SimpleDateFormat fmtOut_ = new SimpleDateFormat("EEEE ");
     SharedPreferences sharedPreferences;
-    String str_userid, str_intent_flag, accessToken;
+    String str_userid, str_name, accessToken;
+    View headerView;
 
+    SharedPreferences.Editor editor;
+    ArrayList<OrderModel> home_data_list = new ArrayList<>();
+    RecyclerView rv_list;
+    String type;
+    AdapterSchedule orders_adapter;
+    private ActionBar actionBar;
+    private Toolbar toolbar;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +84,10 @@ public class SchedulePage_A extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
         str_userid = sharedPreferences.getString(USER_ID, "");
-        findViewById(R.id.bt_menu).setOnClickListener(view -> onBackPressed());
-        ((TextView) findViewById(R.id.toolbr_lbl)).setText("Profile");
+        str_name = sharedPreferences.getString(NAME, "");
 
+        initToolbar();
+        initNavigationMenu();
         Date date = new Date();
         LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         int year = localDate.getYear();
@@ -53,12 +103,230 @@ public class SchedulePage_A extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        GetData(year + "-" + month + "-" + day);
+        
+
+        rv_list = findViewById(R.id.rv_list);
+        rv_list.setLayoutManager(new LinearLayoutManager(SchedulePage_A.this, LinearLayoutManager.VERTICAL, false));
+        rv_list.setAdapter(orders_adapter);
+
+        if (Constant.isNetworkAvailable(SchedulePage_A.this)) {
+            GetData(year + "-" + month + "-" + day);
+        } else {
+            Toast.makeText(SchedulePage_A.this, "Internet Connection Not Available", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+    }
+    void initToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ((TextView) findViewById(R.id.title)).setText("Home");
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setTitle("BDM");
     }
 
     private void GetData(String date_) {
-        Log.e("date_format", "GetData: "+date_ );
+        home_data_list.clear();
+        final ProgressDialog progressDialog = new ProgressDialog(SchedulePage_A.this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading..");
+        progressDialog.show();
+        Log.e("date_format", "GetData: "+ Constant.AssignMechanic );
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.AssignMechanic, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("Assign_data", "onResponse: " + response);
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String message = jsonObject.getString("message");
+                    String code = jsonObject.getString("code");
+                    if (code.equals("200")) {
+                        progressDialog.dismiss();
+                        findViewById(R.id.no_slot).setVisibility(View.GONE);
+                        rv_list.setVisibility(View.VISIBLE);
+
+                        JSONArray jsonArrayvideo = jsonObject.getJSONArray("Assign_data");
+
+                        for (int i = 0; i < jsonArrayvideo.length(); i++) {
+                            OrderModel placeModel = new OrderModel();
+                            JSONObject BMIReport = jsonArrayvideo.getJSONObject(i);
+
+                            placeModel.id = BMIReport.getString("id");
+                            placeModel.user_id = BMIReport.getString("user_id");
+                            placeModel.product_id = BMIReport.getString("product_id");
+                            placeModel.description = BMIReport.getString("description");
+                            placeModel.error_code = BMIReport.getString("error_code");
+                            placeModel.type_of_machine = BMIReport.getString("type_of_machine");
+                            placeModel.name = BMIReport.getString("name");
+                            placeModel.age_machine = BMIReport.getString("age_machine");
+                            placeModel.address = BMIReport.getString("address");
+                            placeModel.isDeleted = BMIReport.getString("isDeleted");
+                            placeModel.phone = BMIReport.getString("phone");
+                            placeModel.additional_info = BMIReport.getString("additional_info");
+                            placeModel.added_date = BMIReport.getString("added_date");
+                            placeModel.product_name = BMIReport.getString("product_name");
+                            placeModel.image = BMIReport.getString("image");
+                            placeModel.service_charge = BMIReport.getString("service_charge");
+                            placeModel.time = BMIReport.getString("time");
+                            placeModel.date = BMIReport.getString("date");
+                            placeModel.status = BMIReport.getString("status");
+                            placeModel.service_staus = "pending";
+                            Log.d("BookedSlot", "onResponse: " + BMIReport.optJSONObject("BookedSlot"));
+
+                            JSONObject BookedSlot = BMIReport.optJSONObject("BookedSlot");
+                            if (BookedSlot != null) {
+                                if (BookedSlot.has("id")) {
+                                    placeModel.slot_start_time = BookedSlot.getString("start_time");
+                                    placeModel.slot_end_time = BookedSlot.getString("end_time");
+                                    placeModel.slot_id = BookedSlot.getString("id");
+                                    placeModel.slot_date = BookedSlot.getString("booking_date");
+                                    placeModel.enquiry_id = BookedSlot.getString("enquiry_id");
+                                    placeModel.mechanic_id = BookedSlot.getString("mechanic_id");
+
+                                }
+                            }
+                            ;//book_now=0 book_later=1
+                            home_data_list.add(placeModel);
+                        }
+                        rv_list.setAdapter(new AdapterSchedule(home_data_list, (AppCompatActivity) SchedulePage_A.this));
+
+
+                    } else {
+                        progressDialog.dismiss();
+                        findViewById(R.id.no_slot).setVisibility(View.VISIBLE);
+                        rv_list.setVisibility(View.GONE);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    progressDialog.dismiss();
+                    findViewById(R.id.no_slot).setVisibility(View.VISIBLE);
+                    rv_list.setVisibility(View.GONE);
+                }
+
+                progressDialog.dismiss();
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                progressDialog.dismiss();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap();
+                params.put("mechanic_id", str_userid);
+                params.put("assigned", "");
+                /* 0=pending,1=process/accept,2=complete, 3=reject*/
+                Log.d("params", "getParams: " + params);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> header = new HashMap<>();
+                header.put("token", Constant.Token);
+                return header;
+            }
+
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(SchedulePage_A.this);
+        RetryPolicy retryPolicy = new DefaultRetryPolicy(3000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(retryPolicy);
+        requestQueue.add(stringRequest);
 
 
     }
+
+    void initNavigationMenu() {
+        NavigationView nav_view = (NavigationView) findViewById(R.id.navigationView);
+        headerView = nav_view.getHeaderView(0);
+        //TextView logout_date = (TextView) headerView.findViewById(R.id.logout_date);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.navUsername);
+        TextView navUseremail = (TextView) headerView.findViewById(R.id.navUseremail);
+        navUsername.setText(str_name);
+        //logout_date.setText("20-09-2021 (1.0)");
+
+
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+        };
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.black));
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        nav_view.setNavigationItemSelectedListener(this);
+
+        // open drawer at start
+        drawer.closeDrawer(GravityCompat.START);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.nav_home) {
+            Intent i = new Intent(getApplicationContext(), SchedulePage_A.class);
+            finish();
+            startActivity(i);
+
+
+        } else if (id == R.id.nav_profile) {
+            Intent i = new Intent(getApplicationContext(), ProfilePage_A.class);
+            i.putExtra("flag", "1");
+            i.putExtra("user_id", sharedPreferences.getString(USER, ""));
+            startActivity(i);
+
+        } else if (id == R.id.nav_sefie) {
+            Intent i = new Intent(getApplicationContext(), MyOrder.class);
+            i.putExtra("flag", "1");
+            i.putExtra("user_id", sharedPreferences.getString(USER, ""));
+            startActivity(i);
+
+        } else if (id == R.id.nav_help) {
+            DialogForLogout();
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
+    private void DialogForLogout() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(SchedulePage_A.this);
+        dialog.setTitle(R.string.confirmation);
+        dialog.setMessage(R.string.logout_confirmation_text);
+        dialog.setNegativeButton(R.string.CANCEL, null);
+        dialog.setPositiveButton(R.string.YES, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                ClearAllSherf();
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.show();
+    }
+
+    private void ClearAllSherf() {
+        SharedPreferences sharedpreferences =
+                getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.clear();
+        editor.apply();
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
+
 }

@@ -46,6 +46,7 @@ public class AddEnquiry extends AppCompatActivity {
     private RadioGroup radioGenderGroup;
     private RadioButton radio_F, radio_M;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +54,8 @@ public class AddEnquiry extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
         str_userid = sharedPreferences.getString(USER_ID, "");
         str_name = sharedPreferences.getString(NAME, "");
-
+        ((TextView) findViewById(R.id.toolbr_lbl)).setText("Billing Details");
+        findViewById(R.id.bt_menu).setOnClickListener(view -> onBackPressed());
 
         str_name_pro = getIntent().getStringExtra("str_name_pro");
         str_product_id = getIntent().getStringExtra("str_product_id");
@@ -223,6 +225,8 @@ public class AddEnquiry extends AppCompatActivity {
                 params.put("address", getStringFromEdit(textInputLayout(R.id.et_address)));
                 params.put("signature", getStringFromEdit(textInputLayout(R.id.et_signature)));
                 params.put("date", date_get);
+                params.put("assigned", "6");
+                params.put("enquiry_id", str_main_id);
                 Log.e("params", "getParams: " + params);
                 return params;
             }
