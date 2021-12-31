@@ -44,314 +44,316 @@
                     android:id="@+id/name_"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_bold"
                     android:gravity="center_vertical"
                     android:text="Anderson Thomas"
-                    android:layout_weight="1"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold" />
+                    android:textColor="@color/colorPrimary" />
+
                 <TextView
                     android:id="@+id/edit_profile_pic"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Edit Pic"
 
+                    android:text="Edit Pic"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                     android:textColor="@color/red_400"
-                    android:textStyle="bold"
                     android:visibility="gone" />
 
             </LinearLayout>
-                <TextView
-                    android:id="@+id/mobile_"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_regular"
-                    android:gravity="center_vertical"
-                    android:text="Paris, France"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:textColor="@color/grey_40" />
-            </LinearLayout>
 
+            <TextView
+                android:id="@+id/mobile_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center_vertical"
+                android:text="Paris, France"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/grey_40" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/spacing_middle"
-            android:layout_marginRight="@dimen/spacing_middle"
-            android:background="@color/grey_60" />
+    </LinearLayout>
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nested_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/spacing_middle"
+        android:layout_marginRight="@dimen/spacing_middle"
+        android:background="@color/grey_60" />
 
-            android:scrollbars="none"
-            android:scrollingCache="true">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:scrollbars="none"
+        android:scrollingCache="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:descendantFocusability="blocksDescendants"
+                android:layout_marginLeft="@dimen/spacing_middle"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:layout_marginRight="@dimen/spacing_middle"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
+                    android:text="Account:"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/grey_60" />
+
+                <TextView
+                    android:id="@+id/edit_profile"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="Edit Profile"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/red_400"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_middle"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:layout_marginRight="@dimen/spacing_middle"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/spacing_middle"
-                    android:layout_marginTop="@dimen/spacing_middle"
-                    android:layout_marginRight="@dimen/spacing_middle"
-                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:layout_marginBottom="@dimen/spacing_middle"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:gravity="center_vertical"
-                        android:text="Account:"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/grey_60"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/edit_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
                         android:gravity="center_vertical"
-                        android:text="Edit Profile"
+                        android:text="Name: "
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/red_400"
-                        android:textStyle="bold"
-                        android:visibility="visible" />
+                        android:textColor="@color/grey_60" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:gravity="center_vertical"
+                        android:text="Name: "
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_60" />
+
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/spacing_middle"
-                    android:layout_marginTop="@dimen/spacing_middle"
-                    android:layout_marginRight="@dimen/spacing_middle"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/spacing_middle"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text="Name: "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-                        <TextView
-                            android:id="@+id/name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text="Name: "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/spacing_middle"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text="Mobile No.: "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-                        <TextView
-                            android:id="@+id/mobile"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text="Name: "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/spacing_middle"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text="Email: "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-                        <TextView
-                            android:id="@+id/email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text=" "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/spacing_middle"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text="Address: "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-                        <TextView
-                            android:id="@+id/address"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text="Name: "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/spacing_middle"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text="Gender: "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-                        <TextView
-                            android:id="@+id/gender"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:gravity="center_vertical"
-                            android:text="Name: "
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-
-                    </LinearLayout>
-
-
-                    <RadioGroup
-                        android:id="@+id/radioGrp"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/gender_"
-                        android:layout_marginLeft="@dimen/spacing_middle"
-                        android:visibility="gone"
-                        android:layout_marginRight="@dimen/spacing_middle"
-                        android:layout_marginBottom="@dimen/spacing_medium"
-                        android:orientation="horizontal"
-                        android:paddingLeft="8dp">
-
-                        <RadioButton
-                            android:id="@+id/radioM"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="false"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="Male"
-                            android:textColor="@color/grey_60"
-                            android:textSize="14dp" />
-
-                        <RadioButton
-                            android:id="@+id/radioF"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:checked="false"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="Female"
-                            android:textColor="@color/grey_60"
-                            android:textSize="14dp" />
-                    </RadioGroup>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-
-                    </LinearLayout>
+                    android:layout_marginBottom="@dimen/spacing_middle"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center_vertical"
+                        android:text="Mobile No.: "
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_60" />
+
+                    <TextView
+                        android:id="@+id/mobile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_semibold"
                         android:gravity="center_vertical"
-                        android:text="@string/services"
+                        android:text="Name: "
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/grey_80"
-                        android:textStyle="bold" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recylerview_gifts"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:listitem="@layout/item_service" />
+                        android:textColor="@color/grey_60" />
 
 
                 </LinearLayout>
 
-                <View
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_middle"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center_vertical"
+                        android:text="Email: "
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_60" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:gravity="center_vertical"
+                        android:text=" "
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_60" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_middle"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center_vertical"
+                        android:text="Address: "
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_60" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:gravity="center_vertical"
+                        android:text="Name: "
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_60" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_middle"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center_vertical"
+                        android:text="Gender: "
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_60" />
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:gravity="center_vertical"
+                        android:text="Name: "
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_60" />
+
+
+                </LinearLayout>
+
+
+                <RadioGroup
+                    android:id="@+id/radioGrp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/gender_"
                     android:layout_marginLeft="@dimen/spacing_middle"
                     android:layout_marginRight="@dimen/spacing_middle"
-                    android:background="@color/grey_60" />
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Male"
+                        android:textColor="@color/grey_60"
+                        android:textSize="14dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioF"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Female"
+                        android:textColor="@color/grey_60"
+                        android:textSize="14dp" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
+                    android:text="@string/services"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/grey_60" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recylerview_gifts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_service" />
+
 
             </LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/spacing_middle"
+                android:layout_marginRight="@dimen/spacing_middle"
+                android:background="@color/grey_60" />
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

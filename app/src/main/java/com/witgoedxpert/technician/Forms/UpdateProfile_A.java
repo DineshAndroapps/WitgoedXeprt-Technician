@@ -178,7 +178,7 @@ public class UpdateProfile_A extends AppCompatActivity {
                             textInputLayout(R.id.et_phone).setText(user_data.getString("mobile"));
                             textInputLayout(R.id.et_address).setText(user_data.getString("address"));
                             Glide.with(getApplicationContext()).load(Constant.image_url_mechanic + user_data.getString("profile_pic")).placeholder(R.drawable.app_icon).into(image);
-
+                            Log.d("HeartRateAnlysis_resp", "onResponse: " + user_data.getString("email"));
                             if (user_data.getString("gender").equals("male")) {
                                 radio_M.setChecked(true);
                             } else {
