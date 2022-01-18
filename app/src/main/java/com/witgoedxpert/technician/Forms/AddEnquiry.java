@@ -8,6 +8,7 @@ import static com.witgoedxpert.technician.Forms.LoginActivity.USER_ID;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.witgoedxpert.technician.Helper.Constant;
+import com.witgoedxpert.technician.Helper.DrawingViewUtils;
 import com.witgoedxpert.technician.Helper.Methods;
 import com.witgoedxpert.technician.R;
 import com.android.volley.AuthFailureError;
@@ -42,9 +44,13 @@ import java.util.Map;
 
 public class AddEnquiry extends AppCompatActivity {
     SharedPreferences sharedPreferences;
-    String str_userid, str_name, str_name_pro, str_customer_id = "", str_product_id = "", str_main_id, date_get, userGender = "0";
+    String str_userid, str_user_name, str_user_address, str_name, str_name_pro, str_customer_id = "", str_product_id = "", str_main_id, date_get, userGender = "0", str_sign = "";
     private RadioGroup radioGenderGroup;
     private RadioButton radio_F, radio_M;
+    DrawingViewUtils mDrawingViewUtils;
+    private int mCurrentBackgroundColor;
+    private int mCurrentColor;
+    private int mCurrentStroke;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -61,6 +67,8 @@ public class AddEnquiry extends AppCompatActivity {
         str_product_id = getIntent().getStringExtra("str_product_id");
         str_customer_id = getIntent().getStringExtra("user_id");
         str_main_id = getIntent().getStringExtra("main_id");
+        str_user_name = getIntent().getStringExtra("user_name");
+        str_user_address = getIntent().getStringExtra("user_address");
 
         GetCurrent_Date();
 
@@ -68,8 +76,11 @@ public class AddEnquiry extends AppCompatActivity {
         radio_F = findViewById(R.id.radioF);
         radio_M = findViewById(R.id.radioM);
         ((TextView) findViewById(R.id.toolbr_lbl)).setText(str_name_pro);
-        textInputLayout(R.id.et_name).setText((sharedPreferences.getString(NAME, "")));
-        textInputLayout(R.id.et_address).setText((sharedPreferences.getString(ADDRESS, "")));
+        textInputLayout(R.id.et_name).setText(str_user_name);
+        textInputLayout(R.id.et_address).setText(str_user_address);
+        mDrawingViewUtils = findViewById(R.id.main_drawing_view);
+
+        initDrawingView();
         findViewById(R.id.bt_menu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,86 +88,95 @@ public class AddEnquiry extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_submit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!textInputLayout(R.id.et_name).getText().toString().equals("")) {
-                    if (!textInputLayout(R.id.et_address).getText().toString().equals("")) {
-                        if (!textInputLayout(R.id.et_cost).getText().toString().equals("")) {
-                            if (!textInputLayout(R.id.et_time).getText().toString().equals("")) {
-                                if (!textInputLayout(R.id.et_parts).getText().toString().equals("")) {
-                                    if (!textInputLayout(R.id.et_total).getText().equals("")) {
-                                        if (!textInputLayout(R.id.et_signature).getText().equals("")) {
-                                            if (Constant.isNetworkAvailable(getApplicationContext())) {
-                                                SubmitData();
-                                            } else {
-                                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
-                                            }
-
-
+        findViewById(R.id.btn_submit).setOnClickListener(v -> {
+            str_sign = Constant.Convert_Bitmap_to_base64(mDrawingViewUtils.getBitmap());
+            Log.e("str_sign", "onClick: " + str_sign);
+            if (!textInputLayout(R.id.et_name).getText().toString().equals("")) {
+                if (!textInputLayout(R.id.et_address).getText().toString().equals("")) {
+                    if (!textInputLayout(R.id.et_cost).getText().toString().equals("")) {
+                        if (!textInputLayout(R.id.et_time).getText().toString().equals("")) {
+                            if (!textInputLayout(R.id.et_parts).getText().toString().equals("")) {
+                                if (!textInputLayout(R.id.et_total).getText().equals("")) {
+                                if (!textInputLayout(R.id.et_email).getText().equals("")) {
+                                    if (!str_sign.equals("")) {
+                                        if (Constant.isNetworkAvailable(getApplicationContext())) {
+                                            SubmitData();
                                         } else {
-                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_name));
+                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
                                         }
 
                                     } else {
-                                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_address));
+                                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_name));
                                     }
 
                                 } else {
-                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_cost));
+                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_address));
                                 }
 
                             } else {
-                                Methods.ShowMsg(AddEnquiry.this, "Enter the valid time");
+                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_invalid_email));
+                            }
+                            } else {
+                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_cost));
                             }
 
                         } else {
-                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part));
+                            Methods.ShowMsg(AddEnquiry.this, "Enter the valid time");
                         }
 
-
                     } else {
-                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_total));
+                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part));
                     }
-                } else {
-                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_sing));
-                }
 
+
+                } else {
+                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_total));
+                }
+            } else {
+                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_sing));
             }
+
         });
 
-        radioGenderGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        radioGenderGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            // TODO Auto-generated method stub
+            int childCount = group.getChildCount();
 
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // TODO Auto-generated method stub
-                int childCount = group.getChildCount();
-
-                for (int x = 0; x < childCount; x++) {
-                    RadioButton btn = (RadioButton) group.getChildAt(x);
+            for (int x = 0; x < childCount; x++) {
+                RadioButton btn = (RadioButton) group.getChildAt(x);
 
 
-                    if (btn.getId() == R.id.radioM) {
-                        btn.setText("Yes");
+                if (btn.getId() == R.id.radioM) {
+                    btn.setText("Yes");
+                } else {
+                    btn.setText("No");
+                }
+                if (btn.getId() == checkedId) {
+
+                    if (btn.getText().toString().equals("Yes")) {
+                        userGender = "1";
                     } else {
-                        btn.setText("No");
-                    }
-                    if (btn.getId() == checkedId) {
-
-                        if (btn.getText().toString().equals("Yes")) {
-                            userGender = "1";
-                        } else {
-                            userGender = "0";
-                        }
-
+                        userGender = "0";
                     }
 
                 }
 
-                Log.e("Gender", userGender);
             }
+
+            Log.e("Gender", userGender);
         });
     }
+
+    private void initDrawingView() {
+        mCurrentBackgroundColor = ContextCompat.getColor(this, android.R.color.white);
+        mCurrentColor = ContextCompat.getColor(this, android.R.color.black);
+        mCurrentStroke = 10;
+
+        mDrawingViewUtils.setBackgroundColor(mCurrentBackgroundColor);
+        mDrawingViewUtils.setPaintColor(mCurrentColor);
+        mDrawingViewUtils.setPaintStrokeWidth(mCurrentStroke);
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void GetCurrent_Date() {
@@ -176,33 +196,30 @@ public class AddEnquiry extends AppCompatActivity {
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.addEnquiry,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+                response -> {
+                    Log.e("jsonObject_", "onResponse: " + response);
 
-                        String code, message, id, user_id;
+                    String code, message, id, user_id;
 
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-
-                            Log.e("jsonObject_", "onResponse: " + response);
-
-                            if (jsonObject.getString("code").equals("200")) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
 
 
-                                finish();
-                                Toast.makeText(getApplicationContext(), "Details Submitted Successfully!", Toast.LENGTH_SHORT).show();
-
-                            }
+                        if (jsonObject.getString("code").equals("200")) {
 
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            finish();
+                            Toast.makeText(getApplicationContext(), "Details Submitted Successfully!", Toast.LENGTH_SHORT).show();
+
                         }
 
-                        progressDialog.dismiss();
 
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+
+                    progressDialog.dismiss();
+
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -223,7 +240,8 @@ public class AddEnquiry extends AppCompatActivity {
                 params.put("appointment", userGender);
                 params.put("new_appointment", "0");
                 params.put("address", getStringFromEdit(textInputLayout(R.id.et_address)));
-                params.put("signature", getStringFromEdit(textInputLayout(R.id.et_signature)));
+                params.put("email", getStringFromEdit(textInputLayout(R.id.et_email)));
+                params.put("signature", str_sign);
                 params.put("date", date_get);
                 params.put("assigned", "6");
                 params.put("enquiry_id", str_main_id);

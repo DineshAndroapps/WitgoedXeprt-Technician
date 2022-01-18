@@ -118,5 +118,15 @@ public class Constant {
 
     /*=======================================================================================================================================*/
 
+    public  static  String Convert_Bitmap_to_base64(Bitmap bitmap){
+
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream .toByteArray();
+        String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+        return  encoded;
+    }
 
 }

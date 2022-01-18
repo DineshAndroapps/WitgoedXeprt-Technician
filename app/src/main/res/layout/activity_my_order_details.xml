@@ -298,6 +298,66 @@
 
 
                         </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15sp"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Slot time: "
+                                android:textAllCaps="true"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/slot_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text=""
+                                android:textAllCaps="true"
+                                android:textColor="@color/textColor" />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15sp"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Slot date: "
+                                android:textAllCaps="true"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/slot_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text=""
+                                android:textAllCaps="true"
+                                android:textColor="@color/textColor" />
+
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -341,7 +401,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="added date: "
+                                android:text="Booking date: "
                                 android:textAllCaps="true"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
@@ -378,24 +438,54 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/height_10"
                     android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/div_alldone"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:visibility="gone"
+                        android:orientation="horizontal"
+                        >
 
-                    <TextView
-                        android:id="@+id/btn_comment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        android:textAlignment="center"
-                        android:gravity="center_vertical"
-                        android:layout_gravity="center"
-                        android:padding="@dimen/dp5"
-                        android:cursorVisible="false"
-                        android:background="@drawable/d_rounded_greeen"
-                        android:text="Accept"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="14dp"
-                        android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/btn_comment"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/d_rounded_greeen"
+                            android:text="Service Comleted"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14dp"
+                            android:visibility="visible" />
+
+
+
+                        <TextView
+                            android:id="@+id/btn_bill"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+
+                            android:textAlignment="center"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/d_rounded_greeen"
+                            android:text="View Bill"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14dp"
+                            android:visibility="gone" />
+
+
+                    </LinearLayout>
+
 
                     <LinearLayout
                         android:id="@+id/div_pending"
@@ -537,7 +627,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="15dp"
                     android:background="@color/colorPrimary"
-                    android:text="Create Bil"
+                    android:text="Create Bill"
                     android:textAllCaps="false"
                     android:layout_marginBottom="@dimen/_50sdp"
                     android:textColor="@color/white"

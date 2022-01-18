@@ -1,6 +1,8 @@
 package com.witgoedxpert.technician.Activity.Home;
 
+import static com.witgoedxpert.technician.Forms.LoginActivity.ADDRESS;
 import static com.witgoedxpert.technician.Forms.LoginActivity.NAME;
+import static com.witgoedxpert.technician.Forms.LoginActivity.PHONENO;
 import static com.witgoedxpert.technician.Forms.LoginActivity.SHARED_PREFERENCES_NAME;
 import static com.witgoedxpert.technician.Forms.LoginActivity.USER;
 import static com.witgoedxpert.technician.Forms.LoginActivity.USER_ID;
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,7 +41,10 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.witgoedxpert.technician.Activity.MyOrder;
 import com.witgoedxpert.technician.Activity.ProfilePage_A;
 import com.witgoedxpert.technician.Adapters.AdapterSchedule;
@@ -63,10 +69,10 @@ import java.util.Map;
 
 public class SchedulePage_A extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-    SimpleDateFormat fmtOut = new SimpleDateFormat("dd'th' MMMM yy ");
+    SimpleDateFormat fmtOut = new SimpleDateFormat("dd-MM-yyyy ");
     SimpleDateFormat fmtOut_ = new SimpleDateFormat("EEEE ");
     SharedPreferences sharedPreferences;
-    String str_userid, str_name, accessToken;
+    String str_userid, str_name, token;
     View headerView;
 
     SharedPreferences.Editor editor;
@@ -76,6 +82,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
     AdapterSchedule orders_adapter;
     private ActionBar actionBar;
     private Toolbar toolbar;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +101,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
         int month = localDate.getMonthValue();
         int day = localDate.getDayOfMonth();
         String date_get = year + "-" + month + "-" + day;
+
         Date date_ = null;
         try {
             date_ = fmt.parse(date_get);
@@ -103,7 +111,6 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
             e.printStackTrace();
         }
 
-        
 
         rv_list = findViewById(R.id.rv_list);
         rv_list.setLayoutManager(new LinearLayoutManager(SchedulePage_A.this, LinearLayoutManager.VERTICAL, false));
@@ -116,8 +123,8 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
         }
 
 
-
     }
+
     void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         ((TextView) findViewById(R.id.title)).setText("Home");
@@ -134,7 +141,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading..");
         progressDialog.show();
-        Log.e("date_format", "GetData: "+ Constant.AssignMechanic );
+        Log.e("date_format", "GetData: " + Constant.AssignMechanic);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.AssignMechanic, new Response.Listener<String>() {
             @Override
@@ -246,13 +253,14 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
 
     }
 
+    TextView navUsername;
+
     void initNavigationMenu() {
         NavigationView nav_view = (NavigationView) findViewById(R.id.navigationView);
         headerView = nav_view.getHeaderView(0);
         //TextView logout_date = (TextView) headerView.findViewById(R.id.logout_date);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.navUsername);
+        navUsername = (TextView) headerView.findViewById(R.id.navUsername);
         TextView navUseremail = (TextView) headerView.findViewById(R.id.navUseremail);
-        navUsername.setText(str_name);
         //logout_date.setText("20-09-2021 (1.0)");
 
 
@@ -284,7 +292,9 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
             Intent i = new Intent(getApplicationContext(), ProfilePage_A.class);
             i.putExtra("flag", "1");
             i.putExtra("user_id", sharedPreferences.getString(USER, ""));
+            finish();
             startActivity(i);
+
 
         } else if (id == R.id.nav_sefie) {
             Intent i = new Intent(getApplicationContext(), MyOrder.class);
@@ -327,6 +337,109 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
+    }
+
+    private void getuserdata() {
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("", "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        token = task.getResult();
+                        SendFCM(token);
+                        //   getUser(token);
+
+                        Log.d("TOKEN_", "onComplete: " + token);
+                    }
+                });
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getuserdata();
+    }
+
+    private void SendFCM(String token) {
+
+//    final ProgressDialog progressDialog = new ProgressDialog(SchedulePage_A.this);
+//    progressDialog.setCancelable(false);
+//    progressDialog.setMessage("Loading..");
+//    progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.mechanicDetails,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        String code, message, id, user_id;
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            code = jsonObject.getString("code");
+                            message = jsonObject.getString("message");
+
+                            Log.d("resp", "onResponse: " + jsonObject + "===" + code);
+                            if (code.equals("200")) {
+
+                                JSONObject user_data = jsonObject.getJSONObject("Mechanic_data");
+
+                                sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+                                editor = sharedPreferences.edit();
+                                navUsername.setText(user_data.getString("name"));
+                                editor.putString(USER, user_data.getString("id"));
+                                editor.putString(USER_ID, user_data.getString("id"));
+                                editor.putString(NAME, user_data.getString("name"));
+                                editor.putString(PHONENO, user_data.getString("mobile"));
+                                editor.putString(ADDRESS, user_data.getString("address"));
+                                editor.apply();
+                            } else {
+                                // Toast.makeText(SchedulePage_A.this, "" + message, Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        // progressDialog.dismiss();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //  progressDialog.dismiss();
+                // Toast.makeText(SchedulePage_A.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("mechanic_id", str_userid);
+                params.put("fcm_id", token);
+                params.put("fcm_flag", "1");// 1 -Update FCM and 0- Don't update fcm
+                Log.d("params", "getParams: " + params);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("token", Constant.Token);
+                return headers;
+            }
+        };
+
+        Volley.newRequestQueue(SchedulePage_A.this).add(stringRequest);
+
+
     }
 
 }

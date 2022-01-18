@@ -178,7 +178,7 @@ public class Process_F extends Fragment {
                             if (!textInputLayout(R.id.et_time).getText().toString().equals("")) {
                                 if (!textInputLayout(R.id.et_parts).getText().toString().equals("")) {
                                     if (!textInputLayout(R.id.et_total).getText().equals("")) {
-                                        if (!textInputLayout(R.id.et_signature).getText().equals("")) {
+                                        if (!textInputLayout(R.id.et_total).getText().equals("")) {
                                             if (Constant.isNetworkAvailable(context)) {
                                                 SubmitData(model.id);
                                             } else {
@@ -498,7 +498,7 @@ public class Process_F extends Fragment {
                 params.put("appointment", userGender);
                 params.put("new_appointment", "0");
                 params.put("address", getStringFromEdit(textInputLayout(R.id.et_address)));
-                params.put("signature", getStringFromEdit(textInputLayout(R.id.et_signature)));
+                params.put("signature", "");
                 params.put("date", date_get);
                 Log.e("params", "getParams: " + params);
                 return params;

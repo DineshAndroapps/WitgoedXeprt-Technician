@@ -164,7 +164,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bindWidgetsWithAnEvent();
         setupTabLayout();
 
+        getuserdata();
+        findViewById(R.id.notification_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Notification_Activity.class);
+                startActivity(intent);
+            }
+        });
 
+
+    }
+
+    private void getuserdata() {
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
@@ -182,14 +194,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Log.d("TOKEN_", "onComplete: " + token);
                     }
                 });
-        findViewById(R.id.notification_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Notification_Activity.class);
-                startActivity(intent);
-            }
-        });
-
 
     }
 
@@ -197,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onResume() {
         super.onResume();
-
+        getuserdata();
     }
 
 
@@ -251,6 +255,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                 sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
                                 editor = sharedPreferences.edit();
+                                navUsername.setText(user_data.getString("name"));
                                 editor.putString(USER, user_data.getString("id"));
                                 editor.putString(USER_ID, user_data.getString("id"));
                                 editor.putString(NAME, user_data.getString("name"));
@@ -299,13 +304,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    TextView navUsername;
+
     void initNavigationMenu() {
         NavigationView nav_view = (NavigationView) findViewById(R.id.navigationView);
         headerView = nav_view.getHeaderView(0);
         //TextView logout_date = (TextView) headerView.findViewById(R.id.logout_date);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.navUsername);
+        navUsername = (TextView) headerView.findViewById(R.id.navUsername);
         TextView navUseremail = (TextView) headerView.findViewById(R.id.navUseremail);
-        navUsername.setText(str_name);
+
         //logout_date.setText("20-09-2021 (1.0)");
 
 
@@ -477,7 +484,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public  static void selectPage(int pageIndex) {
+    public static void selectPage(int pageIndex) {
         TabLayout.Tab tab = allTabs.getTabAt(pageIndex);
         tab.select();
     }

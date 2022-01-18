@@ -57,6 +57,7 @@ public class MyOrderDetails extends AppCompatActivity {
         Glide.with(getApplicationContext()).load(Constant.image_url_ + orderModel.image).placeholder(R.drawable.app_icon).into(image);
 
 
+/*
         findViewById(R.id.btn_Open_signature).setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), AddEnquiry.class);
             intent.putExtra("str_product_id", orderModel.product_id);
@@ -65,6 +66,7 @@ public class MyOrderDetails extends AppCompatActivity {
             intent.putExtra("main_id", orderModel.id);
             startActivity(intent);
         });
+*/
 
         OnClick();
 
@@ -156,9 +158,29 @@ public class MyOrderDetails extends AppCompatActivity {
                         ((TextView) findViewById(R.id.age_machine)).setText(placeModel.age_machine);
                         ((TextView) findViewById(R.id.address)).setText(placeModel.address);
                         ((TextView) findViewById(R.id.phone)).setText(placeModel.phone);
-                        ((TextView) findViewById(R.id.additional_info)).setText(placeModel.additional_info);
+                        if (placeModel.additional_info.equals(null)) {
+                            ((TextView) findViewById(R.id.additional_info)).setText(placeModel.additional_info);
+                        } else {
+                            ((TextView) findViewById(R.id.additional_info)).setText("");
+                        }
                         ((TextView) findViewById(R.id.added_date)).setText(placeModel.added_date);
                         ((TextView) findViewById(R.id.product_name)).setText(placeModel.product_name);
+                        ((TextView) findViewById(R.id.slot_time)).setText(placeModel.slot_start_time + " - " + placeModel.slot_end_time);
+                        ((TextView) findViewById(R.id.slot_date)).setText(placeModel.slot_date );
+
+                        findViewById(R.id.btn_Open_signature).setOnClickListener(view -> {
+                            Intent intent = new Intent(getApplicationContext(), AddEnquiry.class);
+                            intent.putExtra("str_product_id", orderModel.product_id);
+                            intent.putExtra("str_name_pro", orderModel.name);
+                            intent.putExtra("user_name", placeModel.name);
+                            intent.putExtra("user_address", placeModel.address);
+                            intent.putExtra("user_id", orderModel.user_id);
+                            intent.putExtra("main_id", orderModel.id);
+                            startActivity(intent);
+                        });
+
+
+
 /*
 0=pending
 1=process
@@ -183,17 +205,21 @@ public class MyOrderDetails extends AppCompatActivity {
                             findViewById(R.id.div_process).setVisibility(View.GONE);
                             findViewById(R.id.btn_Open_signature).setVisibility(View.VISIBLE);
                         } else if (placeModel.assigned.equals("4")) {
+                            findViewById(R.id.div_alldone).setVisibility(View.VISIBLE);
                             findViewById(R.id.btn_comment).setVisibility(View.VISIBLE);
                             ((TextView) findViewById(R.id.btn_comment)).setText("Cancelled By You");
                             findViewById(R.id.div_pending).setVisibility(View.GONE);
                             findViewById(R.id.div_process).setVisibility(View.GONE);
                         } else if (placeModel.assigned.equals("5")) {
+                            findViewById(R.id.div_alldone).setVisibility(View.VISIBLE);
                             findViewById(R.id.btn_comment).setVisibility(View.VISIBLE);
                             ((TextView) findViewById(R.id.btn_comment)).setText("Cancelled By User");
                             findViewById(R.id.div_pending).setVisibility(View.GONE);
                             findViewById(R.id.div_process).setVisibility(View.GONE);
-                        }else if (placeModel.assigned.equals("6")) {
+                        } else if (placeModel.assigned.equals("6")) {
+                            findViewById(R.id.div_alldone).setVisibility(View.VISIBLE);
                             findViewById(R.id.btn_comment).setVisibility(View.VISIBLE);
+                            findViewById(R.id.btn_bill).setVisibility(View.VISIBLE);
                             ((TextView) findViewById(R.id.btn_comment)).setText("Service Completed");
                             findViewById(R.id.div_pending).setVisibility(View.GONE);
                             findViewById(R.id.div_process).setVisibility(View.GONE);

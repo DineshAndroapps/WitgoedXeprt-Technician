@@ -92,23 +92,55 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/edt_layout_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:hint="@string/address"
-                    app:boxBackgroundColor="@color/transparent">
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_address"
-                        style="@style/edt_layout_login_InputEditText"
-                        android:imeOptions="actionNext"
-                        android:inputType="textMultiLine"
-                        android:lines="2"
-                        android:maxLines="5" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/edt_layout_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:hint="@string/address"
+                        app:boxBackgroundColor="@color/transparent">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:background="@null"
+                            android:drawableTint="@color/icon_tint"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:minHeight="100dp"
+                            android:paddingEnd="@dimen/height_120"
+                            android:text=""
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_locate"
+                        style="@style/auth_input_trigger"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginEnd="@dimen/dp30">
+
+
+                        <TextView
+                            android:id="@+id/tv_locate"
+                            style="@style/auth_input_trigger_txt"
+                            android:src="@drawable/search"
+                            android:text="Choose Location" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/edt_layout_login"

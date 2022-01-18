@@ -1,9 +1,11 @@
 package com.witgoedxpert.technician.Forms;
 
+import static com.witgoedxpert.technician.Forms.Functions.Bind_Location_service;
 import static com.witgoedxpert.technician.Forms.Functions.getStringFromEdit;
 import static com.witgoedxpert.technician.Forms.LoginActivity.NAME;
 import static com.witgoedxpert.technician.Forms.LoginActivity.SHARED_PREFERENCES_NAME;
 import static com.witgoedxpert.technician.Forms.LoginActivity.USER_ID;
+import static com.witgoedxpert.technician.Helper.Variables.REQUESTCODE_MAP;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -11,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Address;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -41,6 +46,8 @@ import com.witgoedxpert.technician.Activity.ProfilePage_A;
 import com.witgoedxpert.technician.Adapters.ServiceModelAdapter;
 import com.witgoedxpert.technician.Helper.Constant;
 import com.witgoedxpert.technician.Helper.Tools;
+import com.witgoedxpert.technician.Location_Services.GpsUtils;
+import com.witgoedxpert.technician.Location_Services.PlacesSearch.GooglePlaces_A;
 import com.witgoedxpert.technician.R;
 import com.witgoedxpert.technician.model.ServiceModel;
 
@@ -61,11 +68,12 @@ import java.util.Map;
 
 public class UpdateProfile_A extends AppCompatActivity {
     SharedPreferences sharedPreferences;
-    String str_userid, str_name, str_name_pro, str_image_1 = "", str_product_id = "", str_main_id, date_get, userGender = "0";
+    String str_userid, str_name, str_latitude, str_image_1 = "", str_longitude = "", str_main_id, date_get, userGender = "0";
     private RadioGroup radioGenderGroup;
     private RadioButton radio_F, radio_M;
     ImageView image;
     private int GALLERY = 1, CAMERA = 2;
+    private String TAG = "UpdateProfile_A";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +122,15 @@ public class UpdateProfile_A extends AppCompatActivity {
                 selectImage();
             }
         });
+        findViewById(R.id.lnr_locate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                EnableGPS();
+
+            }
+        });
 
         SendFCM("");
         findViewById(R.id.btn_submit).setOnClickListener(new View.OnClickListener() {
@@ -129,13 +146,13 @@ public class UpdateProfile_A extends AppCompatActivity {
                     } else if (textInputLayout(R.id.et_address).getText().toString().trim().equals("")) {
                         Toast.makeText(UpdateProfile_A.this, "Please Select the Address", Toast.LENGTH_SHORT).show();
 
-                    }else if (textInputLayout(R.id.et_phone).getText().toString().trim().length() < 10) {
+                    } else if (textInputLayout(R.id.et_phone).getText().toString().trim().length() < 10) {
                         Toast.makeText(UpdateProfile_A.this, "Please Enter the valid Phone No", Toast.LENGTH_SHORT).show();
 
-                    }   else if (userGender.trim().equals("")) {
+                    } else if (userGender.trim().equals("")) {
                         Toast.makeText(UpdateProfile_A.this, "Please Select the Gender", Toast.LENGTH_SHORT).show();
 
-                    }  else {
+                    } else {
 
                         UpdateData();
                     }
@@ -147,8 +164,6 @@ public class UpdateProfile_A extends AppCompatActivity {
         });
 
     }
-
-
 
 
     private EditText textInputLayout(int id) {
@@ -225,6 +240,7 @@ public class UpdateProfile_A extends AppCompatActivity {
 
 
     }
+
     private void UpdateData() {
 
         final ProgressDialog progressDialog = new ProgressDialog(UpdateProfile_A.this);
@@ -299,6 +315,7 @@ public class UpdateProfile_A extends AppCompatActivity {
 
         Volley.newRequestQueue(this).add(stringRequest);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -336,7 +353,8 @@ public class UpdateProfile_A extends AppCompatActivity {
 
                 }
             }
-        } else if (requestCode == CAMERA) {
+        }
+        else if (requestCode == CAMERA) {
             // Uri selectedImage = (Uri.fromFile(new File(imageFilePath)));
 
             File image_file = new File(imageFilePath);
@@ -383,6 +401,33 @@ public class UpdateProfile_A extends AppCompatActivity {
             }
 
 
+        }
+
+
+        if (resultCode == RESULT_OK) {
+
+            if (requestCode == REQUESTCODE_MAP) {
+                Double lat = data.getDoubleExtra("latitude", 0);
+                Double longe = data.getDoubleExtra("longitude", 0);
+                Address address = Functions.getAddressFromLatLong(lat, longe, UpdateProfile_A.this);
+                setDataonLocation(address);
+                str_latitude = String.valueOf(lat);
+                str_longitude = String.valueOf(longe);
+                Log.d(TAG, "onActivityResult: " + address);
+                Log.d(TAG, "onActivityResult: " + longe);
+                Log.d(TAG, "onActivityResult: " + lat);
+            }
+
+        }
+
+        switch (requestCode) {
+            case 3: {
+                if (resultCode == RESULT_OK) {
+
+                    Bind_Location_service(UpdateProfile_A.this);
+                }
+            }
+            break;
         }
 
 
@@ -456,8 +501,85 @@ public class UpdateProfile_A extends AppCompatActivity {
         imageFilePath = image.getAbsolutePath();
         return image;
     }
+
     private void hideKeyboard() {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
+    public void EnableGPS() {
+
+        if (Functions.check_location_permissions(UpdateProfile_A.this)) {
+            if (!GpsUtils.isGPSENABLE(UpdateProfile_A.this)) {
+                // Toast.makeText(getApplicationContext(), "Please Enable GPS", Toast.LENGTH_SHORT).show();
+                Intent gpsOptionsIntent = new Intent(
+                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(gpsOptionsIntent);
+            } else {
+                enable_permission();
+            }
+        } else {
+            Intent gpsOptionsIntent = new Intent(
+                    android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(gpsOptionsIntent);
+            Toast.makeText(getApplicationContext(), "Please Enable GPS", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    private void setDataonLocation(Address address) {
+
+        if (address != null) {
+            Functions.LOGE("EditProfile", "Address  : " + address.toString());
+            String location_address = Functions.getLocationFromGeoAddress(address);
+
+            textInputLayout(R.id.et_address).setText("" + location_address);
+
+          /*  String city = address.getSubAdminArea();
+            if (Functions.checkStringisValid(city)) {
+                et_city.setText("" + city);
+            }
+
+
+            String pin_code = address.getPostalCode();
+            if (Functions.checkStringisValid(pin_code)) {
+                // edt_pincode.setText("" + pin_code);
+            }
+
+            String locality = address.getFeatureName();
+            if (Functions.checkStringisValid(locality)) {
+                // et.setText("" + locality);
+            }
+
+            String state = address.getAdminArea();
+            if (Functions.checkStringisValid(state)) {
+                et_state.setText("" + state);
+            }
+
+            String country = address.getCountryName();
+            if (Functions.checkStringisValid(country)) {
+                //  edt_country.setText("" + country);
+            }
+*/
+        }
+
+    }
+
+    private void enable_permission() {
+
+
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        boolean GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if (!GpsStatus) {
+
+            new GpsUtils(UpdateProfile_A.this).turnGPSOn(isGPSEnable -> {
+
+                enable_permission();
+
+            });
+        } else if (Functions.check_location_permissions(UpdateProfile_A.this)) {
+            Bind_Location_service(UpdateProfile_A.this);
+
+            startActivityForResult(new Intent(UpdateProfile_A.this, GooglePlaces_A.class), REQUESTCODE_MAP);
+        }
+    }
 }
