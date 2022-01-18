@@ -150,6 +150,7 @@ public class MyOrderDetails extends AppCompatActivity {
                             }
                         }
 
+
                         ((TextView) findViewById(R.id.toolbr_lbl)).setText(placeModel.name);
                         ((TextView) findViewById(R.id.name)).setText(placeModel.name);
                         ((TextView) findViewById(R.id.description)).setText(placeModel.description);
