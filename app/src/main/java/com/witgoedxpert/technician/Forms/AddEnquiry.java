@@ -10,18 +10,27 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.witgoedxpert.technician.Helper.Constant;
 import com.witgoedxpert.technician.Helper.DrawingViewUtils;
 import com.witgoedxpert.technician.Helper.Methods;
@@ -51,6 +60,7 @@ public class AddEnquiry extends AppCompatActivity {
     private int mCurrentBackgroundColor;
     private int mCurrentColor;
     private int mCurrentStroke;
+    ImageView img_sign;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -72,24 +82,30 @@ public class AddEnquiry extends AppCompatActivity {
 
         GetCurrent_Date();
 
+        img_sign = findViewById(R.id.img_sign);
         radioGenderGroup = findViewById(R.id.radioGrp);
         radio_F = findViewById(R.id.radioF);
         radio_M = findViewById(R.id.radioM);
         ((TextView) findViewById(R.id.toolbr_lbl)).setText(str_name_pro);
         textInputLayout(R.id.et_name).setText(str_user_name);
         textInputLayout(R.id.et_address).setText(str_user_address);
-        mDrawingViewUtils = findViewById(R.id.main_drawing_view);
 
-        initDrawingView();
+
         findViewById(R.id.bt_menu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
-
+        findViewById(R.id.img_sign).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomDialogClass cdd = new CustomDialogClass(AddEnquiry.this);
+                cdd.show();
+            }
+        });
         findViewById(R.id.btn_submit).setOnClickListener(v -> {
-            str_sign = Constant.Convert_Bitmap_to_base64(mDrawingViewUtils.getBitmap());
+            //str_sign = Constant.Convert_Bitmap_to_base64(mDrawingViewUtils.getBitmap());
             Log.e("str_sign", "onClick: " + str_sign);
             if (!textInputLayout(R.id.et_name).getText().toString().equals("")) {
                 if (!textInputLayout(R.id.et_address).getText().toString().equals("")) {
@@ -97,25 +113,25 @@ public class AddEnquiry extends AppCompatActivity {
                         if (!textInputLayout(R.id.et_time).getText().toString().equals("")) {
                             if (!textInputLayout(R.id.et_parts).getText().toString().equals("")) {
                                 if (!textInputLayout(R.id.et_total).getText().equals("")) {
-                                if (!textInputLayout(R.id.et_email).getText().equals("")) {
-                                    if (!str_sign.equals("")) {
-                                        if (Constant.isNetworkAvailable(getApplicationContext())) {
-                                            SubmitData();
+                                    if (!textInputLayout(R.id.et_email).getText().equals("")) {
+                                        if (!str_sign.equals("")) {
+                                            if (Constant.isNetworkAvailable(getApplicationContext())) {
+                                                SubmitData();
+                                            } else {
+                                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
+                                            }
+
                                         } else {
-                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
+                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_name));
                                         }
 
                                     } else {
-                                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_name));
+                                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_address));
                                     }
 
                                 } else {
-                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_address));
+                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_invalid_email));
                                 }
-
-                            } else {
-                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_invalid_email));
-                            }
                             } else {
                                 Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_cost));
                             }
@@ -267,4 +283,53 @@ public class AddEnquiry extends AppCompatActivity {
         return ((EditText) findViewById(id));
     }
 
+    public class CustomDialogClass extends Dialog implements
+            android.view.View.OnClickListener {
+
+        public Activity c;
+        public Dialog d;
+        public Button yes, no;
+
+        public CustomDialogClass(Activity a) {
+            super(a);
+            // TODO Auto-generated constructor stub
+            this.c = a;
+        }
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            requestWindowFeature(Window.FEATURE_NO_TITLE);
+            setContentView(R.layout.custom_dialog_new);
+            yes = (Button) findViewById(R.id.btn_yes);
+            no = (Button) findViewById(R.id.btn_no);
+            mDrawingViewUtils = findViewById(R.id.main_drawing_view);
+            initDrawingView();
+            yes.setOnClickListener(this);
+            no.setOnClickListener(this);
+
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.btn_yes:
+                    str_sign = Constant.Convert_Bitmap_to_base64(mDrawingViewUtils.getBitmap());
+                    Log.e("str_sign", "onClick: " + str_sign);
+                    Glide.with(c)
+                            .asBitmap()
+                            .load(mDrawingViewUtils.getBitmap())
+                            .into(img_sign);
+
+                    break;
+                case R.id.btn_no:
+                    dismiss();
+                    break;
+                default:
+                    break;
+            }
+            dismiss();
+        }
+    }
 }

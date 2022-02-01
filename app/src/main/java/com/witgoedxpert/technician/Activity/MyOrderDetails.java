@@ -179,6 +179,11 @@ public class MyOrderDetails extends AppCompatActivity {
                             intent.putExtra("main_id", orderModel.id);
                             startActivity(intent);
                         });
+                        findViewById(R.id.btn_bill).setOnClickListener(view -> {
+                            Intent intent = new Intent(getApplicationContext(), Bill_Info.class);
+                            intent.putExtra("main_id", orderModel.id);
+                            startActivity(intent);
+                        });
 
 
 

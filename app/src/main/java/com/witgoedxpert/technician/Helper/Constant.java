@@ -22,25 +22,28 @@ public class Constant {
     public static final String NEW_ORDER_ID = "1";
     public static final String PUSH_NOTIFICATION = "pushNotification";
 
-    public static final String MAIN = "https://androappstech.in/WitgoedXpert_dev/api/";
-    public static final String image_url_ = "https://androappstech.in/WitgoedXpert_dev/data/Product/";
-    public static final String image_url_mechanic = "https://androappstech.in/WitgoedXpert_dev/data/Mechanic/";
-/*
- public static final String MAIN = "https://androappstech.in/WitgoedXpert/api/";
-    public static final String image_url_ = "https://androappstech.in/WitgoedXpert/data/Product/";
-*/
+    public static final String MAIN = "https://androappstech.in/WitgoedXpert_dev/";
+    public static final String API = MAIN + "api/";
 
-    public static String register = MAIN + "User/Registration";
-    public static String login = MAIN + "Mechanic/login";
-    public static String AssignMechanic = MAIN + "Mechanic/AssignMechanic";
-    public static String addEnquiry = MAIN + "Mechanic/Invoice";
-    public static String viewEnquiry = MAIN + "Enquiry/viewEnquiry";
-    public static String mechanicDetails = MAIN + "Mechanic/MechanicDetails";
-    public static String userDetails = MAIN + "User/UserDetails";
-    public static String booking = MAIN + "Mechanic/booking";
-    public static String Send_latlong = MAIN + "Mechanic/editLocation";
-    public static String enquiry_details = MAIN + "enquiry/enquiry_details";
-    public static String update_profile = MAIN + "Mechanic/update_profile";
+    /*public static final String MAIN = "https://androappstech.in/WitgoedXpert/api/";
+     public static final String image_url_ = "https://androappstech.in/WitgoedXpert/data/Product/"; */
+
+    public static final String image_url_ = MAIN + "data/Product/";
+    public static final String image_url_mechanic = MAIN + "data/Mechanic/";
+    public static final String image_url_invoice = MAIN + "data/Invoice/";
+
+    public static String register = API + "User/Registration";
+    public static String login = API + "Mechanic/login";
+    public static String AssignMechanic = API + "Mechanic/AssignMechanic";
+    public static String addEnquiry = API + "Mechanic/Invoice";
+    public static String viewEnquiry = API + "Enquiry/viewEnquiry";
+    public static String mechanicDetails = API + "Mechanic/MechanicDetails";
+    public static String userDetails = API + "User/UserDetails";
+    public static String booking = API + "Mechanic/booking";
+    public static String Send_latlong = API + "Mechanic/editLocation";
+    public static String enquiry_details = API + "enquiry/enquiry_details";
+    public static String invoice_details = API + "enquiry/invoice_details";
+    public static String update_profile = API + "Mechanic/update_profile";
 
 
     public static String Token = "c7d3965d49d4a59b0da80e90646aee77548458b3377ba3c0fb43d5ff91d54ea28833080e3de6ebd4fde36e2fb7175cddaf5d8d018ac1467c3d15db21c11b6909";
@@ -63,7 +66,7 @@ public class Constant {
 
     /*---------------------------------------------------------------------------------------------------------*/
     public static final String BDE_URL = "";
-    public static final String PRO_URL ="";
+    public static final String PRO_URL = "";
     public static String formList = MAIN + "ProContactSource";
     public static String pro_common_data = MAIN + "pro_common_data";
     public static String branchwisepro = MAIN + "branchwisepro/?branch_id=";
@@ -118,15 +121,15 @@ public class Constant {
 
     /*=======================================================================================================================================*/
 
-    public  static  String Convert_Bitmap_to_base64(Bitmap bitmap){
+    public static String Convert_Bitmap_to_base64(Bitmap bitmap) {
 
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        byte[] byteArray = byteArrayOutputStream .toByteArray();
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
         String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
 
-        return  encoded;
+        return encoded;
     }
 
 }

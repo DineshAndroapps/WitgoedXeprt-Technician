@@ -37,9 +37,9 @@ import java.util.Map;
 
 public class Bill_Info extends AppCompatActivity {
     SharedPreferences sharedPreferences;
-    String str_userid, str_intent_flag, accessToken;
-    ImageView image;
-    OrderModel orderModel;
+    String str_userid, str_intent_id, accessToken;
+    ImageView image, sign_image;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +48,10 @@ public class Bill_Info extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
         str_userid = sharedPreferences.getString(USER_ID, "");
         findViewById(R.id.bt_menu).setOnClickListener(view -> onBackPressed());
-      
+        str_intent_id = getIntent().getStringExtra("main_id");
+
         image = findViewById(R.id.image);
-        Glide.with(getApplicationContext()).load(Constant.image_url_ + orderModel.image).placeholder(R.drawable.app_icon).into(image);
+        sign_image = findViewById(R.id.sign_image);
 
 
     }
@@ -58,15 +59,16 @@ public class Bill_Info extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        GetData(orderModel.id);
+        GetData("");
     }
+
     private void GetData(String enquiry_id) {
 
         final ProgressDialog progressDialog = new ProgressDialog(Bill_Info.this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading..");
         progressDialog.show();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.enquiry_details, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.invoice_details, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.e("GetData_Assign_data", "onResponse: " + response);
@@ -76,7 +78,7 @@ public class Bill_Info extends AppCompatActivity {
                     String code = jsonObject.getString("code");
                     if (code.equals("200")) {
                         progressDialog.dismiss();
-                        JSONObject jsonArrayvideo = jsonObject.getJSONObject("enquiry_data");
+                        JSONObject jsonArrayvideo = jsonObject.getJSONObject("data");
                         OrderModel placeModel = new OrderModel();
 
                         placeModel.id = jsonArrayvideo.getString("id");
@@ -100,6 +102,8 @@ public class Bill_Info extends AppCompatActivity {
                         placeModel.status = jsonArrayvideo.getString("status");
                         placeModel.service_staus = "pending";
                         Log.d("BookedSlot", "onResponse: " + jsonArrayvideo.optJSONObject("BookedSlot"));
+                        Glide.with(getApplicationContext()).load(Constant.image_url_ + jsonArrayvideo.getString("image")).placeholder(R.drawable.app_icon).into(image);
+
 
                         JSONObject BookedSlot = jsonArrayvideo.optJSONObject("BookedSlot");
                         if (BookedSlot != null) {
@@ -114,7 +118,6 @@ public class Bill_Info extends AppCompatActivity {
                             }
                         }
 
-                        ((TextView) findViewById(R.id.toolbr_lbl)).setText(placeModel.name);
                         ((TextView) findViewById(R.id.name)).setText(placeModel.name);
                         ((TextView) findViewById(R.id.description)).setText(placeModel.description);
                         ((TextView) findViewById(R.id.error_code)).setText(placeModel.error_code);
@@ -130,8 +133,17 @@ public class Bill_Info extends AppCompatActivity {
                         ((TextView) findViewById(R.id.added_date)).setText(placeModel.added_date);
                         ((TextView) findViewById(R.id.product_name)).setText(placeModel.product_name);
                         ((TextView) findViewById(R.id.slot_time)).setText(placeModel.slot_start_time + " - " + placeModel.slot_end_time);
-                        ((TextView) findViewById(R.id.slot_date)).setText(placeModel.slot_date );
+                        ((TextView) findViewById(R.id.slot_date)).setText(placeModel.slot_date);
 
+                        ((TextView) findViewById(R.id.toolbr_lbl)).setText("Billing Info #" + jsonArrayvideo.optJSONObject("Invoice").getString("id"));
+
+
+                        ((TextView) findViewById(R.id.parts)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("parts"));
+                        ((TextView) findViewById(R.id.email)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("email"));
+                        ((TextView) findViewById(R.id.time_taken)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("time"));
+                        ((TextView) findViewById(R.id.cost)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("cost"));
+                        ((TextView) findViewById(R.id.et_total)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("total"));
+                        Glide.with(getApplicationContext()).load(Constant.image_url_invoice + jsonArrayvideo.getString("image")).placeholder(R.color.white).into(sign_image);
 
 
                     } else {
@@ -158,7 +170,7 @@ public class Bill_Info extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap();
-                params.put("enquiry_id", enquiry_id);
+                params.put("enquiry_id", str_intent_id);
 
                 Log.d("params", "getParams: " + params);
                 return params;
