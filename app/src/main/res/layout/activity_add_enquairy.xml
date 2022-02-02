@@ -168,6 +168,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="Signature "
+                    android:fontFamily="@font/montserrat_regular"
                     android:textColor="@color/black" />
 
 
@@ -203,6 +204,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="Next Appointment "
+                    android:fontFamily="@font/montserrat_regular"
                     android:textColor="@color/black" />
 
                 <RadioGroup
@@ -220,6 +222,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_regular"
                         android:checked="false"
                         android:text="@string/YES"
                         android:textSize="14dp" />
@@ -230,6 +233,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_regular"
                         android:checked="false"
                         android:text="No"
                         android:textSize="14dp" />
@@ -241,6 +245,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="@font/montserrat_medium"
                     android:background="@drawable/button_bg"
                     android:gravity="center"
                     android:text="submit"

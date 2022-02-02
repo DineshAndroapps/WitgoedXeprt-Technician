@@ -19,6 +19,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,6 +30,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +65,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -111,13 +114,50 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
             e.printStackTrace();
         }
 
+        findViewById(R.id.date_picker_actions).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                int mYear = calendar.get(Calendar.YEAR);
+                int mMonth = calendar.get(Calendar.MONTH);
+                int mDay = calendar.get(Calendar.DAY_OF_MONTH);
+/*
+1/2/2013
+d/m/y
+Looking for:
+01/02/2013
+dd/mm/yyyy
+https://stackoverflow.com/questions/14153811/date-format-change-in-datepicker-and-calendar/14153993#14153993#answers
+https://developer.android.com/reference/java/text/SimpleDateFormat
+* */
+                DatePickerDialog datePickerDialog = new DatePickerDialog(SchedulePage_A.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        //   editDate.setText(i2 + "-" + (i1 + 1) + "-" + i);
+                      String  date_get = i + "-" + (i1 + 1) + "-" + i2;
+                        Date date = null;
+                        try {
+                            date = fmt.parse(date_get);
+                            ((TextView) findViewById(R.id.date_show)).setText(fmtOut_.format(date) + " " + fmtOut.format(date));
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        home_data_list.clear();
+                        GetData(fmt.format(date));
+                    }
+                }, mYear, mMonth, mDay);
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis() - 1);
+                datePickerDialog.show();
+            }
+        });
 
         rv_list = findViewById(R.id.rv_list);
         rv_list.setLayoutManager(new LinearLayoutManager(SchedulePage_A.this, LinearLayoutManager.VERTICAL, false));
         rv_list.setAdapter(orders_adapter);
 
         if (Constant.isNetworkAvailable(SchedulePage_A.this)) {
-            GetData(year + "-" + month + "-" + day);
+            GetData(fmt.format(date));
         } else {
             Toast.makeText(SchedulePage_A.this, "Internet Connection Not Available", Toast.LENGTH_SHORT).show();
         }
@@ -230,6 +270,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
                 HashMap<String, String> params = new HashMap();
                 params.put("mechanic_id", str_userid);
                 params.put("assigned", "");
+                params.put("date", date_);
                 /* 0=pending,1=process/accept,2=complete, 3=reject*/
                 Log.d("params", "getParams: " + params);
                 return params;
