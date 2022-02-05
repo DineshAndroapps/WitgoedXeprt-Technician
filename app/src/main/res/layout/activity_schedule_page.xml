@@ -37,8 +37,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:itemTextAppearance="@style/NavTextViewStyle"
         app:headerLayout="@layout/include_drawer_header_news"
+        app:itemTextAppearance="@style/NavTextViewStyle"
         app:menu="@menu/menu_navigation_drawer_news">
 
         <LinearLayout

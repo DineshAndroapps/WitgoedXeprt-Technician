@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -159,7 +160,7 @@ public class MyOrderDetails extends AppCompatActivity {
                         ((TextView) findViewById(R.id.age_machine)).setText(placeModel.age_machine);
                         ((TextView) findViewById(R.id.address)).setText(placeModel.address);
                         ((TextView) findViewById(R.id.phone)).setText(placeModel.phone);
-                        if (placeModel.additional_info.equals(null)) {
+                        if (!placeModel.additional_info.equals(null)) {
                             ((TextView) findViewById(R.id.additional_info)).setText(placeModel.additional_info);
                         } else {
                             ((TextView) findViewById(R.id.additional_info)).setText("");
@@ -299,6 +300,7 @@ public class MyOrderDetails extends AppCompatActivity {
                         GetData(orderModel.id);
 
                     } else {
+                        Toast.makeText(MyOrderDetails.this, ""+message, Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
 
                     }

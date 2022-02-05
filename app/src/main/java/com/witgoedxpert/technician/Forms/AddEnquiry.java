@@ -51,7 +51,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddEnquiry extends AppCompatActivity {
+public class
+AddEnquiry extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String str_userid, str_user_name, str_user_address, str_name, str_name_pro, str_customer_id = "", str_product_id = "", str_main_id, date_get, userGender = "0", str_sign = "";
     private RadioGroup radioGenderGroup;
