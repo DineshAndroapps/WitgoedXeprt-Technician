@@ -143,7 +143,7 @@ public class Bill_Info extends AppCompatActivity {
                         ((TextView) findViewById(R.id.time_taken)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("time"));
                         ((TextView) findViewById(R.id.cost)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("cost"));
                         ((TextView) findViewById(R.id.et_total)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("total"));
-                        Glide.with(getApplicationContext()).load(Constant.image_url_invoice + jsonArrayvideo.getString("image")).placeholder(R.color.white).into(sign_image);
+                        Glide.with(getApplicationContext()).load(Constant.image_url_invoice + jsonArrayvideo.optJSONObject("Invoice").getString("signature")).placeholder(R.color.white).into(sign_image);
 
 
                     } else {
