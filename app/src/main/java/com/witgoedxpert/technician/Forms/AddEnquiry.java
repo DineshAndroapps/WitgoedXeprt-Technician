@@ -205,7 +205,7 @@ AddEnquiry extends AppCompatActivity {
                         userGender = "1";
                         findViewById(R.id.next_task_lnr).setVisibility(View.VISIBLE);
                     } else {
-                        checkPosition = -1;
+                      //  checkPosition = -1;
                         str_selected_slot_date = "";
                         str_selected_slot_id = "";
                         userGender = "0";
