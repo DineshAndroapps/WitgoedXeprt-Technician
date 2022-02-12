@@ -13,4 +13,5 @@ public class SlotModel implements Serializable {
     public String isDeleted;
     public String status;
     public String date_get;
+    public String bookingStatus;
 }

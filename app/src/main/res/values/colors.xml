@@ -101,6 +101,7 @@
     <color name="bg_recycler_screen">@color/gray0</color>
     <color name="background_color">@color/white</color>
     <color name="textColor">#000000</color>
+    <color name="gray_new">#e0e0e0</color>
 
 
 </resources>

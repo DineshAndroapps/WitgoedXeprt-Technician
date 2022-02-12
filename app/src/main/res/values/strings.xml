@@ -83,6 +83,7 @@ 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
     <string name="error_phone">Enter the valid Phone No</string>
     <string name="error_address">Enter the valid Address</string>
     <string name="error_name">Enter the valid Name</string>
+    <string name="error_sign">Please add signature</string>
     <string name="error_age">Enter the valid Machine Age</string>
     <string name="error_code">Enter the valid Type of Machine</string>
     <string name="error_des">Enter the valid Description</string>

@@ -13,17 +13,43 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9697a2d2-b530-44a7-8bf7-1c784b990469" name="Default Changelist" comment="issue fixed new">
+    <list default="true" id="9697a2d2-b530-44a7-8bf7-1c784b990469" name="Default Changelist" comment="sign issue fixed">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterSlot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/d_dashed_border_cate.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/d_dashed_border_orange.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_bg_curve.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_time_slot.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Bill_Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Bill_Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/AddEnquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/AddEnquiry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Forms/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/SlotModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/SlotModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_enquairy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_enquairy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_bill_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_bill_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/toolbar_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/toolbar_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[676a9ba89905]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -53,9 +79,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
+        <option value="layoutResourceFile" />
         <option value="resourceFile" />
         <option value="Class" />
-        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -109,18 +135,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.witgoedxpert.technician.Forms" />
       <recent name="com.pro.marketing.Adapters" />
       <recent name="com.pro.marketing.model" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\drawable-v24" />
-      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\font" />
-      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\drawable" />
-      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\layout" />
-      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\java\com\witgoedxpert\technician\Helper" />
-    </key>
-    <key name="android.template.2046712978">
-      <recent name="com.witgoedxpert.technician.Forms" />
     </key>
     <key name="android.template.-1718593387">
       <recent name="com.androapp.customer.Activity" />
@@ -135,15 +152,8 @@
     <key name="android.template.1705305361">
       <recent name="com.pro.marketing.Activity" />
     </key>
-    <key name="android.template.-398088741">
-      <recent name="com.witgoedxpert.technician.Activity" />
-    </key>
-    <key name="android.template.1144273133">
-      <recent name="com.pro.marketing.Activity.Home" />
-    </key>
-    <key name="android.template.-145406333">
+    <key name="android.template.-315292789">
       <recent name="com.witgoedxpert.technician.Activity.Home" />
-      <recent name="com.witgoedxpert.technician.Activity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.witgoedxpert.technician.Helper" />
@@ -154,6 +164,26 @@
     </key>
     <key name="android.template.-546315250">
       <recent name="com.pro.marketing.Activity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\drawable-v24" />
+      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\font" />
+      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\drawable" />
+      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\res\layout" />
+      <recent name="E:\AndroApps\WitgoedXpert\WorkSpace\WitgoedXpert Technical\app\src\main\java\com\witgoedxpert\technician\Helper" />
+    </key>
+    <key name="android.template.2046712978">
+      <recent name="com.witgoedxpert.technician.Forms" />
+    </key>
+    <key name="android.template.-398088741">
+      <recent name="com.witgoedxpert.technician.Activity" />
+    </key>
+    <key name="android.template.1144273133">
+      <recent name="com.pro.marketing.Activity.Home" />
+    </key>
+    <key name="android.template.-145406333">
+      <recent name="com.witgoedxpert.technician.Activity.Home" />
+      <recent name="com.witgoedxpert.technician.Activity" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -572,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644061351055</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="sign issue fixed">
+      <created>1644065020571</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1644065020572</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -588,7 +625,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Check In/Out Done &amp; Working on Pro Map." />
     <MESSAGE value="Sheet Issue Resolved &amp; Minor changes in PRO" />
     <MESSAGE value="Working On Camera &amp; Sheet Issue Solved." />
     <MESSAGE value="Camera Issue Resolved." />
@@ -613,7 +649,8 @@
     <MESSAGE value="Signature Issued Fix" />
     <MESSAGE value="Added date dialog and date wise listing done" />
     <MESSAGE value="issue fixed new" />
-    <option name="LAST_COMMIT_MESSAGE" value="issue fixed new" />
+    <MESSAGE value="sign issue fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="sign issue fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -72,7 +72,6 @@
                             style="@style/edt_layout_login_InputEditText"
                             android:imeOptions="actionNext"
                             android:inputType="phone"
-                            android:maxLength="10"
                             android:maxLines="1" />
 
                     </com.google.android.material.textfield.TextInputLayout>

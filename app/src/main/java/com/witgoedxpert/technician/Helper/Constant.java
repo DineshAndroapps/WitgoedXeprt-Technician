@@ -44,6 +44,7 @@ public class Constant {
     public static String enquiry_details = API + "enquiry/enquiry_details";
     public static String invoice_details = API + "enquiry/invoice_details";
     public static String update_profile = API + "Mechanic/update_profile";
+    public static String mechanic_slot = API + "mechanic/mechanic_slot";
 
 
     public static String Token = "c7d3965d49d4a59b0da80e90646aee77548458b3377ba3c0fb43d5ff91d54ea28833080e3de6ebd4fde36e2fb7175cddaf5d8d018ac1467c3d15db21c11b6909";

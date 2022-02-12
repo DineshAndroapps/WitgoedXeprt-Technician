@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Constant.isNetworkAvailable(LoginActivity.this)) {
-                    if (email.getText().length() != 10) {
+                    if (email.getText().toString().trim().equals("")) {
                         Toast.makeText(LoginActivity.this, "Please Enter the valid Phone No", Toast.LENGTH_SHORT).show();
 
                     } else if (password.getText().toString().trim().equals("")) {
@@ -112,12 +112,12 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e(TAG, "onResponse: "+response );
+                        Log.e(TAG, "onResponse: " + response);
                         String code, message, id, user_id;
 
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            message= jsonObject.getString("message");
+                            message = jsonObject.getString("message");
 
                             if (jsonObject.getString("code").equals("200")) {
                                 JSONObject user_data = jsonObject.getJSONObject("Mechanic_data");
@@ -138,7 +138,10 @@ public class LoginActivity extends AppCompatActivity {
                                 finish();
                                 Toast.makeText(getApplicationContext(), "Login Successfully!", Toast.LENGTH_SHORT).show();
 
-                            }else{
+                            } else if (jsonObject.getString("code").equals("403")) {
+                                Toast.makeText(LoginActivity.this, "Phone No not registered", Toast.LENGTH_SHORT).show();
+
+                            } else {
                                 Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
 
                             }

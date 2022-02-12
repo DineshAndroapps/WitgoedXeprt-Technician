@@ -70,6 +70,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Product Name: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -82,8 +83,9 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
-                                    android:text=""
+                                    android:text="@string/app_name"
                                     android:textAllCaps="true"
                                     android:textColor="@color/textColor" />
 
@@ -101,6 +103,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Description: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -113,6 +116,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:text=""
                                     android:textAllCaps="true"
                                     android:textColor="@color/textColor" />
@@ -131,6 +135,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="error code: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -143,6 +148,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:text=""
                                     android:textAllCaps="true"
                                     android:textColor="@color/textColor" />
@@ -161,6 +167,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="type of machine: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -173,6 +180,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -192,6 +200,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="machine age: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -204,6 +213,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -223,6 +233,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="customer name: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -235,6 +246,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -254,6 +266,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="address: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -266,6 +279,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:text=""
                                     android:textAllCaps="true"
                                     android:textColor="@color/textColor" />
@@ -284,6 +298,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="phone: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -296,6 +311,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -315,6 +331,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Slot time: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -327,6 +344,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -346,6 +364,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Slot date: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -358,6 +377,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -377,6 +397,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="additional info: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -389,6 +410,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -408,6 +430,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Booking date: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -420,6 +443,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -439,6 +463,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Parts: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -451,6 +476,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -458,6 +484,7 @@
 
 
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -469,6 +496,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Customer Email: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -481,6 +509,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -488,6 +517,7 @@
 
 
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -499,6 +529,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Time Taken: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -511,6 +542,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -518,6 +550,7 @@
 
 
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -529,6 +562,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Cost: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -541,6 +575,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -560,6 +595,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="Total Bill: "
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
@@ -572,6 +608,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:maxLines="1"
                                     android:text=""
                                     android:textAllCaps="true"
@@ -579,13 +616,15 @@
 
 
                             </LinearLayout>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Signature: "
-                                android:textAllCaps="true"
                                 android:layout_marginStart="15sp"
                                 android:layout_marginTop="10dp"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="Signature: "
+                                android:textAllCaps="true"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
@@ -614,6 +653,7 @@
                         android:layout_height="45dp"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="20dp"
+                        android:fontFamily="@font/montserrat_medium"
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="@dimen/_50sdp"
                         android:background="@color/colorPrimary"

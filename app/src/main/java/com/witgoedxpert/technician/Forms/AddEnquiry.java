@@ -9,10 +9,15 @@ import static com.witgoedxpert.technician.Forms.LoginActivity.USER_ID;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -21,6 +26,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -28,9 +34,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.RequestQueue;
+import com.android.volley.RetryPolicy;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.witgoedxpert.technician.Adapters.AdapterSlot;
 import com.witgoedxpert.technician.Helper.Constant;
 import com.witgoedxpert.technician.Helper.DrawingViewUtils;
 import com.witgoedxpert.technician.Helper.Methods;
@@ -41,12 +51,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.witgoedxpert.technician.model.SlotModel;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,7 +70,7 @@ import java.util.Map;
 public class
 AddEnquiry extends AppCompatActivity {
     SharedPreferences sharedPreferences;
-    String str_userid, str_user_name, str_user_address, str_name, str_name_pro, str_customer_id = "", str_product_id = "", str_main_id, date_get, userGender = "0", str_sign = "";
+    String str_userid, str_user_name, str_user_address, date_get_next, str_name, str_name_pro, str_customer_id = "", str_product_id = "", str_main_id, date_get, userGender = "0", str_sign = "";
     private RadioGroup radioGenderGroup;
     private RadioButton radio_F, radio_M;
     DrawingViewUtils mDrawingViewUtils;
@@ -62,6 +78,20 @@ AddEnquiry extends AppCompatActivity {
     private int mCurrentColor;
     private int mCurrentStroke;
     ImageView img_sign;
+
+    TextView title, date_show;
+    ImageView image, date_picker_actions;
+    //  DesignModel designModel;
+    RecyclerView recyclerView_slot;
+    TextView no_slot;
+    ArrayList<SlotModel> slotModelArrayList = new ArrayList<>();
+    SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat fmtOut = new SimpleDateFormat("dd'th' MMMM yy ");
+    SimpleDateFormat fmtOut_ = new SimpleDateFormat("EEEE ");
+    String booking_id = "";
+    public static int checkPosition = -1;
+    AdapterSlot adapterSlot;
+    String str_mec_id, str_form = "", str_selected_slot_date = "", str_selected_slot_id = "";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -80,7 +110,7 @@ AddEnquiry extends AppCompatActivity {
         str_main_id = getIntent().getStringExtra("main_id");
         str_user_name = getIntent().getStringExtra("user_name");
         str_user_address = getIntent().getStringExtra("user_address");
-
+        SetDataForNextBooking();
         GetCurrent_Date();
 
         img_sign = findViewById(R.id.img_sign);
@@ -105,6 +135,7 @@ AddEnquiry extends AppCompatActivity {
                 cdd.show();
             }
         });
+
         findViewById(R.id.btn_submit).setOnClickListener(v -> {
             //str_sign = Constant.Convert_Bitmap_to_base64(mDrawingViewUtils.getBitmap());
             Log.e("str_sign", "onClick: " + str_sign);
@@ -115,26 +146,26 @@ AddEnquiry extends AppCompatActivity {
                             if (!textInputLayout(R.id.et_parts).getText().toString().equals("")) {
                                 if (!textInputLayout(R.id.et_total).getText().equals("")) {
                                     if (!textInputLayout(R.id.et_email).getText().equals("")) {
-                                        if (!str_sign.equals("")) {
-                                            if (Constant.isNetworkAvailable(getApplicationContext())) {
-                                                SubmitData();
-                                            } else {
-                                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
-                                            }
-
+                                        /*  if (!str_sign.equals("")) {*/
+                                        if (Constant.isNetworkAvailable(getApplicationContext())) {
+                                            SubmitData();
                                         } else {
-                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_name));
+                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
                                         }
 
+                                       /* } else {
+                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_sign));
+                                        }*/
+
                                     } else {
-                                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_address));
+                                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.email_error));
                                     }
 
                                 } else {
-                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_invalid_email));
+                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_total));
                                 }
                             } else {
-                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_cost));
+                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part));
                             }
 
                         } else {
@@ -142,7 +173,7 @@ AddEnquiry extends AppCompatActivity {
                         }
 
                     } else {
-                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part));
+                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_cost));
                     }
 
 
@@ -172,8 +203,13 @@ AddEnquiry extends AppCompatActivity {
 
                     if (btn.getText().toString().equals("Yes")) {
                         userGender = "1";
+                        findViewById(R.id.next_task_lnr).setVisibility(View.VISIBLE);
                     } else {
+                        checkPosition = -1;
+                        str_selected_slot_date = "";
+                        str_selected_slot_id = "";
                         userGender = "0";
+                        findViewById(R.id.next_task_lnr).setVisibility(View.GONE);
                     }
 
                 }
@@ -182,6 +218,162 @@ AddEnquiry extends AppCompatActivity {
 
             Log.e("Gender", userGender);
         });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void SetDataForNextBooking() {
+        checkPosition = -1;
+        recyclerView_slot = findViewById(R.id.recyclerView_slot);
+        date_picker_actions = findViewById(R.id.date_picker_actions);
+        date_show = findViewById(R.id.date_show);
+        no_slot = findViewById(R.id.no_slot);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL); // set Horizontal Orientation
+        recyclerView_slot.setLayoutManager(gridLayoutManager);
+        adapterSlot = new AdapterSlot(slotModelArrayList, this);
+        recyclerView_slot.setAdapter(adapterSlot);
+
+        if (Constant.isNetworkAvailable(getApplicationContext())) {
+            Date date = new Date();
+            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            int year = localDate.getYear();
+            int month = localDate.getMonthValue();
+            int day = localDate.getDayOfMonth();
+            date_get_next = year + "-" + month + "-" + day;
+            Date date_ = null;
+            try {
+                date_ = fmt.parse(date_get_next);
+                date_show.setText(fmtOut.format(date));
+                ((TextView) findViewById(R.id.date_show_day)).setText(fmtOut_.format(date));
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            GetData(year + "-" + month + "-" + day);
+        } else {
+            Toast.makeText(getApplicationContext(), "Internet Connection Not Available", Toast.LENGTH_SHORT).show();
+        }
+
+        date_picker_actions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Calendar calendar = Calendar.getInstance();
+                int mYear = calendar.get(Calendar.YEAR);
+                int mMonth = calendar.get(Calendar.MONTH);
+                int mDay = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(AddEnquiry.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        //   editDate.setText(i2 + "-" + (i1 + 1) + "-" + i);
+                        date_get_next = i + "-" + (i1 + 1) + "-" + i2;
+                        Date date = null;
+                        try {
+                            date = fmt.parse(date_get_next);
+                            date_show.setText(fmtOut.format(date));
+                            ((TextView) findViewById(R.id.date_show_day)).setText(fmtOut_.format(date));
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        slotModelArrayList.clear();
+                        GetData(date_get_next);
+                    }
+                }, mYear, mMonth, mDay);
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis() - 1);
+                datePickerDialog.show();
+            }
+
+        });
+    }
+
+    public void GetData(String date_get) {
+        final ProgressDialog progressDialog = new ProgressDialog(AddEnquiry.this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading..");
+        progressDialog.show();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.mechanic_slot, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("list_cat", "onResponse: " + response);
+                try {
+
+                    JSONObject jsonObject = new JSONObject(response);
+                    String code = jsonObject.getString("code");
+                    if (code.equals("200")) {
+                        progressDialog.dismiss();
+                        no_slot.setVisibility(View.GONE);
+                        recyclerView_slot.setVisibility(View.VISIBLE);
+                        JSONArray jsonArrayvideo = jsonObject.getJSONArray("Mechanic_slots");
+                        slotModelArrayList.clear();
+
+                        for (int i = 0; i < jsonArrayvideo.length(); i++) {
+                            SlotModel slotModel = new SlotModel();
+                            JSONObject BMIReport = jsonArrayvideo.getJSONObject(i);
+                            slotModel.id = BMIReport.getString("id");
+                            slotModel.day = BMIReport.getString("day");
+                            slotModel.start_time = BMIReport.getString("start_time");
+                            slotModel.end_time = BMIReport.getString("end_time");
+                            slotModel.added_date = BMIReport.getString("added_date");
+                            slotModel.status = BMIReport.getString("status");
+                            slotModel.bookingStatus = BMIReport.getString("is_booked");
+
+                            slotModel.date_get = date_get;//Booked Date
+
+                            slotModelArrayList.add(slotModel);
+                        }
+                        adapterSlot = new AdapterSlot(slotModelArrayList, AddEnquiry.this);
+                        recyclerView_slot.setAdapter(adapterSlot);
+                        adapterSlot.notifyDataSetChanged();
+                    } else {
+
+                        progressDialog.dismiss();
+                        no_slot.setVisibility(View.VISIBLE);
+                        recyclerView_slot.setVisibility(View.GONE);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    progressDialog.dismiss();
+                    no_slot.setVisibility(View.VISIBLE);
+                    recyclerView_slot.setVisibility(View.GONE);
+                }
+
+                progressDialog.dismiss();
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                progressDialog.dismiss();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap();
+                params.put("mechanic_id", str_userid);
+                params.put("date", date_get);
+                Log.d("params", "getParams: " + params);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> header = new HashMap<>();
+                header.put("token", Constant.Token);
+                return header;
+            }
+
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        RetryPolicy retryPolicy = new DefaultRetryPolicy(3000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(retryPolicy);
+        requestQueue.add(stringRequest);
+
     }
 
     private void initDrawingView() {
@@ -262,13 +454,16 @@ AddEnquiry extends AppCompatActivity {
                 params.put("date", date_get);
                 params.put("assigned", "6");
                 params.put("enquiry_id", str_main_id);
+                params.put("slot_id", str_selected_slot_id);
+                params.put("slot_date", str_selected_slot_date);
+                params.put("customer_id", str_customer_id);
                 Log.e("params", "getParams: " + params);
                 return params;
             }
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> headers = new HashMap<String, String>();
+            public Map<String, String> getHeaders() {
+                HashMap<String, String> headers = new HashMap<>();
                 headers.put("token", Constant.Token);
                 return headers;
             }
@@ -284,7 +479,36 @@ AddEnquiry extends AppCompatActivity {
         return ((EditText) findViewById(id));
     }
 
-    public class CustomDialogClass extends Dialog implements
+    public void onClickCalled(SlotModel formListModel, int position, String s) {
+        if (adapterSlot.getSelected() != null) {
+            Log.d("adapterFormList_event", "Init: " + adapterSlot.getSelected().start_time);
+            Log.d("adapterFormList_event", "Init: " + adapterSlot.getSelected().id);
+            Log.d("adapterFormList_event", "Init: " + date_get_next);
+            str_selected_slot_id = adapterSlot.getSelected().id;
+            str_selected_slot_date = date_get_next;
+           /* book_now.setBackground(getResources().getDrawable(R.drawable.d_orange_corner));
+            book_now.setText("Processed for Booking");
+            String final_time = adapterSlot.getSelected().start_time + " - " + adapterSlot.getSelected().end_time;
+            Log.d("adapterFormList_event", "Init: " + final_time);
+            book_now.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), AddEnquiry.class);
+                    intent.putExtra("str_product_id", sharedPreferences.getString(PRODUCT_ID, ""));
+                    intent.putExtra("date_get", designModel.date_get);
+                    intent.putExtra("str_mech_id", str_mec_id);
+                    intent.putExtra("slot_id", designModel.id);
+                    intent.putExtra("form", "now");
+                    intent.putExtra("flag", "add");
+                    startActivity(intent);
+                }
+            });
+*/
+
+        }
+    }
+
+    class CustomDialogClass extends Dialog implements
             android.view.View.OnClickListener {
 
         public Activity c;
@@ -333,4 +557,5 @@ AddEnquiry extends AppCompatActivity {
             dismiss();
         }
     }
+
 }
