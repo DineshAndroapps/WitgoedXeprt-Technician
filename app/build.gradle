@@ -14,8 +14,8 @@ android {
         applicationId "com.witgoedxpert.technician"
         minSdkVersion 17
         targetSdkVersion 30
-        versionCode 4
-        versionName "1.3"
+        versionCode 1
+        versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,6 +25,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        applicationVariants.all{
+            variant ->
+                variant.outputs.each{
+                    output->
+                        def name = "WitgoedXpert_Technical(${variant.versionName}).apk"
+                        output.outputFileName = name
+                }
+        }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

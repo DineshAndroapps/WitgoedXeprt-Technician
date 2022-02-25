@@ -85,6 +85,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
     AdapterSchedule orders_adapter;
     private ActionBar actionBar;
     private Toolbar toolbar;
+    Date date_main;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -98,8 +99,8 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
 
         initToolbar();
         initNavigationMenu();
-        Date date = new Date();
-        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        date_main = new Date();
+        LocalDate localDate = date_main.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         int year = localDate.getYear();
         int month = localDate.getMonthValue();
         int day = localDate.getDayOfMonth();
@@ -108,7 +109,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
         Date date_ = null;
         try {
             date_ = fmt.parse(date_get);
-            ((TextView) findViewById(R.id.date_show)).setText(fmtOut_.format(date) + " " + fmtOut.format(date));
+            ((TextView) findViewById(R.id.date_show)).setText(fmtOut_.format(date_main) + " " + fmtOut.format(date_main));
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -121,20 +122,12 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
                 int mYear = calendar.get(Calendar.YEAR);
                 int mMonth = calendar.get(Calendar.MONTH);
                 int mDay = calendar.get(Calendar.DAY_OF_MONTH);
-/*
-1/2/2013
-d/m/y
-Looking for:
-01/02/2013
-dd/mm/yyyy
-https://stackoverflow.com/questions/14153811/date-format-change-in-datepicker-and-calendar/14153993#14153993#answers
-https://developer.android.com/reference/java/text/SimpleDateFormat
-* */
+
                 DatePickerDialog datePickerDialog = new DatePickerDialog(SchedulePage_A.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                         //   editDate.setText(i2 + "-" + (i1 + 1) + "-" + i);
-                      String  date_get = i + "-" + (i1 + 1) + "-" + i2;
+                        String date_get = i + "-" + (i1 + 1) + "-" + i2;
                         Date date = null;
                         try {
                             date = fmt.parse(date_get);
@@ -156,11 +149,7 @@ https://developer.android.com/reference/java/text/SimpleDateFormat
         rv_list.setLayoutManager(new LinearLayoutManager(SchedulePage_A.this, LinearLayoutManager.VERTICAL, false));
         rv_list.setAdapter(orders_adapter);
 
-        if (Constant.isNetworkAvailable(SchedulePage_A.this)) {
-            GetData(fmt.format(date));
-        } else {
-            Toast.makeText(SchedulePage_A.this, "Internet Connection Not Available", Toast.LENGTH_SHORT).show();
-        }
+
 
 
     }
@@ -405,7 +394,13 @@ https://developer.android.com/reference/java/text/SimpleDateFormat
     @Override
     protected void onResume() {
         super.onResume();
-        getuserdata();
+        if (Constant.isNetworkAvailable(SchedulePage_A.this)) {
+            GetData(fmt.format(date_main));
+            getuserdata();
+        } else {
+            Toast.makeText(SchedulePage_A.this, "Internet Connection Not Available", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void SendFCM(String token) {

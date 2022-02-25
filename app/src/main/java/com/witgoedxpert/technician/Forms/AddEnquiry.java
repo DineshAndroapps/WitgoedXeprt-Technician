@@ -40,6 +40,7 @@ import com.android.volley.RetryPolicy;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.witgoedxpert.technician.Activity.Home.SchedulePage_A;
 import com.witgoedxpert.technician.Adapters.AdapterSlot;
 import com.witgoedxpert.technician.Helper.Constant;
 import com.witgoedxpert.technician.Helper.DrawingViewUtils;
@@ -205,7 +206,7 @@ AddEnquiry extends AppCompatActivity {
                         userGender = "1";
                         findViewById(R.id.next_task_lnr).setVisibility(View.VISIBLE);
                     } else {
-                      //  checkPosition = -1;
+                        //  checkPosition = -1;
                         str_selected_slot_date = "";
                         str_selected_slot_id = "";
                         userGender = "0";
@@ -417,6 +418,10 @@ AddEnquiry extends AppCompatActivity {
                         if (jsonObject.getString("code").equals("200")) {
 
 
+                            Intent intent = new Intent(getApplicationContext(), SchedulePage_A.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                             finish();
                             Toast.makeText(getApplicationContext(), "Details Submitted Successfully!", Toast.LENGTH_SHORT).show();
 

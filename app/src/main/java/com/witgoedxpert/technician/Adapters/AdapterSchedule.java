@@ -68,6 +68,18 @@ public class AdapterSchedule extends RecyclerView.Adapter<AdapterSchedule.MyView
 
         sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
         str_userid = sharedPreferences.getString(USER_ID, "");
+        Log.e("position", "onBindViewHolder: "+position );
+        if (position==0){
+            Log.e("position_true", "onBindViewHolder: "+position );
+            holder.on_way.setVisibility(View.VISIBLE);
+        }else{
+            Log.e("position_false", "onBindViewHolder: "+position );
+            holder.on_way.setVisibility(View.GONE);
+        }
+
+        holder.on_way.setOnClickListener(v ->{
+
+        });
 
         //holder.qualification.setText( bookModel.createdDate);
 
@@ -76,13 +88,10 @@ public class AdapterSchedule extends RecyclerView.Adapter<AdapterSchedule.MyView
         holder.name.setText(bookModel.name + "\n" + "(" + bookModel.description + ")");
 
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, MyOrderDetails.class);
-                intent.putExtra("MyClass", bookModel);
-                context.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, MyOrderDetails.class);
+            intent.putExtra("MyClass", bookModel);
+            context.startActivity(intent);
         });
 
 
@@ -94,7 +103,7 @@ public class AdapterSchedule extends RecyclerView.Adapter<AdapterSchedule.MyView
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name, slot_time;
+        TextView name, slot_time,on_way;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -102,6 +111,7 @@ public class AdapterSchedule extends RecyclerView.Adapter<AdapterSchedule.MyView
 
             slot_time = itemView.findViewById(R.id.time);
             name = itemView.findViewById(R.id.name);
+            on_way = itemView.findViewById(R.id.on_way);
 
 
         }
