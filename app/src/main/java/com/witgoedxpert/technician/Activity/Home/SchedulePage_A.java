@@ -150,8 +150,6 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
         rv_list.setAdapter(orders_adapter);
 
 
-
-
     }
 
     void initToolbar() {
@@ -210,6 +208,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
                             placeModel.time = BMIReport.getString("time");
                             placeModel.date = BMIReport.getString("date");
                             placeModel.status = BMIReport.getString("status");
+                            placeModel.flag = BMIReport.getString("flag");
                             placeModel.service_staus = "pending";
                             Log.d("BookedSlot", "onResponse: " + BMIReport.optJSONObject("BookedSlot"));
 
@@ -462,6 +461,82 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
                 params.put("fcm_id", token);
                 params.put("fcm_flag", "1");// 1 -Update FCM and 0- Don't update fcm
                 Log.d("params", "getParams: " + params);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("token", Constant.Token);
+                return headers;
+            }
+        };
+
+        Volley.newRequestQueue(SchedulePage_A.this).add(stringRequest);
+
+
+    }
+
+    public void onClickCalled(OrderModel bookModel, int position, String s) {
+        SendSms(bookModel.enquiry_id, bookModel.user_id,bookModel.slot_date);
+
+
+    }
+
+    private void SendSms(String enquiry_id, String userid,String booking_date) {
+
+        final ProgressDialog progressDialog = new ProgressDialog(SchedulePage_A.this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading..");
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.sendSMS,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        String code, message, id, user_id;
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            code = jsonObject.getString("code");
+                            message = jsonObject.getString("message");
+
+                            Log.d("resp", "onResponse: " + jsonObject + "===" + code);
+                            if (code.equals("200")) {
+                                progressDialog.dismiss();
+                                Toast.makeText(SchedulePage_A.this, "Sms sent successfully", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                progressDialog.dismiss();
+                                Toast.makeText(SchedulePage_A.this, "" + message, Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            progressDialog.dismiss();
+                        }
+
+                        // progressDialog.dismiss();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                // Toast.makeText(SchedulePage_A.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("mechanic_id", str_userid);
+                params.put("enquiry_id", enquiry_id);
+                params.put("user_id", userid);
+                params.put("date", booking_date);
+                params.put("flag", "1");
+                Log.d("params_sms", "getParams: " + params);
                 return params;
             }
 

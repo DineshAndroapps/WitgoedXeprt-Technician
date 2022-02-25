@@ -34,4 +34,5 @@ public class OrderModel implements Serializable {
     public String slot_id;
     public String mechanic_id;
     public String enquiry_id;
+    public String flag;
 }

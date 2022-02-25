@@ -21,8 +21,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.witgoedxpert.technician.Activity.Home.SchedulePage_A;
 import com.witgoedxpert.technician.Activity.MyOrder;
 import com.witgoedxpert.technician.Activity.MyOrderDetails;
+import com.witgoedxpert.technician.Forms.AddEnquiry;
 import com.witgoedxpert.technician.Helper.Constant;
 import com.witgoedxpert.technician.R;
 import com.witgoedxpert.technician.model.OrderModel;
@@ -68,16 +70,22 @@ public class AdapterSchedule extends RecyclerView.Adapter<AdapterSchedule.MyView
 
         sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
         str_userid = sharedPreferences.getString(USER_ID, "");
-        Log.e("position", "onBindViewHolder: "+position );
-        if (position==0){
-            Log.e("position_true", "onBindViewHolder: "+position );
-            holder.on_way.setVisibility(View.VISIBLE);
-        }else{
-            Log.e("position_false", "onBindViewHolder: "+position );
+        Log.e("position", "onBindViewHolder: " + position);
+        if (position == 0) {
+            if (bookModel.flag.equals("1")) {
+                holder.on_way.setVisibility(View.GONE);
+            } else {
+                holder.on_way.setVisibility(View.VISIBLE);
+            }
+            Log.e("position_true", "onBindViewHolder: " + position);
+
+        } else {
+            Log.e("position_false", "onBindViewHolder: " + position);
             holder.on_way.setVisibility(View.GONE);
         }
 
-        holder.on_way.setOnClickListener(v ->{
+        holder.on_way.setOnClickListener(v -> {
+            ((SchedulePage_A) context).onClickCalled(bookModel, position, "1");
 
         });
 
@@ -103,7 +111,7 @@ public class AdapterSchedule extends RecyclerView.Adapter<AdapterSchedule.MyView
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name, slot_time,on_way;
+        TextView name, slot_time, on_way;
 
 
         public MyViewHolder(@NonNull View itemView) {
