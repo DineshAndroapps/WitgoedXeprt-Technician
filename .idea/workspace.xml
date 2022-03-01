@@ -13,21 +13,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9697a2d2-b530-44a7-8bf7-1c784b990469" name="Default Changelist" comment="Added button for sms">
+    <list default="true" id="9697a2d2-b530-44a7-8bf7-1c784b990469" name="Default Changelist" comment="Added button for sms and api also added">
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Home/SchedulePage_A.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Activity/Home/SchedulePage_A.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Helper/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/OrderModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/model/OrderModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_enquairy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_enquairy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,8 +261,28 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="WitgoedXpert Technical" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.WitgoedXpert Technical" />
         <item itemvalue="Gradle.PRO Marketing App New [signingreport]" />
       </list>
     </recent_temporary>
@@ -272,20 +295,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1629963647532</updated>
-    </task>
-    <task id="LOCAL-00001" summary="PRO &amp; BDM Notification Done.">
-      <created>1630084110440</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1630084110440</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Pro,BDM Functionality &amp; UI Fixed.">
-      <created>1630774428612</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1630774428612</updated>
     </task>
     <task id="LOCAL-00003" summary="Added Current Location in Map(08-09-2021)">
       <created>1631175680767</created>
@@ -616,7 +625,21 @@
       <option name="project" value="LOCAL" />
       <updated>1645770290444</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Added button for sms and api also added">
+      <created>1645799782064</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1645799782065</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Added button for sms and api also added">
+      <created>1645799811888</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1645799811888</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,7 +655,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Camera Issue Resolved." />
     <MESSAGE value="Removed Unused API and Files." />
     <MESSAGE value="Live Route Track in PRO Done." />
     <MESSAGE value="Added Version At Top in BDM &amp; PRO" />
@@ -657,7 +679,8 @@
     <MESSAGE value="sign issue fixed" />
     <MESSAGE value="Next appointment flow added" />
     <MESSAGE value="Added button for sms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added button for sms" />
+    <MESSAGE value="Added button for sms and api also added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added button for sms and api also added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -125,10 +125,20 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_parts"
                             style="@style/edt_layout_login_InputEditText"
-
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:background="@null"
+                            android:drawableTint="@color/icon_tint"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:minHeight="100dp"
+                            android:text=""
+                            android:textSize="14sp"
                             android:imeOptions="actionNext"
-                            android:inputType="text"
-                            android:maxLines="1" />
+                             />
 
                     </com.google.android.material.textfield.TextInputLayout>
 

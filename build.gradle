@@ -3,12 +3,10 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter {
-            url "http://jcenter.bintray.com/"
-        }
+
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.0"
+        classpath 'com.android.tools.build:gradle:7.1.1'
         classpath 'com.google.gms:google-services:4.3.10'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.7.1'
 
@@ -22,9 +20,7 @@ allprojects {
         google()
         mavenCentral()
         jcenter()
-        jcenter {
-            url "http://jcenter.bintray.com/"
-        }
+
     }
 }
 
