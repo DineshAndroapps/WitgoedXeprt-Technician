@@ -369,7 +369,7 @@ AddEnquiry extends AppCompatActivity {
 
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        RetryPolicy retryPolicy = new DefaultRetryPolicy(3000,
+        RetryPolicy retryPolicy = new DefaultRetryPolicy(10000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(retryPolicy);
@@ -417,7 +417,7 @@ AddEnquiry extends AppCompatActivity {
 
                         if (jsonObject.getString("code").equals("200")) {
 
-
+                            SendEmail();
                             Intent intent = new Intent(getApplicationContext(), SchedulePage_A.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -462,6 +462,58 @@ AddEnquiry extends AppCompatActivity {
                 params.put("slot_id", str_selected_slot_id);
                 params.put("slot_date", str_selected_slot_date);
                 params.put("customer_id", str_customer_id);
+                Log.e("params", "getParams: " + params);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("token", Constant.Token);
+                return headers;
+            }
+        };
+
+
+        Volley.newRequestQueue(this).add(stringRequest);
+
+    }
+
+    private void SendEmail() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.send_invoice,
+                response -> {
+                    Log.e("jsonObject_", "onResponse: " + response);
+
+                    String code, message, id, user_id;
+
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+
+
+                        if (jsonObject.getString("code").equals("200")) {
+
+                        }
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+               // Toast.makeText(AddEnquiry.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("product_id", str_product_id);
+                params.put("user_id", str_userid);
+                params.put("address", getStringFromEdit(textInputLayout(R.id.et_address)));
+                params.put("email", getStringFromEdit(textInputLayout(R.id.et_email)));
+                params.put("enquiry_id", str_main_id);
                 Log.e("params", "getParams: " + params);
                 return params;
             }
