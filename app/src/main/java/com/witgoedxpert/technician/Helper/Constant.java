@@ -35,6 +35,7 @@ public class Constant {
     public static String register = API + "User/Registration";
     public static String login = API + "Mechanic/login";
     public static String AssignMechanic = API + "Mechanic/AssignMechanic";
+    public static String forgotpassword = API + "Mechanic/forgotpassword";
     public static String addEnquiry = API + "Mechanic/Invoice";
     public static String send_invoice = API + "Mechanic/send_invoice";
     public static String viewEnquiry = API + "Enquiry/viewEnquiry";

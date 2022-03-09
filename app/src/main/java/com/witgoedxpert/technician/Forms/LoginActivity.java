@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -75,6 +76,12 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.forgot_pass).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_showMessage();
+            }
+        });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,6 +104,97 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+    public void btn_showMessage(){
+        final AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.custom_dialog_email,null);
+        final EditText txt_inputText = (EditText)mView.findViewById(R.id.txt_input);
+        Button btn_cancel = (Button)mView.findViewById(R.id.btn_cancel);
+        Button btn_okay = (Button)mView.findViewById(R.id.btn_okay);
+        alert.setView(mView);
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+        btn_okay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+                SubmitEmail(txt_inputText.getText().toString());
+            }
+        });
+        alertDialog.show();
+    }
+
+    private void SubmitEmail(String toString) {
+        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading..");
+        progressDialog.show();
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.forgotpassword,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e(TAG, "onResponse: " + response);
+                        String code, message, id, user_id;
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            message = jsonObject.getString("message");
+
+                            if (jsonObject.getString("code").equals("200")) {
+
+
+                                Toast.makeText(getApplicationContext(), "Password is Sent on Email Successfully!", Toast.LENGTH_SHORT).show();
+
+                            } else if (jsonObject.getString("code").equals("403")) {
+                                Toast.makeText(LoginActivity.this, "Email not registered", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        progressDialog.dismiss();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(LoginActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("email", toString);
+                Log.d("params", "getParams: " + params);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("token", Constant.Token);
+                return headers;
+            }
+        };
+
+
+        Volley.newRequestQueue(this).add(stringRequest);
 
     }
 
