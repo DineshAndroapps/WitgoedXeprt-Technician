@@ -482,7 +482,7 @@ AddEnquiry extends AppCompatActivity {
     private void SendEmail() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.send_invoice,
                 response -> {
-                    Log.e("jsonObject_", "onResponse: " + response);
+                    Log.e("jsonObject_sendemail", "onResponse: " + response);
 
                     String code, message, id, user_id;
 
@@ -514,7 +514,7 @@ AddEnquiry extends AppCompatActivity {
                 params.put("address", getStringFromEdit(textInputLayout(R.id.et_address)));
                 params.put("email", getStringFromEdit(textInputLayout(R.id.et_email)));
                 params.put("enquiry_id", str_main_id);
-                Log.e("params", "getParams: " + params);
+                Log.e("params_send", "getParams: " + params);
                 return params;
             }
 
@@ -525,9 +525,14 @@ AddEnquiry extends AppCompatActivity {
                 return headers;
             }
         };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        RetryPolicy retryPolicy = new DefaultRetryPolicy(0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(retryPolicy);
+        requestQueue.add(stringRequest);
 
 
-        Volley.newRequestQueue(this).add(stringRequest);
 
     }
 
