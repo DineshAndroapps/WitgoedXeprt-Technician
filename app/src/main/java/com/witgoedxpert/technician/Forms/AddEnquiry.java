@@ -145,25 +145,29 @@ AddEnquiry extends AppCompatActivity {
                     if (!textInputLayout(R.id.et_cost).getText().toString().equals("")) {
                         if (!textInputLayout(R.id.et_time).getText().toString().equals("")) {
                             if (!textInputLayout(R.id.et_parts).getText().toString().equals("")) {
-                                if (!textInputLayout(R.id.et_total).getText().equals("")) {
-                                    if (!textInputLayout(R.id.et_email).getText().equals("")) {
-                                        /*  if (!str_sign.equals("")) {*/
-                                        if (Constant.isNetworkAvailable(getApplicationContext())) {
-                                            SubmitData();
-                                        } else {
-                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
-                                        }
+                                if (!textInputLayout(R.id.et_parts_amt).getText().toString().equals("")) {
+                                    if (!textInputLayout(R.id.et_total).getText().equals("")) {
+                                        if (!textInputLayout(R.id.et_email).getText().equals("")) {
+                                            /*  if (!str_sign.equals("")) {*/
+                                            if (Constant.isNetworkAvailable(getApplicationContext())) {
+                                                SubmitData();
+                                            } else {
+                                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
+                                            }
 
                                        /* } else {
                                             Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_sign));
                                         }*/
 
-                                    } else {
-                                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.email_error));
-                                    }
+                                        } else {
+                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.email_error));
+                                        }
 
+                                    } else {
+                                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_total));
+                                    }
                                 } else {
-                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_total));
+                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part_amt));
                                 }
                             } else {
                                 Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part));
@@ -449,6 +453,7 @@ AddEnquiry extends AppCompatActivity {
                 params.put("cost", getStringFromEdit(textInputLayout(R.id.et_cost)));
                 params.put("time", getStringFromEdit(textInputLayout(R.id.et_time)));
                 params.put("parts", getStringFromEdit(textInputLayout(R.id.et_parts)));
+                params.put("parts_amount", getStringFromEdit(textInputLayout(R.id.et_parts_amt)));
                 params.put("total", getStringFromEdit(textInputLayout(R.id.et_total)));
                 params.put("name", getStringFromEdit(textInputLayout(R.id.et_name)));
                 params.put("appointment", userGender);
@@ -503,7 +508,7 @@ AddEnquiry extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-               // Toast.makeText(AddEnquiry.this, "Something went wrong", Toast.LENGTH_LONG).show();
+                // Toast.makeText(AddEnquiry.this, "Something went wrong", Toast.LENGTH_LONG).show();
             }
         }) {
             @Override
@@ -531,7 +536,6 @@ AddEnquiry extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(retryPolicy);
         requestQueue.add(stringRequest);
-
 
 
     }

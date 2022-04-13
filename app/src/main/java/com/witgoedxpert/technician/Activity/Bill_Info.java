@@ -138,6 +138,7 @@ public class Bill_Info extends AppCompatActivity {
                         ((TextView) findViewById(R.id.toolbr_lbl)).setText("Billing Info #" + jsonArrayvideo.optJSONObject("Invoice").getString("id"));
 
 
+                        ((TextView) findViewById(R.id.parts_amount)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("parts_amount"));
                         ((TextView) findViewById(R.id.parts)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("parts"));
                         ((TextView) findViewById(R.id.email)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("email"));
                         ((TextView) findViewById(R.id.time_taken)).setText(jsonArrayvideo.optJSONObject("Invoice").getString("time"));

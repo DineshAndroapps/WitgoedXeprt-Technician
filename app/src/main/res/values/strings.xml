@@ -104,5 +104,6 @@ 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
     <string name="inprogress">InProgress</string>
     <string name="completed">Completed</string>
     <string name="services">Services:</string>
+    <string name="error_part_amt">Enter total amount of  Parts</string>
     <!--  <string name="today_build">25-09-2021 (1.1)</string>-->
 </resources>

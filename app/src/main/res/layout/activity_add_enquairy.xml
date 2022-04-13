@@ -119,7 +119,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
-                        android:hint="Parts"
+                        android:hint="Description of Parts*"
                         app:boxBackgroundColor="@color/transparent">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -136,6 +136,33 @@
                             android:inputType="textMultiLine"
                             android:maxLines="5"
                             android:minHeight="100dp"
+                            android:text=""
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/edt_layout_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:hint="Total Amount of Parts*"
+                        app:boxBackgroundColor="@color/transparent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_parts_amt"
+                            style="@style/edt_layout_login_InputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:background="@null"
+                            android:drawableTint="@color/icon_tint"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="top"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:minHeight="50dp"
                             android:text=""
                             android:textSize="14sp" />
 
