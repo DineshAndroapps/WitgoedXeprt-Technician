@@ -420,14 +420,24 @@ AddEnquiry extends AppCompatActivity {
 
 
                         if (jsonObject.getString("code").equals("200")) {
+                            if (userGender.equals("1")) {
+                                Intent intent = new Intent(getApplicationContext(), SchedulePage_A.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
 
-                            SendEmail();
-                            Intent intent = new Intent(getApplicationContext(), SchedulePage_A.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
+
+                            }else{
+                                SendEmail();
+                                Intent intent = new Intent(getApplicationContext(), SchedulePage_A.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+
+                            }
                             finish();
                             Toast.makeText(getApplicationContext(), "Details Submitted Successfully!", Toast.LENGTH_SHORT).show();
+
 
                         }
 

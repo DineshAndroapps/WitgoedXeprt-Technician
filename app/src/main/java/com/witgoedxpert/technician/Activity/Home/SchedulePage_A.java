@@ -140,7 +140,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
                         GetData(fmt.format(date));
                     }
                 }, mYear, mMonth, mDay);
-                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis() - 1);
+              //  datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis() - 1);
                 datePickerDialog.show();
             }
         });
