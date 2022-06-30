@@ -91,7 +91,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_cost"
                             style="@style/edt_layout_login_InputEditText"
-                            android:inputType="number"
+                            android:inputType="numberDecimal"
                             android:lines="1"
                             android:scrollbars="vertical" />
 
@@ -179,9 +179,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_total"
                             style="@style/edt_layout_login_InputEditText"
-
                             android:imeOptions="actionNext"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:maxLines="1" />
 
                     </com.google.android.material.textfield.TextInputLayout>

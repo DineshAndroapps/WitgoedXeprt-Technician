@@ -20,8 +20,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.icu.util.IslamicCalendar;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -105,6 +108,7 @@ AddEnquiry extends AppCompatActivity {
         ((TextView) findViewById(R.id.toolbr_lbl)).setText("Billing Details");
         findViewById(R.id.bt_menu).setOnClickListener(view -> onBackPressed());
 
+        textInputLayout(R.id.et_total).setEnabled(false);
         str_name_pro = getIntent().getStringExtra("str_name_pro");
         str_product_id = getIntent().getStringExtra("str_product_id");
         str_customer_id = getIntent().getStringExtra("user_id");
@@ -113,6 +117,7 @@ AddEnquiry extends AppCompatActivity {
         str_user_address = getIntent().getStringExtra("user_address");
         SetDataForNextBooking();
         GetCurrent_Date();
+        CalculationTotal();
 
         img_sign = findViewById(R.id.img_sign);
         radioGenderGroup = findViewById(R.id.radioGrp);
@@ -225,6 +230,59 @@ AddEnquiry extends AppCompatActivity {
         });
     }
 
+    private void CalculationTotal() {
+        textInputLayout(R.id.et_cost).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculate();
+
+            }
+        });
+        textInputLayout(R.id.et_parts_amt).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculate();
+
+            }
+        });
+
+    }
+    public void calculate() {
+        String epText = textInputLayout(R.id.et_cost).getText().toString().trim();
+        String stopText = textInputLayout(R.id.et_parts_amt).getText().toString().trim();
+
+        if (epText.isEmpty() || stopText.isEmpty()) {
+            textInputLayout(R.id.et_total).setText("");
+            return;
+        }
+
+
+        double ep = Double.parseDouble(epText);
+        double stop = Double.parseDouble(stopText);
+
+        double result = ep + stop;
+        textInputLayout(R.id.et_total).setText(String.valueOf(result));
+    }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void SetDataForNextBooking() {
         checkPosition = -1;

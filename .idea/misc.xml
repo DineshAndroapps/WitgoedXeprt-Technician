@@ -73,9 +73,12 @@
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/toolbar_home.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/toolbar_home_pro.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/menu/menu_navigation_drawer_news.xml" value="0.23703703703703705" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_add_enquairy.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_bill_info.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_my_order_details.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

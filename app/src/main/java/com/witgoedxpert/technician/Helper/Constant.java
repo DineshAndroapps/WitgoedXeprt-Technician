@@ -40,7 +40,6 @@ public class Constant {
     public static String send_invoice = API + "Mechanic/send_invoice";
     public static String viewEnquiry = API + "Enquiry/viewEnquiry";
     public static String mechanicDetails = API + "Mechanic/MechanicDetails";
-    public static String userDetails = API + "User/UserDetails";
     public static String booking = API + "Mechanic/booking";
     public static String Send_latlong = API + "Mechanic/editLocation";
     public static String enquiry_details = API + "enquiry/enquiry_details";
