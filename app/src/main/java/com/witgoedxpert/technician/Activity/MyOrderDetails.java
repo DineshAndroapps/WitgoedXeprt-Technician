@@ -167,7 +167,7 @@ public class MyOrderDetails extends AppCompatActivity {
                         }
                         ((TextView) findViewById(R.id.added_date)).setText(placeModel.added_date);
                         ((TextView) findViewById(R.id.product_name)).setText(placeModel.product_name);
-                        ((TextView) findViewById(R.id.slot_time)).setText(placeModel.slot_start_time + " - " + placeModel.slot_end_time);
+                        ((TextView) findViewById(R.id.slot_time)).setText(placeModel.slot_start_time + " - " + placeModel.slot_end_time +", "+placeModel.slot_date);
                         ((TextView) findViewById(R.id.slot_date)).setText(placeModel.slot_date );
 
                         findViewById(R.id.btn_Open_signature).setOnClickListener(view -> {

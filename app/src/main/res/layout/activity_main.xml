@@ -37,6 +37,10 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:theme="@style/NavTextViewStyle"
+        app:itemBackground="@drawable/drawer_selected_item"
+        app:itemIconTint="@drawable/drawer_item_color"
+        app:itemTextColor="@drawable/drawer_item_color"
         app:headerLayout="@layout/include_drawer_header_news"
         app:menu="@menu/menu_navigation_drawer_news">
 
@@ -45,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="vertical"
+            android:visibility="gone"
             android:padding="16dp">
 
             <TextView

@@ -132,7 +132,7 @@ public class Bill_Info extends AppCompatActivity {
                         }
                         ((TextView) findViewById(R.id.added_date)).setText(placeModel.added_date);
                         ((TextView) findViewById(R.id.product_name)).setText(placeModel.product_name);
-                        ((TextView) findViewById(R.id.slot_time)).setText(placeModel.slot_start_time + " - " + placeModel.slot_end_time);
+                        ((TextView) findViewById(R.id.slot_time)).setText(placeModel.slot_start_time + " - " + placeModel.slot_end_time + ", " + placeModel.slot_date);
                         ((TextView) findViewById(R.id.slot_date)).setText(placeModel.slot_date);
 
                         ((TextView) findViewById(R.id.toolbr_lbl)).setText("Billing Info #" + jsonArrayvideo.optJSONObject("Invoice").getString("id"));

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_10"
+    android:layout_marginTop="55dp"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:layout_marginTop="55dp"
     tools:context=".Activity.Home.SchedulePage_A">
 
 
@@ -15,88 +15,94 @@
         android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:fillViewport="true"
         android:scrollbars="none"
         android:scrollingCache="true">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:descendantFocusability="blocksDescendants"
             android:orientation="vertical">
+
             <LinearLayout
+                android:id="@+id/lyt_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="@color/yellow_light"
                 android:orientation="horizontal"
-                android:padding="10dp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
                 android:weightSum="1">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="0.7"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/date_show"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="-"
-                        android:textAlignment="textStart"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/date_picker_actions"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="0.3"
+                    android:layout_margin="@dimen/_10sdp"
                     android:gravity="end"
-                    android:src="@drawable/ic_date"
-                    android:tint="@color/colorPrimary" />
+                    android:src="@drawable/ic_calender" />
+
+                <TextView
+                    android:id="@+id/date_show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center_vertical"
+                    android:text="Wednesday\n07-08-20022"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
 
             </LinearLayout>
 
 
-
             <View
+                android:id="@+id/line"
+                android:layout_below="@id/lyt_date"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/grey_60" />
-
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_below="@id/line"
                 tools:listitem="@layout/item_slot" />
 
-
-            <TextView
+            <LinearLayout
                 android:id="@+id/no_slot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
-                android:text="Request Not Available"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:fontFamily="@font/montserrat_semibold"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/height_100"
-                android:textSize="18sp"
-                android:visibility="gone" />
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="@dimen/_200sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/img_not_found" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Request Not Available"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
 

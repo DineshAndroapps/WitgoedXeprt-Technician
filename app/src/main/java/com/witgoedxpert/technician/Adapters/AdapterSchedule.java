@@ -93,7 +93,9 @@ public class AdapterSchedule extends RecyclerView.Adapter<AdapterSchedule.MyView
 
         Log.e("slot_start_time", "onBindViewHolder: " + bookModel.slot_start_time);
         holder.slot_time.setText(bookModel.slot_start_time);
-        holder.name.setText(bookModel.name + "\n" + "(" + bookModel.description + ")");
+        holder.name.setText(bookModel.name);
+        holder.description.setText(bookModel.description );
+        holder.error_code.setText(bookModel.error_code );
 
 
         holder.itemView.setOnClickListener(v -> {
@@ -111,15 +113,17 @@ public class AdapterSchedule extends RecyclerView.Adapter<AdapterSchedule.MyView
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name, slot_time, on_way;
+        TextView name, slot_time, on_way,description,error_code;
 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            slot_time = itemView.findViewById(R.id.time);
+            slot_time = itemView.findViewById(R.id.slot_time);
             name = itemView.findViewById(R.id.name);
             on_way = itemView.findViewById(R.id.on_way);
+            error_code = itemView.findViewById(R.id.error_code);
+            description = itemView.findViewById(R.id.description);
 
 
         }

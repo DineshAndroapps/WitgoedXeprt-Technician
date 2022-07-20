@@ -40,10 +40,12 @@
                         android:layout_height="@dimen/height_150"
                         android:src="@drawable/user" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey_60" />
+                    <!--
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:background="@color/grey_60" />
+                    -->
 
                     <LinearLayout
                         android:id="@+id/div_button"
@@ -52,6 +54,16 @@
                         android:layout_marginTop="0dp"
                         android:orientation="vertical">
 
+                        <TextView
+                            android:layout_width="@dimen/_250sdp"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_marginStart="15sp"
+                            android:background="@drawable/bg_yellow"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:padding="@dimen/dp10"
+                            android:text="Product Details: "
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
 
                         <LinearLayout
                             android:id="@+id/detail_main"
@@ -60,611 +72,635 @@
                             android:orientation="vertical">
 
                             <LinearLayout
+                                android:id="@+id/product_details"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Product Name: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/product_name"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text="@string/app_name"
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
                                 android:orientation="vertical">
 
-
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Description: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
 
 
-                                <TextView
-                                    android:id="@+id/description"
-                                    android:layout_width="wrap_content"
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Product Name: "
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/product_name"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text="@string/app_name"
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
 
 
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Description: "
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/description"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Error code: "
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/error_code"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Machine Age: "
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/age_machine"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Type of Machine: "
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/type_of_machine"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Slot Date: "
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/slot_date"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Additional Info: "
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/additional_info"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Booking date: "
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/added_date"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Parts: "
+
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/parts"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Total Amount of Parts: "
+
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/parts_amount"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Time Taken: "
+
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/time_taken"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Cost: "
+
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/cost"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/customer_details"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="error code: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/error_code"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="type of machine: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/type_of_machine"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="machine age: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/age_machine"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="customer name: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/name"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
                                 android:orientation="vertical">
 
-
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="address: "
-                                    android:textAllCaps="true"
+                                    android:layout_width="@dimen/_250sdp"
+                                    android:layout_height="@dimen/dp40"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:background="@drawable/bg_yellow"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:padding="@dimen/dp10"
+                                    android:text="Customer Details: "
                                     android:textColor="@color/black"
                                     android:textStyle="bold" />
 
-
-                                <TextView
-                                    android:id="@+id/address"
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
 
 
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Customer Name: "
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/name"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:src="@drawable/ic_location" />
+
+
+                                    <TextView
+                                        android:id="@+id/address"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:text=""
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:src="@drawable/ic_baseline_call_24" />
+
+
+                                    <TextView
+                                        android:id="@+id/phone"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:src="@drawable/ic_baseline_mail_24" />
+
+
+                                    <TextView
+                                        android:id="@+id/email"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:src="@drawable/ic_watch"
+                                        android:tint="@color/colorPrimary" />
+
+
+                                    <TextView
+                                        android:id="@+id/slot_time"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text=""
+
+                                        android:textColor="@color/textColor" />
+
+
+                                </LinearLayout>
                             </LinearLayout>
 
-                            <LinearLayout
+                            <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent">
 
 
-                                <TextView
+                                <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="phone: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
 
 
-                                <TextView
-                                    android:id="@+id/phone"
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Total Bill: "
+                                        android:textColor="@color/red"
+                                        android:textSize="@dimen/_20sdp"
+                                        android:textStyle="bold" />
+
+
+                                    <TextView
+                                        android:id="@+id/et_total"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:maxLines="1"
+                                        android:text="00.00"
+                                        android:textColor="@color/red"
+                                        android:textSize="@dimen/_20sdp" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Slot time: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/slot_time"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Slot date: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/slot_date"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="additional info: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/additional_info"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Booking date: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/added_date"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Parts: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/parts"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Total Amount of Parts: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/parts_amount"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Customer Email: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/email"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Time Taken: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/time_taken"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Cost: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/cost"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_medium"
-                                    android:text="Total Bill: "
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold" />
-
-
-                                <TextView
-                                    android:id="@+id/et_total"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:maxLines="1"
-                                    android:text=""
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/textColor" />
-
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15sp"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="@font/montserrat_medium"
-                                android:text="Signature: "
-                                android:textAllCaps="true"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:id="@+id/sign_image"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/height_150"
-                                android:src="@drawable/user" />
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="15sp"
+                                        android:layout_marginTop="10dp"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="Signature: "
+
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <ImageView
+                                        android:id="@+id/sign_image"
+                                        android:layout_width="@dimen/_150sdp"
+                                        android:layout_height="@dimen/height_150"
+                                        android:src="@drawable/user" />
+
+                                </LinearLayout>
+
+
+                            </RelativeLayout>
 
 
                         </LinearLayout>
@@ -685,10 +721,10 @@
                         android:layout_height="45dp"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="20dp"
-                        android:fontFamily="@font/montserrat_medium"
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="@dimen/_50sdp"
                         android:background="@color/colorPrimary"
+                        android:fontFamily="@font/montserrat_medium"
                         android:text="Create Bill"
                         android:textAllCaps="false"
                         android:textColor="@color/white"

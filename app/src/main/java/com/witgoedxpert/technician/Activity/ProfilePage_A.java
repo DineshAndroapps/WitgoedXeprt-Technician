@@ -89,7 +89,7 @@ public class ProfilePage_A extends AppCompatActivity {
     private int GALLERY = 1, CAMERA = 2;
     File str_image_1;
     String base_64 = "";
-    String token="";
+    String token = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +108,7 @@ public class ProfilePage_A extends AppCompatActivity {
                     }
 
                     // Get new FCM registration token
-                     token = task.getResult();
+                    token = task.getResult();
                     SendFCM(token);
                     //   getUser(token);
 
@@ -116,9 +116,15 @@ public class ProfilePage_A extends AppCompatActivity {
                 });
 
         findViewById(R.id.edit_profile_pic).setOnClickListener(v -> {
-            if (Tools.check_permissions(ProfilePage_A.this))
-                selectImage();
+         /*   if (Tools.check_permissions(ProfilePage_A.this))
+                selectImage();*/
+            Intent intent = new Intent(getApplicationContext(), UpdateProfile_A.class);
+            startActivity(intent);
 
+        });
+        findViewById(R.id.edit_profile).setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), UpdateProfile_A.class);
+            startActivity(intent);
         });
         findViewById(R.id.edit_profile).setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), UpdateProfile_A.class);
@@ -126,11 +132,11 @@ public class ProfilePage_A extends AppCompatActivity {
 
         });
         findViewById(R.id.image).setOnClickListener(v -> {
-            if (Tools.check_permissions(ProfilePage_A.this))
-                selectImage();
+            Intent intent = new Intent(getApplicationContext(), UpdateProfile_A.class);
+            startActivity(intent);
         });
         recyclerView_gifts = findViewById(R.id.recylerview_gifts);
-        recyclerView_gifts.setLayoutManager(new LinearLayoutManager(ProfilePage_A.this));
+        recyclerView_gifts.setLayoutManager(new LinearLayoutManager(ProfilePage_A.this, LinearLayoutManager.HORIZONTAL, false));
         //recyclerView_gifts.setLayoutManager(new GridLayoutManager(ProfilePage_A.this, 2));
 
 

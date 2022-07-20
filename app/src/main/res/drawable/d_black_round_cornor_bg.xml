@@ -8,6 +8,6 @@
         />
 
     <solid
-        android:color="@color/black_corner"/>
+        android:color="@color/colorAccent"/>
 
 </shape>

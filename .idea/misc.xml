@@ -73,9 +73,41 @@
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/toolbar_home.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/layout/toolbar_home_pro.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical/app/src/main/res/menu/menu_navigation_drawer_news.xml" value="0.23703703703703705" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable-v24/d_round_green_bkg.xml" value="0.1995" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable-v24/d_white_round_bkg.xml" value="0.1995" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/bg_accept.xml" value="0.121" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/bg_ach.xml" value="0.1995" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/bg_card.xml" value="0.121" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/bg_reject.xml" value="0.121" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/bg_yellow.xml" value="0.1995" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/button_bg.xml" value="0.2555" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/card_edge.xml" value="0.1715" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/cell_red_bottom_corner_r.xml" value="0.121" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/d_black_round_cornor_bg.xml" value="0.1995" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/d_round_green_bkg.xml" value="0.1995" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/d_white_round_bkg.xml" value="0.1995" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/drawer_item_color.xml" value="0.1995" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/drawer_selected_item.xml" value="0.1995" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_add_enquairy.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_bill_info.xml" value="0.25416666666666665" />
-        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_my_order_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_my_order_details.xml" value="0.264" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_profile_page.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_schedule_page.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_update_profile.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/include_drawer_header_news.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/item_dummy.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/item_my_orders_layout.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/item_service.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/item_slider_image.xml" value="0.10989583333333333" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/item_slot.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/lyt_schedule.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/lyt_tool.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/main_contact.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/toolbar_home.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/menu/menu_navigation_drawer_news.xml" value="0.25" />
       </map>
     </option>
   </component>

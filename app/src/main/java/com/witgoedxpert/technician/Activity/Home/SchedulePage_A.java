@@ -109,7 +109,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
         Date date_ = null;
         try {
             date_ = fmt.parse(date_get);
-            ((TextView) findViewById(R.id.date_show)).setText(fmtOut_.format(date_main) + " " + fmtOut.format(date_main));
+            ((TextView) findViewById(R.id.date_show)).setText(fmtOut_.format(date_main) + "\n" + fmtOut.format(date_main));
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -155,11 +155,11 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
     void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         ((TextView) findViewById(R.id.title)).setText("Home");
-        setSupportActionBar(toolbar);
+      /*  setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setTitle("BDM");
+        actionBar.setTitle("BDM");*/
     }
 
     private void GetData(String date_) {
@@ -299,7 +299,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
                 super.onDrawerOpened(drawerView);
             }
         };
-        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.black));
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         nav_view.setNavigationItemSelectedListener(this);

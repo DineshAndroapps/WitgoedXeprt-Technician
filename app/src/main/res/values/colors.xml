@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--<color name="colorPrimary">#E54A38</color>-->
-    <color name="colorPrimary">#2F333C</color>
-    <color name="colorPrimaryDark">#2F333C</color>
-    <color name="colorAccent">#2F333C</color>
+    <color name="colorPrimary">#545454</color>
+    <color name="colorPrimaryDark">#545454</color>
+    <color name="colorAccent">#feeb57</color>
     <color name="colorTitle">#FFFFFF</color>
 
 
@@ -102,6 +102,8 @@
     <color name="background_color">@color/white</color>
     <color name="textColor">#000000</color>
     <color name="gray_new">#e0e0e0</color>
+    <color name="cardview_bg">#a8a4a4</color>
+    <color name="yellow_light">#fef9cd</color>
 
 
 </resources>

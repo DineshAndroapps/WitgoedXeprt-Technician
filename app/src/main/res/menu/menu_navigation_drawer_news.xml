@@ -6,23 +6,33 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:iconTint="@color/grey_40"
             android:title="Home" />
         <item
             android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:iconTint="@color/grey_10"
             android:title="Profile" />
         <item
             android:id="@+id/nav_sefie"
+            android:icon="@drawable/ic_home"
+            android:iconTint="@color/grey_10"
             android:title="My Orders"
             android:visible="false" />
+        <item
+            android:id="@+id/nav_help"
+            android:iconTint="@color/grey_10"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
 
 
     </group>
+<!--
     <group
         android:id="@+id/grp_2"
         android:checkableBehavior="none">
-        <item
-            android:id="@+id/nav_help"
-            android:title="Logout" />
     </group>
+-->
 
 </menu>

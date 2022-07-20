@@ -60,13 +60,21 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentBottom="true"
+                            android:layout_marginEnd="@dimen/dp10"
                             android:paddingBottom="@dimen/_50sdp">
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/pencil" />
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/circle_orange"
+                                android:backgroundTint="@color/grey_10">
 
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/pencil3" />
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -74,25 +82,24 @@
 
                 </RelativeLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/edt_layout_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:hint="@string/name"
-                    app:boxBackgroundColor="@color/transparent">
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card"
+                    app:cardBackgroundColor="@color/cardview_bg"
+                    app:cardCornerRadius="@dimen/_22sdp"
+                    app:cardElevation="5dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <EditText
                         android:id="@+id/et_name"
-                        style="@style/edt_layout_login_InputEditText"
-
+                        style="@style/edt_layout"
+                        android:hint="@string/name"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
 
-                </com.google.android.material.textfield.TextInputLayout>
 
-                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
@@ -142,40 +149,40 @@
 
                 </RelativeLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/edt_layout_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:hint="@string/phone_number"
-                    app:boxBackgroundColor="@color/transparent">
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card"
+                    app:cardBackgroundColor="@color/cardview_bg"
+                    app:cardCornerRadius="@dimen/_22sdp"
+                    app:cardElevation="5dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <EditText
                         android:id="@+id/et_phone"
-                        style="@style/edt_layout_login_InputEditText"
+                        style="@style/edt_layout"
+                        android:hint="@string/phone_number"
+                        android:imeOptions="actionNext"
                         android:inputType="number"
                         android:lines="1"
                         android:maxLines="10"
+                        android:padding="10dp"
                         android:scrollbars="vertical" />
+                </androidx.cardview.widget.CardView>
 
-                </com.google.android.material.textfield.TextInputLayout>
+                <androidx.cardview.widget.CardView
+                    style="@style/edt_layout_card"
+                    app:cardBackgroundColor="@color/cardview_bg"
+                    app:cardCornerRadius="@dimen/_22sdp"
+                    app:cardElevation="5dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/edt_layout_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:hint="@string/email"
-                    app:boxBackgroundColor="@color/transparent">
-
-                    <com.google.android.material.textfield.TextInputEditText
+                    <EditText
                         android:id="@+id/et_email"
-                        style="@style/edt_layout_login_InputEditText"
+                        style="@style/edt_layout"
+                        android:hint="@string/email"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress"
-                        android:maxLines="1" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:scrollbars="vertical" />
+                </androidx.cardview.widget.CardView>
 
 
                 <TextView
@@ -184,6 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/montserrat_semibold"
                     android:text="Gender"
                     android:textColor="@color/black" />
 
@@ -203,6 +211,7 @@
                         android:layout_gravity="left"
                         android:layout_weight="1"
                         android:checked="false"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:text="Male"
                         android:textSize="14dp" />
 
@@ -213,20 +222,22 @@
                         android:layout_gravity="right"
                         android:layout_weight="1"
                         android:checked="false"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:text="Female"
                         android:textSize="14dp" />
                 </RadioGroup>
 
-                <Button
+                <TextView
                     android:id="@+id/btn_submit"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/button_bg"
+                    android:fontFamily="@font/montserrat_bold"
                     android:gravity="center"
-                    android:text="submit"
-                    android:textColor="#fff" />
+                    android:text="Submit"
+                    android:textColor="@color/colorPrimary" />
 
 
             </LinearLayout>
