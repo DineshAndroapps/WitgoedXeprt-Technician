@@ -27,6 +27,8 @@ import com.witgoedxpert.technician.Activity.Home.SchedulePage_A;
 import com.witgoedxpert.technician.Forms.LoginActivity;
 import com.witgoedxpert.technician.Location_Services.GpsUtils;
 
+import cat.ereza.customactivityoncrash.config.CaocConfig;
+
 public class SplashScreen extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 2000;
     SharedPreferences sharedPreferences;
@@ -36,6 +38,19 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CaocConfig.Builder.create()
+                .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT) //default: CaocConfig.BACKGROUND_MODE_SHOW_CUSTOM
+                .enabled(true) //default: true
+                .showErrorDetails(true) //default: true
+                .showRestartButton(true) //default: true
+                .logErrorOnRestart(true) //default: true
+                .trackActivities(false) //default: false
+                .minTimeBetweenCrashesMs(2000) //default: 3000
+                .errorDrawable(R.drawable.app_icon) //default: bug image
+                .restartActivity(SplashScreen.class) //default: null (your app's launch activity)
+                .errorActivity(null) //default: null (default error activity)
+                .eventListener(null) //default: null
+                .apply();
         setContentView(R.layout.activity_splash_screen);
 
         sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);

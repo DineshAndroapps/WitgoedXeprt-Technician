@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Forms.LoginActivity">
+    tools:context=".Forms.AddEnquiry">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -37,170 +37,195 @@
                     android:layout_marginTop="@dimen/elevation_10"
                     android:orientation="vertical">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/edt_layout_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:hint="@string/name"
-                        app:boxBackgroundColor="@color/transparent">
+                    <androidx.cardview.widget.CardView
+                        style="@style/edt_layout_card"
+                        app:cardBackgroundColor="@color/cardview_bg"
+                        app:cardCornerRadius="@dimen/_22sdp"
+                        app:cardElevation="5dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <EditText
                             android:id="@+id/et_name"
-                            style="@style/edt_layout_login_InputEditText"
-
+                            style="@style/edt_layout"
+                            android:hint="@string/name"
                             android:imeOptions="actionNext"
                             android:inputType="text"
-                            android:maxLines="1" />
+                            android:maxLines="1"
+                            android:padding="10dp" />
+                    </androidx.cardview.widget.CardView>
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/edt_layout_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:hint="@string/address"
-                        app:boxBackgroundColor="@color/transparent">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_address"
-                            style="@style/edt_layout_login_InputEditText"
-                            android:layout_width="match_parent"
+                            <androidx.cardview.widget.CardView
+                                style="@style/edt_layout_card_mul"
+                                app:cardBackgroundColor="@color/cardview_bg"
+                                app:cardCornerRadius="@dimen/_22sdp"
+                                app:cardElevation="5dp">
+
+                                <EditText
+                                    android:id="@+id/et_address"
+                                    style="@style/edt_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="top"
+                                    android:background="@null"
+                                    android:drawableTint="@color/icon_tint"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:gravity="top"
+                                    android:hint="@string/address"
+                                    android:inputType="textMultiLine"
+                                    android:maxLines="5"
+                                    android:minHeight="100dp"
+                                    android:padding="10dp"
+                                    android:paddingEnd="@dimen/height_120"
+                                    android:text=""
+                                    android:textSize="14sp" />
+                            </androidx.cardview.widget.CardView>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:background="@null"
-                            android:drawablePadding="10dp"
-                            android:drawableTint="@color/icon_tint"
-                            android:fontFamily="@font/opensans_regular"
-                            android:gravity="top"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:id="@+id/lnr_locate"
+                                style="@style/auth_input_trigger"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginEnd="@dimen/dp30">
+
+
+                                <TextView
+                                    android:id="@+id/tv_locate"
+                                    style="@style/auth_input_trigger_txt"
+                                    android:src="@drawable/search"
+                                    android:text="Choose Location" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <androidx.cardview.widget.CardView
+                        style="@style/edt_layout_card"
+                        app:cardBackgroundColor="@color/cardview_bg"
+                        app:cardCornerRadius="@dimen/_22sdp"
+                        app:cardElevation="5dp">
+
+                        <EditText
+                            android:id="@+id/et_time"
+                            style="@style/edt_layout"
+                            android:hint="@string/time"
                             android:imeOptions="actionNext"
-                            android:inputType="textMultiLine"
-                            android:minHeight="100dp" />
+                            android:inputType="text"
+                            android:lines="1"
+                            android:padding="10dp" />
+                    </androidx.cardview.widget.CardView>
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/edt_layout_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:hint="@string/cost"
-                        app:boxBackgroundColor="@color/transparent">
+                        <androidx.cardview.widget.CardView
+                            style="@style/edt_layout_card_mul"
+                            app:cardBackgroundColor="@color/cardview_bg"
+                            app:cardCornerRadius="@dimen/_22sdp"
+                            app:cardElevation="5dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_cost"
-                            style="@style/edt_layout_login_InputEditText"
+                            <EditText
+                                android:id="@+id/et_parts"
+                                style="@style/edt_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:background="@null"
+                                android:drawableTint="@color/icon_tint"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:gravity="top"
+                                android:hint="@string/desc_parts"
+                                android:inputType="textMultiLine"
+                                android:maxLines="5"
+                                android:minHeight="100dp"
+                                android:padding="10dp"
+                                android:paddingEnd="@dimen/height_120"
+                                android:text=""
+                                android:textSize="14sp" />
+                        </androidx.cardview.widget.CardView>
+                    </RelativeLayout>
+
+
+                    <androidx.cardview.widget.CardView
+                        style="@style/edt_layout_card"
+                        app:cardBackgroundColor="@color/cardview_bg"
+                        app:cardCornerRadius="@dimen/_22sdp"
+                        app:cardElevation="5dp">
+
+                        <EditText
+                            android:id="@+id/et_parts_amt"
+                            style="@style/edt_layout"
+                            android:hint="Total Amount of Parts*"
+                            android:imeOptions="actionNext"
                             android:inputType="numberDecimal"
                             android:lines="1"
-                            android:scrollbars="vertical" />
+                            android:padding="10dp" />
+                    </androidx.cardview.widget.CardView>
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.cardview.widget.CardView
+                        style="@style/edt_layout_card"
+                        app:cardBackgroundColor="@color/cardview_bg"
+                        app:cardCornerRadius="@dimen/_22sdp"
+                        app:cardElevation="5dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/edt_layout_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:hint="@string/time"
-                        app:boxBackgroundColor="@color/transparent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_time"
-                            style="@style/edt_layout_login_InputEditText"
-                            android:imeOptions="actionNext"
-                            android:inputType="text"
-                            android:maxLines="1" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/edt_layout_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:hint="Description of Parts*"
-                        app:boxBackgroundColor="@color/transparent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_parts"
-                            style="@style/edt_layout_login_InputEditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:background="@null"
-                            android:drawableTint="@color/icon_tint"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:gravity="top"
-                            android:imeOptions="actionNext"
-                            android:inputType="textMultiLine"
-                            android:maxLines="5"
-                            android:minHeight="100dp"
-                            android:text=""
-                            android:textSize="14sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/edt_layout_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:hint="Total Amount of Parts*"
-                        app:boxBackgroundColor="@color/transparent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_parts_amt"
-                            style="@style/edt_layout_login_InputEditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:background="@null"
-                            android:drawableTint="@color/icon_tint"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:gravity="top"
+                        <EditText
+                            android:id="@+id/et_cost"
+                            style="@style/edt_layout"
+                            android:hint="@string/cost"
                             android:imeOptions="actionNext"
                             android:inputType="numberDecimal"
-                            android:maxLines="1"
-                            android:minHeight="50dp"
-                            android:text=""
-                            android:textSize="14sp" />
+                            android:lines="1"
+                            android:padding="10dp" />
+                    </androidx.cardview.widget.CardView>
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.cardview.widget.CardView
+                        style="@style/edt_layout_card"
+                        app:cardBackgroundColor="@color/cardview_bg"
+                        app:cardCornerRadius="@dimen/_22sdp"
+                        app:cardElevation="5dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/edt_layout_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:hint="Total"
-                        app:boxBackgroundColor="@color/transparent">
-
-                        <com.google.android.material.textfield.TextInputEditText
+                        <EditText
                             android:id="@+id/et_total"
-                            style="@style/edt_layout_login_InputEditText"
+                            style="@style/edt_layout"
+                            android:hint="Total"
                             android:imeOptions="actionNext"
-                            android:inputType="number"
-                            android:maxLines="1" />
+                            android:inputType="numberDecimal"
+                            android:lines="1"
+                            android:padding="10dp" />
+                    </androidx.cardview.widget.CardView>
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.cardview.widget.CardView
+                        style="@style/edt_layout_card"
+                        app:cardBackgroundColor="@color/cardview_bg"
+                        app:cardCornerRadius="@dimen/_22sdp"
+                        app:cardElevation="5dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/edt_layout_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:hint="Email*"
-                        app:boxBackgroundColor="@color/transparent">
-
-                        <com.google.android.material.textfield.TextInputEditText
+                        <EditText
                             android:id="@+id/et_email"
-                            style="@style/edt_layout_login_InputEditText"
+                            style="@style/edt_layout"
+                            android:hint="@string/email"
                             android:imeOptions="actionNext"
                             android:inputType="textEmailAddress"
-                            android:maxLines="1" />
+                            android:lines="1"
+                            android:padding="10dp" />
+                    </androidx.cardview.widget.CardView>
 
-                    </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
                         style="@style/edt_layout_login"
@@ -280,7 +305,9 @@
                             android:textSize="14dp" />
                     </RadioGroup>
 
-                    <LinearLayout
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        xmlns:tools="http://schemas.android.com/tools"
                         android:id="@+id/next_task_lnr"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -291,14 +318,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_marginLeft="@dimen/dp15"
+                            android:layout_marginRight="@dimen/dp15"
                             android:orientation="vertical">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="15dp"
+                                android:layout_marginBottom="@dimen/dp10"
                                 app:cardCornerRadius="@dimen/_10sdp"
                                 app:cardElevation="@dimen/_10sdp">
 
@@ -350,6 +377,15 @@
                                         android:padding="10dp"
                                         android:weightSum="1">
 
+                                        <ImageView
+                                            android:id="@+id/date_picker_actions"
+                                            android:layout_width="0dp"
+                                            android:layout_height="@dimen/_50sdp"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_weight="0.2"
+                                            android:gravity="end"
+                                            android:src="@drawable/ic_calender" />
+
                                         <LinearLayout
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
@@ -382,15 +418,6 @@
 
                                         </LinearLayout>
 
-                                        <ImageView
-                                            android:id="@+id/date_picker_actions"
-                                            android:layout_width="0dp"
-                                            android:layout_height="@dimen/_50sdp"
-                                            android:layout_gravity="center_vertical"
-                                            android:layout_weight="0.3"
-                                            android:gravity="end"
-                                            android:src="@drawable/ic_date"
-                                            android:tint="@color/colorPrimary" />
 
                                     </LinearLayout>
 
@@ -408,8 +435,8 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
-                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/dp15"
+                                android:layout_marginRight="@dimen/dp15"
                                 android:layout_marginBottom="15dp"
                                 app:cardCornerRadius="@dimen/_10sdp"
                                 app:cardElevation="@dimen/_10sdp">
@@ -418,6 +445,7 @@
                                     android:id="@+id/lnr_booking_details"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:background="@color/white"
                                     android:orientation="vertical">
 
                                     <LinearLayout
@@ -459,9 +487,8 @@
                                         android:layout_height="match_parent"
                                         android:layout_marginStart="@dimen/_25sdp"
                                         android:layout_marginEnd="@dimen/_25sdp"
-                                        android:background="@color/white"
                                         android:orientation="vertical"
-                                        android:padding="10dp">
+                                        android:padding="5dp">
 
                                         <RelativeLayout
                                             android:layout_width="match_parent"
@@ -473,8 +500,6 @@
                                                 android:layout_height="match_parent"
                                                 android:layout_marginTop="10dp"
                                                 android:orientation="horizontal"
-                                                android:paddingLeft="10dp"
-                                                android:paddingRight="10dp"
                                                 android:scrollbars="vertical"
                                                 tools:listitem="@layout/item_time_slot" />
 
@@ -521,12 +546,12 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/elevation_20"
-        android:background="@color/colorPrimary"
-        android:fontFamily="@font/montserrat_medium"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:orientation="horizontal"
         android:text="Submit"
-        android:textColor="#fff"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold" />
 
 

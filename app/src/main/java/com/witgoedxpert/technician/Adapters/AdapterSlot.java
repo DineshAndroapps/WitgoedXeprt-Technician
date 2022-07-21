@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -66,7 +67,6 @@ public class AdapterSlot extends RecyclerView.Adapter<AdapterSlot.MyViewHolder> 
         holder.bind(conVideoArrayList.get(position), position);
 
         holder.name.setText(designModel.start_time + " - " + designModel.end_time);
-        holder.day.setText("Day:-" + designModel.day);
 
 
     }
@@ -78,9 +78,9 @@ public class AdapterSlot extends RecyclerView.Adapter<AdapterSlot.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView qualification, day, level, name, fees;
+        TextView qualification, level, name, fees;
         RelativeLayout rl_lyt, image_ac;
-        ImageView video, image;
+        ImageView video, day;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,22 +97,22 @@ public class AdapterSlot extends RecyclerView.Adapter<AdapterSlot.MyViewHolder> 
             //inactive = UnBook
             //active = booked
             if (formListModel.bookingStatus.equals("true")) { //booking Done
-                rl_lyt.setBackground(context.getDrawable(R.drawable.d_dashed_border_orange));
-                name.setTextColor(context.getResources().getColor(R.color.gray_new));
-
+                rl_lyt.setBackground(context.getDrawable(R.drawable.yellow_slot));
+                name.setTextColor(context.getResources().getColor(R.color.gray7));
+                rl_lyt.setOnClickListener(view -> Toast.makeText(context, "This Slot is not Available ", Toast.LENGTH_SHORT).show());
             } else {
                 rl_lyt.setBackground(context.getDrawable(R.drawable.d_dashed_border_cate));
                 name.setTextColor(context.getResources().getColor(R.color.black));
 
 
                 if (((AddEnquiry) context).checkPosition == -1) {
-                    rl_lyt.setBackground(context.getDrawable(R.drawable.d_dashed_border_orange));
+                    rl_lyt.setBackground(context.getDrawable(R.drawable.yellow_slot));
                 } else {
                     if (((AddEnquiry) context).checkPosition == getAdapterPosition()) {
-                        rl_lyt.setBackground(context.getDrawable(R.drawable.d_orange_corner));
+                        rl_lyt.setBackground(context.getDrawable(R.drawable.gray_slot));
                         name.setTextColor(context.getResources().getColor(R.color.white));
                     } else {
-                        rl_lyt.setBackground(context.getDrawable(R.drawable.d_dashed_border_orange));
+                        rl_lyt.setBackground(context.getDrawable(R.drawable.yellow_slot));
                     }
                 }
 
@@ -121,7 +121,7 @@ public class AdapterSlot extends RecyclerView.Adapter<AdapterSlot.MyViewHolder> 
                     @Override
                     public void onClick(View v) {
                         Log.d("TAG_TAG_TAG_ad", "onClick: " + ((AddEnquiry) context).checkPosition);
-                        rl_lyt.setBackground(context.getDrawable(R.drawable.d_orange_corner));
+                        rl_lyt.setBackground(context.getDrawable(R.drawable.gray_slot));
                         name.setTextColor(context.getResources().getColor(R.color.white));
                         if (((AddEnquiry) context).checkPosition != getAdapterPosition()) {
                             notifyItemChanged(((AddEnquiry) context).checkPosition);

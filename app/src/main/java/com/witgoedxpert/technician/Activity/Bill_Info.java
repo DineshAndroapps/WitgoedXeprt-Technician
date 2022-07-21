@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -39,6 +40,9 @@ public class Bill_Info extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String str_userid, str_intent_id, accessToken;
     ImageView image, sign_image;
+    LinearLayout lnr_product, lnr_customer;
+    TextView tv_product, tv_customer;
+    int selected_type = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +57,43 @@ public class Bill_Info extends AppCompatActivity {
         image = findViewById(R.id.image);
         sign_image = findViewById(R.id.sign_image);
 
+        tv_product = findViewById(R.id.tv_produc);
+        tv_customer = findViewById(R.id.tv_customer);
+        lnr_product = findViewById(R.id.lnr_product);
+        lnr_customer = findViewById(R.id.lnr_customer);
 
+        //product =2 customer =5
+        ChangeTextviewColorChange(2);
+
+        lnr_product.setOnClickListener(v -> ChangeTextviewColorChange(2));
+
+        lnr_customer.setOnClickListener(v -> ChangeTextviewColorChange(5));
+
+    }
+
+    private void ChangeTextviewColorChange(int colortype) {
+
+        selected_type = colortype;
+
+        if (colortype == 2) {
+            findViewById(R.id.customer_details).setVisibility(View.GONE);
+            findViewById(R.id.product_details).setVisibility(View.VISIBLE);
+            tv_product.setTextColor(getResources().getColor(R.color.white));
+            lnr_product.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+            tv_customer.setTextColor(getResources().getColor(R.color.black));
+            lnr_customer.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+
+        } else {
+            findViewById(R.id.customer_details).setVisibility(View.VISIBLE);
+            findViewById(R.id.product_details).setVisibility(View.GONE);
+            tv_product.setTextColor(getResources().getColor(R.color.black));
+            lnr_product.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+
+            tv_customer.setTextColor(getResources().getColor(R.color.white));
+            lnr_customer.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+        }
     }
 
     @Override

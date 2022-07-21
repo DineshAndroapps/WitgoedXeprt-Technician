@@ -160,7 +160,7 @@ public class MyOrderDetails extends AppCompatActivity {
                         ((TextView) findViewById(R.id.age_machine)).setText(placeModel.age_machine);
                         ((TextView) findViewById(R.id.address)).setText(placeModel.address);
                         ((TextView) findViewById(R.id.phone)).setText(placeModel.phone);
-                        if (!placeModel.additional_info.equals(null)) {
+                        if (!placeModel.additional_info.equals("null")) {
                             ((TextView) findViewById(R.id.additional_info)).setText(placeModel.additional_info);
                         } else {
                             ((TextView) findViewById(R.id.additional_info)).setText("");
