@@ -179,7 +179,7 @@
                             android:layout_width="@dimen/_200sdp"
                             android:layout_height="@dimen/dp40"
                             android:layout_marginStart="15sp"
-                            android:background="@drawable/bg_yellow"
+                            android:background="@drawable/card_edge"
                             android:fontFamily="@font/montserrat_bold"
                             android:padding="@dimen/dp10"
                             android:text="Product Details: "
