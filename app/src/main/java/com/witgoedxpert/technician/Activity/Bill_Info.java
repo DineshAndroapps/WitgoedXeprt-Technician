@@ -140,6 +140,7 @@ public class Bill_Info extends AppCompatActivity {
                         placeModel.time = jsonArrayvideo.getString("time");
                         placeModel.date = jsonArrayvideo.getString("date");
                         placeModel.status = jsonArrayvideo.getString("status");
+                        placeModel.timer = jsonArrayvideo.getString("timer");
                         placeModel.service_staus = "pending";
                         Log.d("BookedSlot", "onResponse: " + jsonArrayvideo.optJSONObject("BookedSlot"));
                         Glide.with(getApplicationContext()).load(Constant.image_url_ + jsonArrayvideo.getString("image")).placeholder(R.drawable.app_icon).into(image);
@@ -165,6 +166,12 @@ public class Bill_Info extends AppCompatActivity {
                         ((TextView) findViewById(R.id.age_machine)).setText(placeModel.age_machine);
                         ((TextView) findViewById(R.id.address)).setText(placeModel.address);
                         ((TextView) findViewById(R.id.phone)).setText(placeModel.phone);
+                        if (!placeModel.timer.equals("null")) {
+                            ((TextView) findViewById(R.id.time_diff)).setText(placeModel.timer);
+                        } else {
+                            ((TextView) findViewById(R.id.time_diff)).setText("");
+                        }
+
                         if (placeModel.additional_info.equals(null)) {
                             ((TextView) findViewById(R.id.additional_info)).setText(placeModel.additional_info);
                         } else {

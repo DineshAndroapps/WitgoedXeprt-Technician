@@ -6,7 +6,9 @@ import static com.witgoedxpert.technician.Forms.LoginActivity.USER_ID;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -38,6 +40,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MyOrderDetails extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -45,10 +49,18 @@ public class MyOrderDetails extends AppCompatActivity {
     ImageView image;
     OrderModel orderModel;
 
+    /*Timer*/
+    Timer timer;
+    TimerTask timerTask;
+    Double time = 0.0;
+    boolean timerStarted = false;
+    TextView timerText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_order_details);
+
         sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
         str_userid = sharedPreferences.getString(USER_ID, "");
         findViewById(R.id.bt_menu).setOnClickListener(view -> onBackPressed());
@@ -56,7 +68,7 @@ public class MyOrderDetails extends AppCompatActivity {
         orderModel = (OrderModel) i.getSerializableExtra("MyClass");
         image = findViewById(R.id.image);
         Glide.with(getApplicationContext()).load(Constant.image_url_ + orderModel.image).placeholder(R.drawable.app_icon).into(image);
-
+        TimerInit();
 
 /*
         findViewById(R.id.btn_Open_signature).setOnClickListener(view -> {
@@ -71,6 +83,11 @@ public class MyOrderDetails extends AppCompatActivity {
 
         OnClick();
 
+    }
+
+    private void TimerInit() {
+        timerText = (TextView) findViewById(R.id.time_diff);
+        timer = new Timer();
     }
 
     @Override
@@ -135,9 +152,14 @@ public class MyOrderDetails extends AppCompatActivity {
                         placeModel.time = jsonArrayvideo.getString("time");
                         placeModel.date = jsonArrayvideo.getString("date");
                         placeModel.status = jsonArrayvideo.getString("status");
+                        placeModel.timer = jsonArrayvideo.getString("timer");
                         placeModel.service_staus = "pending";
-                        Log.d("BookedSlot", "onResponse: " + jsonArrayvideo.optJSONObject("BookedSlot"));
-
+                        Log.d("BookedSlot", "onResponse: " + jsonArrayvideo.getString("timer"));
+                        if (!placeModel.timer.equals("null")) {
+                            ((TextView) findViewById(R.id.time_diff)).setText(placeModel.timer);
+                        } else {
+                            ((TextView) findViewById(R.id.time_diff)).setText("");
+                        }
                         JSONObject BookedSlot = jsonArrayvideo.optJSONObject("BookedSlot");
                         if (BookedSlot != null) {
                             if (BookedSlot.has("id")) {
@@ -160,6 +182,8 @@ public class MyOrderDetails extends AppCompatActivity {
                         ((TextView) findViewById(R.id.age_machine)).setText(placeModel.age_machine);
                         ((TextView) findViewById(R.id.address)).setText(placeModel.address);
                         ((TextView) findViewById(R.id.phone)).setText(placeModel.phone);
+
+
                         if (!placeModel.additional_info.equals("null")) {
                             ((TextView) findViewById(R.id.additional_info)).setText(placeModel.additional_info);
                         } else {
@@ -167,17 +191,19 @@ public class MyOrderDetails extends AppCompatActivity {
                         }
                         ((TextView) findViewById(R.id.added_date)).setText(placeModel.added_date);
                         ((TextView) findViewById(R.id.product_name)).setText(placeModel.product_name);
-                        ((TextView) findViewById(R.id.slot_time)).setText(placeModel.slot_start_time + " - " + placeModel.slot_end_time +", "+placeModel.slot_date);
-                        ((TextView) findViewById(R.id.slot_date)).setText(placeModel.slot_date );
+                        ((TextView) findViewById(R.id.slot_time)).setText(placeModel.slot_start_time + " - " + placeModel.slot_end_time + ", " + placeModel.slot_date);
+                        ((TextView) findViewById(R.id.slot_date)).setText(placeModel.slot_date);
 
                         findViewById(R.id.btn_Open_signature).setOnClickListener(view -> {
                             Intent intent = new Intent(getApplicationContext(), AddEnquiry.class);
+                            Log.e("time_diff", "onResponse: "+placeModel.timer );
                             intent.putExtra("str_product_id", orderModel.product_id);
                             intent.putExtra("str_name_pro", orderModel.name);
                             intent.putExtra("user_name", placeModel.name);
                             intent.putExtra("user_address", placeModel.address);
                             intent.putExtra("user_id", orderModel.user_id);
                             intent.putExtra("main_id", orderModel.id);
+                            intent.putExtra("timer", placeModel.timer);
                             startActivity(intent);
                         });
                         findViewById(R.id.btn_bill).setOnClickListener(view -> {
@@ -298,9 +324,14 @@ public class MyOrderDetails extends AppCompatActivity {
                     if (code.equals("200")) {
                         progressDialog.dismiss();
                         GetData(orderModel.id);
+                        if (flag.equals("2")) {
+                            startStopTapped();
+                        } else {
+                            startStopTapped();
+                        }
 
                     } else {
-                        Toast.makeText(MyOrderDetails.this, ""+message, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyOrderDetails.this, "" + message, Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
 
                     }
@@ -327,6 +358,7 @@ public class MyOrderDetails extends AppCompatActivity {
                 params.put("mechanic_id", str_userid);
                 params.put("booking_id", orderModel.id);
                 params.put("assigned", flag);
+                params.put("timer", timerText.getText().toString());
                 /* 0=pending,1=process/accept,2=complete, 3=reject*/
                 Log.d("params", "getParams: " + params);
                 return params;
@@ -347,6 +379,88 @@ public class MyOrderDetails extends AppCompatActivity {
         stringRequest.setRetryPolicy(retryPolicy);
         requestQueue.add(stringRequest);
 
+    }
+
+    /*Timer Code*/
+    public void resetTapped(View view) {
+        AlertDialog.Builder resetAlert = new AlertDialog.Builder(this);
+        resetAlert.setTitle("Reset Timer");
+        resetAlert.setMessage("Are you sure you want to reset the timer?");
+        resetAlert.setPositiveButton("Reset", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (timerTask != null) {
+                    timerTask.cancel();
+                    setButtonUI("START", R.color.green);
+                    time = 0.0;
+                    timerStarted = false;
+                    timerText.setText(formatTime(0, 0, 0));
+
+                }
+            }
+        });
+
+        resetAlert.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //do nothing
+            }
+        });
+
+        resetAlert.show();
+
+    }
+
+    public void startStopTapped() {
+        if (timerStarted == false) {
+            timerStarted = true;
+            setButtonUI("STOP", R.color.red);
+
+            startTimer();
+        } else {
+            timerStarted = false;
+            setButtonUI("START", R.color.green);
+
+            timerTask.cancel();
+        }
+    }
+
+    private void setButtonUI(String start, int color) {
+
+      /*  stopStartButton.setText(start);
+        stopStartButton.setTextColor(ContextCompat.getColor(this, color));*/
+    }
+
+    private void startTimer() {
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        time++;
+                        timerText.setText(getTimerText());
+                    }
+                });
+            }
+
+        };
+        timer.scheduleAtFixedRate(timerTask, 0, 1000);
+    }
+
+
+    private String getTimerText() {
+        int rounded = (int) Math.round(time);
+
+        int seconds = ((rounded % 86400) % 3600) % 60;
+        int minutes = ((rounded % 86400) % 3600) / 60;
+        int hours = ((rounded % 86400) / 3600);
+
+        return formatTime(seconds, minutes, hours);
+    }
+
+    private String formatTime(int seconds, int minutes, int hours) {
+        return String.format("%02d", hours) + " : " + String.format("%02d", minutes) + " : " + String.format("%02d", seconds);
     }
 
 }

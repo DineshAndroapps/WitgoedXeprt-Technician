@@ -95,7 +95,7 @@ AddEnquiry extends AppCompatActivity {
     String booking_id = "";
     public static int checkPosition = -1;
     AdapterSlot adapterSlot;
-    String str_mec_id, str_form = "", str_selected_slot_date = "", str_selected_slot_id = "";
+    String str_mec_id, str_timer = "", str_selected_slot_date = "", str_selected_slot_id = "";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -115,6 +115,7 @@ AddEnquiry extends AppCompatActivity {
         str_main_id = getIntent().getStringExtra("main_id");
         str_user_name = getIntent().getStringExtra("user_name");
         str_user_address = getIntent().getStringExtra("user_address");
+        str_timer = getIntent().getStringExtra("timer");
         SetDataForNextBooking();
         GetCurrent_Date();
         CalculationTotal();
@@ -126,6 +127,8 @@ AddEnquiry extends AppCompatActivity {
         ((TextView) findViewById(R.id.toolbr_lbl)).setText(str_name_pro);
         textInputLayout(R.id.et_name).setText(str_user_name);
         textInputLayout(R.id.et_address).setText(str_user_address);
+        Log.e("str_timer", "onCreate: "+str_timer );
+        textInputLayout(R.id.et_time).setText(str_timer);
 
 
         findViewById(R.id.bt_menu).setOnClickListener(new View.OnClickListener() {

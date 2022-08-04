@@ -93,6 +93,7 @@
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/gray_slot.xml" value="0.2555" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/drawable/yellow_slot.xml" value="0.1995" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_add_enquairy.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_add_place.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_bill_info.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_full_map.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_google_places_.xml" value="0.25" />
@@ -104,9 +105,13 @@
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_schedule_page.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/activity_update_profile.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/alert_dialog_sequnace.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/custom_dialog_email.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/dialog_search.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/dummy_lyt.xml" value="0.264" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/fragment_google_place_.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/include_drawer_header_news.xml" value="0.25" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/item_appointment.xml" value="0.10989583333333333" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/item_dummy.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/item_my_orders_layout.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/item_service.xml" value="0.25" />
@@ -117,7 +122,7 @@
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/lyt_tool.xml" value="0.536" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/main_contact.xml" value="0.25" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/toolbar.xml" value="0.10989583333333333" />
-        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/toolbar_home.xml" value="0.536" />
+        <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/toolbar_home.xml" value="0.176" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/layout/toolbar_home_pro.xml" value="0.10989583333333333" />
         <entry key="..\:/AndroApps/WitgoedXpert/WorkSpace/WitgoedXpert Technical_old/app/src/main/res/menu/menu_navigation_drawer_news.xml" value="0.25" />
       </map>
