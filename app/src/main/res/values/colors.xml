@@ -4,16 +4,11 @@
     <color name="colorPrimary">#545454</color>
     <color name="colorPrimaryDark">#545454</color>
     <color name="colorAccent">#feeb57</color>
-    <color name="colorTitle">#FFFFFF</color>
 
 
-    <color name="blackTextColor">#333</color>
     <color name="yellow_600">#D09F56</color>
 
-    <color name="grey_3">#f7f7f7</color>
-    <color name="grey_5">#f2f2f2</color>
     <color name="grey_10">#e6e6e6</color>
-    <color name="grey_20">#cccccc</color>
     <color name="grey_40">#999999</color>
     <color name="grey_60">#666666</color>
     <color name="grey_80">#37474F</color>
@@ -21,58 +16,27 @@
     <color name="red_400">#00B0FF</color>
     <color name="red_300">#55b3cf</color>
     <color name="white">#ffffff</color>
-    <color name="blue_900">#651FFF</color>
     <color name="black">#000000</color>
     <color name="orange">#F48F70</color>
-    <color name="bg_main">#F7F7F7</color>
-    <color name="bg_yellow">#FFEB3B</color>
     <color name="green">#4EB820</color>
     <color name="gray2">#d2d1d1</color>
     <color name="bg_red">#F71515</color>
     <color name="grey">#f3f3f3</color>
-    <color name="darkOverlaySoft">#40000000</color>
-    <color name="colorPrimaryLight">#5DBA60</color>
-    <color name="rv_bg">#e9e7eb</color>
     <color name="disable_btn_color">#F2F2F2</color>
     <color name="black_corner">#0f2135</color>
     <color name="gray">#A8A8A8</color>
 
 
-    <color name="profile_orange">#FF6D6D</color>
-    <color name="profile_green">#08C177</color>
-    <color name="profile_yellow">#FFC600</color>
-    <color name="profile_purple">#867EFF</color>
     <color name="icon_tint">#C1C2C4</color>
     <color name="dark_blue">#0F2135</color>
-    <color name="home_toolbar_color">#0F2135</color>
     <!--    <color name="red">#FF0000</color>-->
-    <color name="trans_background">#F9F9F9</color>
     <!--    <color name="green">#08C177</color>-->
-    <color name="upcoimg_blue">#00BAFF</color>
-    <color name="transe_blue_color">#B6BABD</color>
-    <color name="facebook_color">#3B5998</color>
-    <color name="twiter_color">#00ACED</color>
-    <color name="insta_color">#E4405F</color>
-    <color name="lindin_color">#00A0DC</color>
-    <color name="youtube_color">#E62007</color>
     <color name="db_red">#CA4C4C</color>
-    <color name="db_orange">#FF8243</color>
-    <color name="db_light_green">#9FC338</color>
-    <color name="db_dark_green">#08C177</color>
-    <color name="db_light_blue">#867EFF</color>
-    <color name="db_dark_blue">#00BAFF</color>
-    <color name="WaveCollor">#FA0000</color>
-    <color name="disable_txt_color">#AAAAB0</color>
-    <color name="textColorHint">#c1c2c4</color>
-    <color name="progress_bar_color_bg">#F6F6F6</color>
     <color name="progress_bar_color">#08c177</color>
-    <color name="progress_text">#ccc</color>
     <color name="divider_color">#ddd</color>
-    <color name="wave_dark_color">#0b1622</color>
     <color name="black50">#70000000</color>
     <color name="rv_color">#fefbf3</color>
     <color name="pink">#FF00CE</color>
-    <color name="sky_blue">#14aaff</color>
     <color name="sky_blue_home">#56B3D0</color>
     <color name="home_green">#74CA4C</color>
     <color name="txt_color_home">#EFCD71</color>
@@ -82,26 +46,13 @@
     background: #EFCD71;
 
 
-    <color name="test">#EFCD71</color>
-    <color name="txt_color_home_bdm">#1D438A</color>
-
     <color name="red">#f85453</color>
-    <color name="color_card_history">#e36f00</color>
 
-    <color name="linecolor">#6DC4C0C0</color>
-
-    <color name="carrot_color">#fdedf0</color>
-
-    <color name="gray0">#EFEFF1</color>
-    <color name="gray1">#DFDFE1</color>
     <color name="gray7">#9E9C9C</color>
-    <color name="transparent_dim">#33000000</color>
     <color name="transparent">#00ffffff</color>
 
-    <color name="bg_recycler_screen">@color/gray0</color>
     <color name="background_color">@color/white</color>
     <color name="textColor">#000000</color>
-    <color name="gray_new">#e0e0e0</color>
     <color name="cardview_bg">#a8a4a4</color>
     <color name="yellow_light">#fef9cd</color>
 

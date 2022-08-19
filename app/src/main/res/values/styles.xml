@@ -7,23 +7,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <style name="DialogTheme" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowIsFloating">false</item>
-    </style>
-
-    <style name="AppTheme.Splash">
-        <item name="android:windowFullscreen">true</item>
-    </style>
-
-    <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlNormal">@color/bg_yellow</item>
-        <item name="colorControlActivated">@color/grey_5</item>
     </style>
 
     <style name="edt_layout">
@@ -79,26 +66,6 @@
 
     </style>
 
-
-    <style name="Yellow.Small.AppCompatRatingBar" parent="Base.Widget.AppCompat.RatingBar.Small">
-        <item name="colorControlNormal">@color/grey_60</item>
-        <item name="colorControlActivated">@color/yellow_600</item>
-    </style>
-
-    <style name="Yellow.Small.AppCompatRatingBar.White" parent="Base.Widget.AppCompat.RatingBar.Small">
-        <item name="colorControlNormal">@color/grey_20</item>
-        <item name="colorControlActivated">@color/yellow_600</item>
-    </style>
-
-    <style name="Yellow.Very.Small.AppCompatRatingBar" parent="@style/Yellow.Small.AppCompatRatingBar">
-        <item name="android:minHeight">8dp</item>
-        <item name="android:maxHeight">8dp</item>
-    </style>
-
-    <style name="Yellow.AppCompatRatingBar" parent="Base.Widget.AppCompat.RatingBar.Indicator">
-        <item name="colorControlNormal">@color/grey_60</item>
-        <item name="colorControlActivated">@color/yellow_600</item>
-    </style>
 
     <style name="auth_input_trigger">
         <item name="android:paddingLeft">@dimen/dp15</item>
@@ -157,13 +124,6 @@
         <item name="android:layout_marginStart">25dp</item>
         <item name="android:background">@android:color/transparent</item>
 
-    </style>
-
-    <style name="edt_layout_login_InputEditText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/height_55</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/montserrat_regular</item>
     </style>
 
     <style name="NavTextViewStyle" parent="android:Widget.TextView">

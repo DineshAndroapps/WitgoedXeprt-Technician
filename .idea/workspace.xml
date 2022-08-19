@@ -13,21 +13,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9697a2d2-b530-44a7-8bf7-1c784b990469" name="Default Changelist" comment="timer added in details">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/AdapterAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/ServiceModelAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/witgoedxpert/technician/Adapters/ServiceModelAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="9697a2d2-b530-44a7-8bf7-1c784b990469" name="Default Changelist" comment="converted to Android 12" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RZ8N226T24K]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -288,13 +280,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1629963647532</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Pro Data Table API and Form Updated.">
-      <created>1632459942785</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1632459942785</updated>
     </task>
     <task id="LOCAL-00017" summary="PRO HomePage API Added.">
       <created>1632757460214</created>
@@ -632,7 +617,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659622434383</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="converted to Android 12">
+      <created>1660899305470</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1660899305470</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -648,7 +640,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New Changes Done." />
     <MESSAGE value="Added font , Ui for slots and profile page done" />
     <MESSAGE value="New Requirement done" />
     <MESSAGE value="Email issue fixed and ui fixed" />
@@ -673,7 +664,8 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value=" changes in slot ui" />
     <MESSAGE value="timer added in details" />
-    <option name="LAST_COMMIT_MESSAGE" value="timer added in details" />
+    <MESSAGE value="converted to Android 12" />
+    <option name="LAST_COMMIT_MESSAGE" value="converted to Android 12" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
