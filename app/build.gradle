@@ -7,13 +7,12 @@ repositories {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 32
 
     defaultConfig {
         applicationId "com.witgoedxpert.technician"
         minSdkVersion 17
-        targetSdkVersion 30
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
         multiDexEnabled true

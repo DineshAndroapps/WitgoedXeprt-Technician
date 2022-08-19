@@ -78,7 +78,7 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
         ((TextView) holder.itemView.findViewById(R.id.tv_mobile)).setText("" + bookModel.phone);
         ((TextView) holder.itemView.findViewById(R.id.tv_delivery)).setText("" + bookModel.address);
         ((TextView) holder.itemView.findViewById(R.id.tv_product_name)).setText("" + bookModel.product_name);
-        ((TextView) holder.itemView.findViewById(R.id.tv_service_charge)).setText("Rs." + bookModel.service_charge);
+        ((TextView) holder.itemView.findViewById(R.id.tv_service_charge)).setText("Charges:" + bookModel.service_charge);
         //Glide.with(context).load(Constant.design_img + designModel.image).placeholder(R.drawable.logo_trans).into(holder.image);
         String date = bookModel.added_date;
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

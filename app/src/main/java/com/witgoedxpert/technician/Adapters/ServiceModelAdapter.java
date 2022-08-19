@@ -52,7 +52,7 @@ public class ServiceModelAdapter extends RecyclerView.Adapter<ServiceModelAdapte
         final ServiceModel classModel = conVideoArrayList.get(position);
 
         holder.name.setText(classModel.name );
-        holder.price.setText("Rs. "+classModel.fee );
+        holder.price.setText("Charges:"+classModel.fee );
 
         Glide.with(context).load(Constant.image_url_ + classModel.image).placeholder(R.drawable.exo_ic_settings).into(holder.image);
 

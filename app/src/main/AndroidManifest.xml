@@ -77,32 +77,36 @@
             android:name=".Activity.PRO.ProPlaceLists"
             android:exported="true" />
         <activity
+            android:exported="false"
             android:name=".Activity.VideoPlayerActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
-        <activity android:name=".Activity.ListOfRoute" />
-        <activity android:name=".Activity.PRO.ProListOfRoute" />
-        <activity android:name=".Activity.PlaceDetails" />
-        <activity android:name=".Activity.Home.MainActivity" />
-        <activity android:name=".Activity.Home.ProMainActivity" />
-        <activity android:name=".Activity.PRO.ProMapActivity" />
-        <activity android:name=".Activity.MapActivity" />
-        <activity android:name=".SplashScreen">
+        <activity android:exported="false"  android:name=".Activity.ListOfRoute" />
+        <activity android:exported="false"  android:name=".Activity.PRO.ProListOfRoute" />
+        <activity android:exported="false"  android:name=".Activity.PlaceDetails" />
+        <activity  android:exported="false" android:name=".Activity.Home.MainActivity" />
+        <activity  android:exported="false" android:name=".Activity.Home.ProMainActivity" />
+        <activity android:exported="false"  android:name=".Activity.PRO.ProMapActivity" />
+        <activity android:exported="false" android:name=".Activity.MapActivity" />
+        <activity android:name=".SplashScreen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Forms.LoginActivity" />
+        <activity android:exported="false"  android:name=".Forms.LoginActivity" />
         <activity
+            android:exported="false"
             android:name=".Location_Services.PlacesSearch.GooglePlaces_A"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.MyOrderDetails" />
-        <activity android:name=".Activity.PRO.ProFormListActivity" />
-        <activity android:name=".Activity.PRO.ProFormActivity" />
+        <activity  android:exported="false" android:name=".Activity.MyOrderDetails" />
+        <activity  android:exported="false" android:name=".Activity.PRO.ProFormListActivity" />
+        <activity android:exported="false"  android:name=".Activity.PRO.ProFormActivity" />
         <activity
+            android:exported="false"
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
 
@@ -125,6 +129,7 @@
             android:required="false" />
 
         <service
+            android:exported="true"
             android:name=".Location_Services.TrackingService"
             android:foregroundServiceType="location" />
         <service
