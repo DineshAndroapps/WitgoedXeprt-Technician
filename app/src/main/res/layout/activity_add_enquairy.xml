@@ -339,7 +339,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_bold"
                                     android:padding="5dp"
-                                    android:text="Select a Time Slot"
+                                    android:text="Select a Date"
                                     android:textAlignment="center"
                                     android:textColor="@color/colorPrimary"
                                     android:textSize="18sp"
