@@ -127,7 +127,7 @@ AddEnquiry extends AppCompatActivity {
         ((TextView) findViewById(R.id.toolbr_lbl)).setText(str_name_pro);
         textInputLayout(R.id.et_name).setText(str_user_name);
         textInputLayout(R.id.et_address).setText(str_user_address);
-        Log.e("str_timer", "onCreate: "+str_timer );
+        Log.e("str_timer", "onCreate: " + str_timer);
         textInputLayout(R.id.et_time).setText(str_timer);
 
 
@@ -270,6 +270,7 @@ AddEnquiry extends AppCompatActivity {
         });
 
     }
+
     public void calculate() {
         String epText = textInputLayout(R.id.et_cost).getText().toString().trim();
         String stopText = textInputLayout(R.id.et_parts_amt).getText().toString().trim();
@@ -286,6 +287,7 @@ AddEnquiry extends AppCompatActivity {
         double result = ep + stop;
         textInputLayout(R.id.et_total).setText(String.valueOf(result));
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void SetDataForNextBooking() {
         checkPosition = -1;
@@ -483,16 +485,14 @@ AddEnquiry extends AppCompatActivity {
                         if (jsonObject.getString("code").equals("200")) {
                             if (userGender.equals("1")) {
                                 Intent intent = new Intent(getApplicationContext(), SchedulePage_A.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
 
 
-                            }else{
+                            } else {
                                 SendEmail();
                                 Intent intent = new Intent(getApplicationContext(), SchedulePage_A.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
 
                             }
