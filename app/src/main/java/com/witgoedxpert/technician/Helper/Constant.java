@@ -22,11 +22,10 @@ public class Constant {
     public static final String NEW_ORDER_ID = "1";
     public static final String PUSH_NOTIFICATION = "pushNotification";
 
-    public static final String MAIN = "https://androappstech.in/WitgoedXpert_dev/";
+    // public static final String MAIN = "https://androappstech.in/WitgoedXpert_dev/";
+    public static final String MAIN = "http://139.59.89.52/WitgoedXpert/";
     public static final String API = MAIN + "api/";
 
-    /*public static final String MAIN = "https://androappstech.in/WitgoedXpert/api/";
-     public static final String image_url_ = "https://androappstech.in/WitgoedXpert/data/Product/"; */
 
     public static final String image_url_ = MAIN + "data/Product/";
     public static final String image_url_mechanic = MAIN + "data/Mechanic/";
