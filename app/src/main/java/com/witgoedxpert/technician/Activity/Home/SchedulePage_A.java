@@ -507,6 +507,7 @@ public class SchedulePage_A extends AppCompatActivity implements NavigationView.
                                 progressDialog.dismiss();
                                 Toast.makeText(SchedulePage_A.this, "Sms sent successfully", Toast.LENGTH_SHORT).show();
                                 getuserdata();
+                                GetData(fmt.format(date_main));
                             } else {
                                 progressDialog.dismiss();
                                 Toast.makeText(SchedulePage_A.this, "" + message, Toast.LENGTH_SHORT).show();
