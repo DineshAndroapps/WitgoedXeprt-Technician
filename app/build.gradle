@@ -28,7 +28,7 @@ android {
             variant ->
                 variant.outputs.each{
                     output->
-                        def name = "WitgoedXpert_Technical(${variant.versionName}).apk"
+                        def name = "VIXXIT_Technical(${variant.versionName}).apk"
                         output.outputFileName = name
                 }
         }
