@@ -74,7 +74,7 @@ import java.util.Map;
 public class
 AddEnquiry extends AppCompatActivity {
     SharedPreferences sharedPreferences;
-    String str_userid, str_user_name, str_user_address, date_get_next, str_name, str_name_pro, str_customer_id = "", str_product_id = "", str_main_id, date_get, userGender = "0", str_sign = "";
+    String str_userid, str_user_name, str_user_address, date_get_next, str_name, str_name_pro, str_customer_id = "", str_product_id = "", str_main_id, date_get, userGender = "", str_sign = "";
     private RadioGroup radioGenderGroup;
     private RadioButton radio_F, radio_M;
     DrawingViewUtils mDrawingViewUtils;
@@ -150,51 +150,52 @@ AddEnquiry extends AppCompatActivity {
             Log.e("str_sign", "onClick: " + str_sign);
             if (!textInputLayout(R.id.et_name).getText().toString().equals("")) {
                 if (!textInputLayout(R.id.et_address).getText().toString().equals("")) {
-                    if (!textInputLayout(R.id.et_cost).getText().toString().equals("")) {
-                        if (!textInputLayout(R.id.et_time).getText().toString().equals("")) {
-                            if (!textInputLayout(R.id.et_parts).getText().toString().equals("")) {
-                                if (!textInputLayout(R.id.et_parts_amt).getText().toString().equals("")) {
-                                    if (!textInputLayout(R.id.et_total).getText().equals("")) {
-                                        if (!textInputLayout(R.id.et_email).getText().equals("")) {
-                                            /*  if (!str_sign.equals("")) {*/
-                                            if (Constant.isNetworkAvailable(getApplicationContext())) {
-                                                SubmitData();
+                    if (!textInputLayout(R.id.et_time).getText().toString().equals("")) {
+
+                        if (!textInputLayout(R.id.et_parts).getText().toString().equals("")) {
+                            if (!textInputLayout(R.id.et_parts_amt).getText().toString().equals("")) {
+                                if (!textInputLayout(R.id.et_cost).getText().toString().equals("")) {
+                                    if (!textInputLayout(R.id.et_total).getText().toString().equals("")) {
+                                        if (!textInputLayout(R.id.et_email).getText().toString().equals("")) {
+                                            if (!str_sign.equals("")) {
+                                                if (!userGender.equals("")) {
+                                                    if (Constant.isNetworkAvailable(getApplicationContext())) {
+                                                        SubmitData();
+                                                    } else {
+                                                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
+                                                    }
+                                                } else {
+                                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_app));
+                                                }
                                             } else {
-                                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.check_net));
+                                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_sing));
                                             }
-
-                                       /* } else {
-                                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_sign));
-                                        }*/
-
                                         } else {
                                             Methods.ShowMsg(AddEnquiry.this, getString(R.string.email_error));
                                         }
-
                                     } else {
                                         Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_total));
                                     }
                                 } else {
-                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part_amt));
+                                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_cost));
                                 }
                             } else {
-                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part));
+                                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part_amt));
                             }
-
                         } else {
-                            Methods.ShowMsg(AddEnquiry.this, "Enter the valid time");
+                            Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_part));
                         }
 
                     } else {
-                        Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_cost));
+                        Methods.ShowMsg(AddEnquiry.this, "Enter the valid time");
                     }
 
 
                 } else {
-                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_total));
+                    Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_address));
                 }
             } else {
-                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_sing));
+                Methods.ShowMsg(AddEnquiry.this, getString(R.string.error_name));
             }
 
         });
