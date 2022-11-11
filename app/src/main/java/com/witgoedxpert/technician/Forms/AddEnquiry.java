@@ -61,6 +61,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -286,7 +287,7 @@ AddEnquiry extends AppCompatActivity {
         double stop = Double.parseDouble(stopText);
 
         double result = ep + stop;
-        textInputLayout(R.id.et_total).setText(String.valueOf(result));
+        textInputLayout(R.id.et_total).setText(String.valueOf(new DecimalFormat("##.##").format(result)));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

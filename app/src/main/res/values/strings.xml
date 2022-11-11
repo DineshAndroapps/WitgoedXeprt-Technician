@@ -43,10 +43,10 @@ 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
     <string name="full_name">Full Name*</string>
     <string name="phone">Phone*</string>
     <string name="password">Password*</string>
-    <string name="cost">Cost</string>
+    <string name="cost">Cost*</string>
     <string name="time">Time</string>
     <string name="error_cost">Enter the valid Cost</string>
-    <string name="error_part">Enter the valid Parts</string>
+    <string name="error_part">Enter description of parts</string>
     <string name="error_total">Enter the valid Total Amount</string>
     <string name="error_sing"> Enter the valid signature</string>
     <string name="services">Services:</string>
